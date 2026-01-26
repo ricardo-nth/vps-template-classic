@@ -1,0 +1,123 @@
+/* ============================================================================
+   CLASSIC - HEALTHCARE TEMPLATE THEME
+   ============================================================================ */
+
+@import "tailwindcss";
+@import "preline/variants.css";
+@source "../../node_modules/preline/dist/*.js";
+
+/**
+ * Classic Template Color System
+ * Theme: Premium Care, Trustworthy, Warm
+ */
+
+:root {
+  /* Base Surfaces - Warm Off-Whites */
+  --background: oklch(0.99 0.005 85);      /* Very subtle warm white */
+  --foreground: oklch(0.20 0.02 260);      /* Dark navy/charcoal for text (high contrast) */
+  --card: oklch(1.00 0 0);                 /* Pure white cards */
+  --card-foreground: oklch(0.20 0.02 260);
+
+  /* BRAND COLORS */
+  
+  /* Primary: Earthy Green (Trust, Nature) */
+  --primary: #365C1C;         
+  --primary-foreground: oklch(0.98 0.01 85);
+
+  /* Secondary: Beige (Stained Paper, Warmth) */
+  --secondary: #F6F0D8;        
+  --secondary-foreground: #365C1C;
+
+  /* Accent: Goldish-brown (Quality, Earthy) */
+  --accent: #B69F38;           
+  --accent-foreground: oklch(0.98 0.01 85);
+
+  /* Navigation Colors */
+  --nav-primary-bg: oklch(1.00 0 0);           /* White header */
+  --nav-primary-text: oklch(0.20 0.02 260);    /* Dark text */
+  --nav-secondary-bg: #365C1C;    /* Green top bar */
+  --nav-secondary-text: oklch(0.98 0.01 85);   /* White/Cream text */
+
+  /* Muted */
+  --muted: #F6F0D8; /* Use beige for muted too? Or a lighter version? Let's use beige for now */
+  --muted-foreground: #365C1C;
+
+  /* Utility */
+  --destructive: oklch(0.64 0.21 25.39);
+  --destructive-foreground: oklch(1 0 0);
+  --border: #B69F38; /* Gold border? Or keep neutral? Let's try Gold for borders to be distinct or neutral */
+  --input: #B69F38;
+  --ring: #365C1C;            /* Matches primary */
+
+  /* Hero Overlays */
+  --hero-overlay: oklch(0.15 0.05 260 / 0.6);
+  --hero-overlay-foreground: oklch(0.98 0.01 85);
+}
+
+.dark {
+  /* Inverted for dark mode */
+  --background: oklch(0.15 0.02 130); /* Dark Greenish tint (Hue 130 approx for Green) instead of Blue 260 */
+  --foreground: oklch(0.98 0.01 85);
+  --card: oklch(0.20 0.02 130);
+  --card-foreground: oklch(0.98 0.01 85);
+
+  --primary: #B69F38; /* Gold pops better on dark */
+  --primary-foreground: oklch(0.98 0.01 85);
+
+  --secondary: #365C1C; /* Earthy Green as secondary background */
+  --secondary-foreground: oklch(0.98 0.01 85);
+  
+  --muted: #365C1C;
+  --muted-foreground: oklch(0.70 0.02 130);
+
+  --border: #365C1C;
+  --input: #365C1C;
+  --ring: #B69F38;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair); /* Added Serif */
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-hero-overlay: var(--hero-overlay);
+  --color-hero-overlay-foreground: var(--hero-overlay-foreground);
+  --color-nav-primary: var(--nav-primary-bg);
+  --color-nav-primary-foreground: var(--nav-primary-text);
+  --color-nav-secondary: var(--nav-secondary-bg);
+  --color-nav-secondary-foreground: var(--nav-secondary-text);
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+@custom-variant hover (&:hover);
+
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}

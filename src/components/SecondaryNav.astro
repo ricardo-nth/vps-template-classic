@@ -1,0 +1,40 @@
+---
+/**
+ * SecondaryNav.astro - Secondary navigation bar for additional links
+ * Displays below the main navigation with links to reviews, reports, etc.
+ */
+
+interface NavLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  links?: NavLink[];
+}
+
+const {
+  links = [
+    { label: "Speak to our team: 01234 567 890", href: "tel:01234567890" },
+    { label: "Book a Visit", href: "/contact" }
+  ]
+} = Astro.props as Props;
+---
+
+<div class="w-full bg-nav-secondary text-nav-secondary-foreground">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <ul class="flex items-center justify-end gap-6 py-3 text-sm font-medium overflow-x-auto">
+      {links.map((link) => (
+        <li class="whitespace-nowrap">
+          <a
+            href={link.href}
+            class="hover:underline transition-all"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>
+

@@ -1,0 +1,131 @@
+/**
+ * Design token palette for the exportable healthcare template.
+ *
+ * CUSTOMIZATION GUIDE:
+ * ====================
+ * To rebrand for a client, adjust the color values below.
+ * The template uses purple/lilac by default - replace with client brand colors.
+ *
+ * KEY TOKENS TO CUSTOMIZE:
+ * ------------------------
+ * --primary: Main brand color (header bar, CTAs, accents)
+ * --ring: Focus ring color (should match primary for consistency)
+ *
+ * COMMON COLOR EXAMPLES (copy into --primary and --ring):
+ * --------------------------------------------------------
+ * Purple (default):  oklch(0.62 0.19 259.76)
+ * Lilac (lighter):   oklch(0.75 0.15 290)
+ * Lavender:          oklch(0.70 0.12 285)
+ * Teal:              oklch(0.65 0.15 200)
+ * Blue:              oklch(0.55 0.20 240)
+ * Green:             oklch(0.60 0.18 150)
+ * Orange:            oklch(0.65 0.18 50)
+ * Pink:              oklch(0.70 0.18 340)
+ *
+ * TIP: Use a tool like https://oklch.com to pick custom colors
+ *      in OKLCH format for consistent brightness across themes.
+ *
+ * All other tokens (background, foreground, card, muted, border) are neutral
+ * grays that work with any brand color - usually no need to change these.
+ */
+
+:root {
+  /* Neutral surfaces - usually don't need to change */
+  --background: oklch(1.00 0 0);           /* Page background (white) */
+  --foreground: oklch(0.32 0 0);           /* Main text (dark gray) */
+  --card: oklch(1.00 0 0);                 /* Card background (white) */
+  --card-foreground: oklch(0.32 0 0);      /* Card text (dark gray) */
+
+  /* BRAND COLORS - Customize these for each client */
+  --primary: oklch(0.62 0.19 259.76);      /* 🎨 Main brand color (purple) */
+  --primary-foreground: oklch(1.00 0 0);   /* Text on primary (white) */
+
+  /* Subtle backgrounds */
+  --secondary: oklch(0.97 0 0);            /* Light gray sections */
+  --secondary-foreground: oklch(0.45 0.03 257.68);
+
+  /* Muted/subtle text */
+  --muted: oklch(0.98 0 0);
+  --muted-foreground: oklch(0.55 0.02 264.41);
+
+  /* Accent (optional secondary brand color) */
+  --accent: oklch(94.663% 0.02015 234.044);
+  --accent-foreground: oklch(0.38 0.14 265.59);
+
+  /* Error/destructive states */
+  --destructive: oklch(0.64 0.21 25.39);
+  --destructive-foreground: oklch(1 0 0);
+
+  /* Borders and inputs */
+  --border: oklch(0.93 0.01 261.82);
+  --input: oklch(0.93 0.01 261.82);
+
+  /* Focus ring - usually matches primary */
+  --ring: oklch(0.62 0.19 259.76);         /* 🎨 Focus ring (matches primary) */
+
+  /* Hero overlays (if using hero components) */
+  --hero-overlay: oklch(1 0 0 / 0.8);
+  --hero-overlay-foreground: oklch(0.32 0 0);
+}
+
+.dark {
+  /* Dark mode - neutral surfaces */
+  --background: oklch(0.20 0 0);           /* Dark background */
+  --foreground: oklch(0.92 0 0);           /* Light text */
+  --card: oklch(0.27 0 0);                 /* Slightly lighter cards */
+  --card-foreground: oklch(0.92 0 0);      /* Light text on cards */
+
+  /* BRAND COLORS - Keep same as light mode or adjust for dark */
+  --primary: oklch(0.62 0.19 259.76);      /* 🎨 Main brand color (purple) */
+  --primary-foreground: oklch(1.00 0 0);   /* Text on primary (white) */
+
+  /* Dark mode backgrounds */
+  --secondary: oklch(0.27 0 0);
+  --secondary-foreground: oklch(0.92 0 0);
+
+  /* Muted text in dark mode */
+  --muted: oklch(0.27 0 0);
+  --muted-foreground: oklch(0.72 0 0);
+
+  /* Accent */
+  --accent: oklch(0.38 0.14 265.59);
+  --accent-foreground: oklch(0.88 0.06 254.63);
+
+  /* Error states */
+  --destructive: oklch(0.64 0.21 25.39);
+  --destructive-foreground: oklch(1 0 0);
+
+  /* Dark borders */
+  --border: oklch(0.37 0 0);
+  --input: oklch(0.37 0 0);
+
+  /* Focus ring - matches primary */
+  --ring: oklch(0.62 0.19 259.76);         /* 🎨 Focus ring (matches primary) */
+
+  /* Hero overlays */
+  --hero-overlay: oklch(0.20 0 0 / 0.8);
+  --hero-overlay-foreground: oklch(0.92 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-hero-overlay: var(--hero-overlay);
+  --color-hero-overlay-foreground: var(--hero-overlay-foreground);
+}
+

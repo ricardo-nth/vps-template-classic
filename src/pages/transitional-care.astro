@@ -1,0 +1,191 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const metadata = {
+  title: '[Service 1 Name] - [Business Name]',
+  description: '[Service 1 description - what this service offers and who it serves]',
+  schema: {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: '[Service 1 Name]',
+    description: '[Service 1 brief description]',
+  },
+};
+---
+
+<SiteLayout metadata={metadata}>
+
+  <!-- 1. HERO SECTION -->
+  <section class="relative py-24 lg:py-32 bg-[#F6F0D8] overflow-hidden">
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-[#B69F38]/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-[#365C1C]/5 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl">
+        <h4 class="text-[#B69F38] font-bold tracking-widest uppercase text-sm mb-6">[Service 1 Name]</h4>
+        <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl text-[#365C1C] leading-[1.1] mb-8">
+          [Your Service Headline] <br class="hidden md:block" />
+          <span class="italic text-[#B69F38]">[Your Emphasis Line]</span>
+        </h1>
+        <p class="text-xl text-[#365C1C]/80 max-w-2xl leading-relaxed">
+          [Your service intro - describe what this service offers and who it's for]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. THE PHILOSOPHY: THE "WHY" -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-[#B69F38] font-serif text-2xl italic mb-4 block">[Opening thought or question]</span>
+      <h2 class="font-serif text-4xl md:text-5xl text-[#365C1C] mb-8">[Problem statement or value proposition]</h2>
+      <p class="text-lg text-gray-600 leading-relaxed mb-10">
+        [Explain the problem this service solves and why it matters. This is your opportunity to connect emotionally with your audience and show you understand their needs.]
+      </p>
+      <div class="w-24 h-1 bg-[#B69F38] mx-auto rounded-full"></div>
+    </div>
+  </section>
+
+  <!-- 3. THE METHOD: ALTERNATING FEATURE BLOCKS -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+
+      <!-- Feature 1 -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="relative order-2 md:order-1">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=2070&auto=format&fit=crop"
+              alt="[Feature 1 image description]"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <!-- Decorative Box -->
+          <div class="absolute -bottom-6 -left-6 w-2/3 h-2/3 border-2 border-[#365C1C]/20 rounded-2xl -z-10"></div>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F6F0D8] text-[#365C1C] text-xs font-bold uppercase tracking-wide mb-4">
+            <span>[Feature 1 Tag]</span>
+          </div>
+          <h3 class="font-serif text-3xl md:text-4xl text-[#365C1C] mb-6">[Feature 1 Headline]</h3>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            [Feature 1 description - explain what this feature offers and its benefits]
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-[#B69F38] mt-1">✓</span>
+              <span class="text-gray-700"><strong>[Benefit 1]:</strong> [Description]</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#B69F38] mt-1">✓</span>
+              <span class="text-gray-700"><strong>[Benefit 2]:</strong> [Description]</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#B69F38] mt-1">✓</span>
+              <span class="text-gray-700"><strong>[Benefit 3]:</strong> [Description]</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-1">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F6F0D8] text-[#365C1C] text-xs font-bold uppercase tracking-wide mb-4">
+            <span>[Feature 2 Tag]</span>
+          </div>
+          <h3 class="font-serif text-3xl md:text-4xl text-[#365C1C] mb-6">[Feature 2 Headline]</h3>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            [Feature 2 description - explain what this feature offers and its benefits]
+          </p>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            [Additional context or details about this feature]
+          </p>
+        </div>
+        <div class="relative order-2">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2058&auto=format&fit=crop"
+              alt="[Feature 2 image description]"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <!-- Decorative Box -->
+          <div class="absolute -top-6 -right-6 w-2/3 h-2/3 border-2 border-[#B69F38]/30 rounded-2xl -z-10"></div>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="relative order-2 md:order-1">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2064&auto=format&fit=crop"
+              alt="[Feature 3 image description]"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <!-- Decorative Box -->
+          <div class="absolute -bottom-6 -left-6 w-2/3 h-2/3 border-2 border-[#365C1C]/20 rounded-2xl -z-10"></div>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F6F0D8] text-[#365C1C] text-xs font-bold uppercase tracking-wide mb-4">
+            <span>[Feature 3 Tag]</span>
+          </div>
+          <h3 class="font-serif text-3xl md:text-4xl text-[#365C1C] mb-6">[Feature 3 Headline]</h3>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            [Feature 3 description - explain what this feature offers and its benefits]
+          </p>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            [Additional context or details about this feature]
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. KEY BENEFITS SECTION -->
+  <section class="py-24 bg-[#365C1C] text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-serif text-4xl md:text-5xl mb-8">[Benefits Section Headline]</h2>
+      <p class="text-[#F6F0D8]/80 text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
+        [Benefits section description - summarize the key advantages of this service]
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8 text-left">
+        <div class="bg-[#F6F0D8]/10 p-6 rounded-xl backdrop-blur-sm border border-[#F6F0D8]/20">
+          <h4 class="font-serif text-xl text-[#B69F38] mb-3">[Benefit 1]</h4>
+          <p class="text-sm text-white/80">[Brief description of this benefit]</p>
+        </div>
+        <div class="bg-[#F6F0D8]/10 p-6 rounded-xl backdrop-blur-sm border border-[#F6F0D8]/20">
+          <h4 class="font-serif text-xl text-[#B69F38] mb-3">[Benefit 2]</h4>
+          <p class="text-sm text-white/80">[Brief description of this benefit]</p>
+        </div>
+        <div class="bg-[#F6F0D8]/10 p-6 rounded-xl backdrop-blur-sm border border-[#F6F0D8]/20">
+          <h4 class="font-serif text-xl text-[#B69F38] mb-3">[Benefit 3]</h4>
+          <p class="text-sm text-white/80">[Brief description of this benefit]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <section class="py-24 bg-[#F6F0D8]">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-serif text-4xl text-[#365C1C] mb-6">[Your CTA Question]</h2>
+      <p class="text-lg text-[#365C1C]/70 mb-10">
+        [Your CTA description - encourage visitors to take the next step]
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#365C1C] rounded-full hover:bg-[#2a4715] transition-all duration-300 shadow-lg">
+          Contact Us
+        </a>
+        <a href="https://vertexplatformsolutions.com/offers/healthcare-agencies" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[#365C1C] bg-white border border-[#365C1C]/20 rounded-full hover:bg-gray-50 transition-all duration-300">
+          Get This Site Built For You
+        </a>
+      </div>
+    </div>
+  </section>
+
+</SiteLayout>

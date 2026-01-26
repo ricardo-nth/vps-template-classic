@@ -1,0 +1,125 @@
+---
+interface Service {
+  title: string;
+  description: string;
+  href?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  intro?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  services?: Service[];
+}
+
+const {
+  eyebrow = "Our services",
+  heading = "Specialist care for every stage of the journey",
+  intro =
+    "Use this simple grid to introduce your main care services. Replace the copy and images with your own.",
+  ctaText = "Contact us",
+  ctaHref = "#contact",
+  services = [
+    {
+      title: "Palliative care",
+      description: "Gentle, compassionate support for people with life-limiting conditions.",
+      href: "#palliative-care",
+      imageSrc:
+        "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Nurse holding the hand of a patient in bed",
+    },
+    {
+      title: "End of life care",
+      description: "Holistic support that keeps families informed, comfortable and together.",
+      href: "#end-of-life-care",
+      imageSrc:
+        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Carer comforting an elderly patient",
+    },
+    {
+      title: "Domiciliary care",
+      description: "Regular home visits that keep people independent in their own homes.",
+      href: "#domiciliary-care",
+      imageSrc:
+        "https://images.unsplash.com/photo-1584466977773-e625c37cdd50?auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Support worker visiting a person at home",
+    },
+    {
+      title: "Clinical care",
+      description: "Specialist nursing support for complex health needs.",
+      href: "#clinical-care",
+      imageSrc:
+        "https://images.unsplash.com/photo-1584466977773-270f5fcd5864?auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Nurse checking a patient's observations",
+    },
+    {
+      title: "Live-in care",
+      description: "Full-time support from a dedicated carer living in the home.",
+      href: "#live-in-care",
+      imageSrc:
+        "https://images.unsplash.com/photo-1526253038957-bce54e05968e?auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Carer and client smiling together at home",
+    },
+  ],
+} = Astro.props as Props;
+---
+
+<section class="bg-background" id="services">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-3xl space-y-2">
+        {eyebrow && (
+          <p class="text-sm font-semibold uppercase tracking-wide text-primary">
+            {eyebrow}
+          </p>
+        )}
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground">
+          {heading}
+        </h2>
+        <p class="text-sm sm:text-base text-muted-foreground">{intro}</p>
+      </div>
+
+      {ctaText && (
+        <div>
+          <a
+            href={ctaHref}
+            class="inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            {ctaText}
+          </a>
+        </div>
+      )}
+    </div>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((service) => (
+        <a
+          href={service.href || "#"}
+          class="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          {service.imageSrc && (
+            <div class="h-40 w-full overflow-hidden">
+              <img
+                src={service.imageSrc}
+                alt={service.imageAlt || service.title}
+                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+          )}
+
+          <div class="flex flex-1 flex-col p-4">
+            <h3 class="text-sm font-semibold text-card-foreground group-hover:text-primary">
+              {service.title}
+            </h3>
+            <p class="mt-1 text-sm text-muted-foreground">{service.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+

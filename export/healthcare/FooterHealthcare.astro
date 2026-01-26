@@ -1,0 +1,78 @@
+---
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  brandName?: string;
+  tagline?: string;
+  address?: string;
+  phoneLabel?: string;
+  phoneHref?: string;
+  navLinks?: FooterLink[];
+}
+
+const {
+  brandName = "Dignity Care",
+  tagline = "Quality home and live-in care tailored to every family.",
+  address = "123 Example Road, London SW1A 1AA",
+  phoneLabel = "0208 677 6465",
+  phoneHref = "tel:02086776465",
+  navLinks = [
+    { label: "Our services", href: "#services" },
+    { label: "Why choose us", href: "#why-us" },
+    { label: "Contact us", href: "#contact" },
+  ],
+} = Astro.props as Props;
+---
+
+<footer class="bg-card text-card-foreground">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+    <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+      <div class="space-y-3">
+        <div class="flex items-center gap-2">
+          <div class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary">
+            <span class="text-lg font-semibold">P</span>
+          </div>
+          <span class="text-lg font-semibold tracking-tight">
+            {brandName}
+          </span>
+        </div>
+        <p class="max-w-md text-sm text-muted-foreground">{tagline}</p>
+        <p class="text-sm text-muted-foreground">{address}</p>
+      </div>
+
+      <div class="space-y-3 text-sm">
+        <h3 class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+          Quick links
+        </h3>
+        <ul class="space-y-2">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="inline-flex items-center gap-2 text-muted-foreground hover:text-card-foreground"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="pt-3">
+          <a
+            href={phoneHref}
+            class="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            Call us: {phoneLabel}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-border pt-4 text-xs text-muted-foreground">
+      © {new Date().getFullYear()} {brandName}. All rights reserved.
+    </div>
+  </div>
+</footer>
+

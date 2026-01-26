@@ -1,0 +1,238 @@
+---
+/**
+ * index.astro - Homepage
+ * Theme: Bespoke, Classy, Trustworthy
+ */
+
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const metadata = {
+  title: '[Business Name] - [Your Tagline]',
+  description: '[Your business description - what you do and who you serve]',
+  schema: {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: '[Business Name]',
+    description: '[Your business description]',
+  },
+};
+---
+
+<SiteLayout metadata={metadata}>
+
+  <!-- HERO SECTION -->
+  <section class="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2069&auto=format&fit=crop"
+        alt="[Describe your hero image]"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight drop-shadow-lg leading-tight">
+        [Your Main Headline] <br/>
+        <span class="text-secondary">[Your Emphasis Line]</span>
+      </h1>
+      <p class="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-light">
+        [Your subheading - a brief description of your services and who you serve]
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/services"
+          class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary bg-white rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg min-w-[200px]"
+        >
+          Our Services
+        </a>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white border-2 border-white rounded-full hover:bg-white/10 transition-colors duration-300 shadow-lg min-w-[200px]"
+        >
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WELCOME / INTRO -->
+  <section class="py-20 bg-background">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <span class="text-accent font-serif italic text-xl mb-4 block">Welcome to [Business Name]</span>
+      <h2 class="font-serif text-4xl md:text-5xl text-primary mb-8">[Your Welcome Headline]</h2>
+      <p class="text-lg text-muted-foreground leading-relaxed">
+        [Your welcome message - describe your mission, values, and what makes you different. This is your opportunity to connect with visitors and explain who you are and what you do.]
+      </p>
+    </div>
+  </section>
+
+  <!-- DUAL SERVICE SPLIT -->
+  <section class="py-20 bg-secondary/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20">
+
+        <!-- Service 1 -->
+        <div class="group relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+          <div class="aspect-w-16 aspect-h-9 h-64 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2049&auto=format&fit=crop"
+              alt="[Service 1 image description]"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+          <div class="p-8 lg:p-10">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="p-2 bg-secondary rounded-full text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </span>
+              <h3 class="font-serif text-3xl text-primary">[Service 1 Name]</h3>
+            </div>
+            <p class="text-muted-foreground mb-8 leading-relaxed">
+              [Service 1 description - explain what this service offers and its benefits]
+            </p>
+            <ul class="space-y-3 mb-8 text-sm text-foreground/80">
+              <li class="flex items-center gap-2">
+                <span class="text-accent">✓</span> [Feature 1]
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-accent">✓</span> [Feature 2]
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-accent">✓</span> [Feature 3]
+              </li>
+            </ul>
+            <a href="/services" class="inline-block text-primary font-semibold border-b-2 border-primary/20 hover:border-primary transition-colors">
+              Learn More &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="group relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+          <div class="aspect-w-16 aspect-h-9 h-64 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=2070&auto=format&fit=crop"
+              alt="[Service 2 image description]"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+          <div class="p-8 lg:p-10">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="p-2 bg-secondary rounded-full text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </span>
+              <h3 class="font-serif text-3xl text-primary">[Service 2 Name]</h3>
+            </div>
+            <p class="text-muted-foreground mb-8 leading-relaxed">
+              [Service 2 description - explain what this service offers and its benefits]
+            </p>
+            <ul class="space-y-3 mb-8 text-sm text-foreground/80">
+              <li class="flex items-center gap-2">
+                <span class="text-accent">✓</span> [Feature 1]
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-accent">✓</span> [Feature 2]
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-accent">✓</span> [Feature 3]
+              </li>
+            </ul>
+            <a href="/services" class="inline-block text-primary font-semibold border-b-2 border-primary/20 hover:border-primary transition-colors">
+              Learn More &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL / TRUST -->
+  <section class="py-24 bg-primary text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+      <div class="text-accent text-6xl font-serif mb-6">"</div>
+      <blockquote class="font-serif text-3xl md:text-4xl leading-snug mb-10">
+        [Client testimonial - what they loved about your service and how it helped them]
+      </blockquote>
+      <cite class="not-italic text-white/80 text-lg block mb-2 font-semibold">- [Client Name], [Client Title/Company]</cite>
+    </div>
+  </section>
+
+  <!-- FEATURED SECTION -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-accent font-serif text-2xl italic mb-4 block">[Section Eyebrow]</span>
+          <h2 class="font-serif text-4xl md:text-5xl text-primary mb-6">[Section Headline]</h2>
+          <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+            [Section description - explain the key benefits or features you want to highlight in this section]
+          </p>
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-center gap-3 text-foreground/80">
+              <span class="text-accent font-bold">✓</span> [Benefit 1]
+            </li>
+            <li class="flex items-center gap-3 text-foreground/80">
+              <span class="text-accent font-bold">✓</span> [Benefit 2]
+            </li>
+            <li class="flex items-center gap-3 text-foreground/80">
+              <span class="text-accent font-bold">✓</span> [Benefit 3]
+            </li>
+          </ul>
+          <a
+            href="/about"
+            class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-primary rounded-full hover:bg-primary/90 transition-colors shadow-lg"
+          >
+            Learn More
+          </a>
+        </div>
+        <div class="relative">
+          <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+            <img
+              src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop"
+              alt="[Section image description]"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="absolute -bottom-6 -left-6 w-2/3 h-2/3 border-2 border-accent rounded-2xl -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="py-20 bg-secondary/50">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="font-serif text-4xl text-primary mb-6">[Your CTA Headline]</h2>
+      <p class="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
+        [Your CTA description - encourage visitors to take the next step]
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-primary rounded-full hover:bg-primary/90 transition-colors shadow-lg"
+        >
+          Contact Us Today
+        </a>
+        <a
+          href="https://vertexplatformsolutions.com/offers/healthcare-agencies"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary bg-white border-2 border-primary rounded-full hover:bg-primary/5 transition-colors shadow-lg"
+        >
+          Get This Site Built For You
+        </a>
+      </div>
+    </div>
+  </section>
+
+</SiteLayout>

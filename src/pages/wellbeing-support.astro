@@ -1,0 +1,187 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const metadata = {
+  title: '[Service 2 Name] - [Business Name]',
+  description: '[Service 2 description - what this service offers and who it serves]',
+  schema: {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: '[Service 2 Name]',
+    description: '[Service 2 brief description]',
+  },
+};
+---
+
+<SiteLayout metadata={metadata}>
+
+  <!-- 1. HERO SECTION: IMPACTFUL & MINIMALIST -->
+  <section class="relative py-24 lg:py-32 bg-[#F6F0D8] overflow-hidden">
+    <!-- Organic background shape decoration -->
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-[#B69F38]/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-[#365C1C]/5 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl">
+        <h4 class="text-[#B69F38] font-bold tracking-widest uppercase text-sm mb-6">[Service 2 Name]</h4>
+        <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl text-[#365C1C] leading-[1.1] mb-8">
+          [Your Service Headline] <br class="hidden md:block" />
+          <span class="italic text-[#B69F38]">[Your Emphasis Line]</span>
+        </h1>
+        <p class="text-xl text-[#365C1C]/80 max-w-2xl leading-relaxed">
+          [Your service intro - describe what this service offers and who it's for]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. THE PHILOSOPHY -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <div class="aspect-square rounded-full overflow-hidden border-8 border-[#F6F0D8] shadow-2xl max-w-md mx-auto lg:max-w-full">
+            <img
+              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1974&auto=format&fit=crop"
+              alt="[Your service image description]"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <!-- Decorative Circle -->
+          <div class="absolute top-0 right-10 w-24 h-24 bg-[#B69F38] rounded-full opacity-20 -z-10 blur-xl"></div>
+        </div>
+        <div>
+          <span class="text-[#B69F38] font-serif text-2xl italic mb-4 block">[Opening thought]</span>
+          <h2 class="font-serif text-4xl md:text-5xl text-[#365C1C] mb-6">[Your Philosophy Headline]</h2>
+          <p class="text-lg text-gray-600 leading-relaxed mb-6">
+            [Explain your approach and philosophy - what makes this service unique]
+          </p>
+          <p class="text-lg text-gray-600 leading-relaxed mb-8">
+            [Additional context about your methodology and why it matters]
+          </p>
+          <div class="flex gap-4">
+            <div class="h-px flex-1 bg-[#365C1C]/10 my-auto"></div>
+            <span class="text-[#365C1C] font-bold tracking-widest uppercase text-xs">[Your Tag]</span>
+            <div class="h-px flex-1 bg-[#365C1C]/10 my-auto"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CORE PILLARS: INTERACTIVE GRID -->
+  <section class="py-24 bg-[#365C1C] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-4xl md:text-5xl mb-6">[Pillars Section Headline]</h2>
+        <p class="text-[#F6F0D8]/80 text-lg max-w-2xl mx-auto">
+          [Describe the key pillars or components of this service]
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-[#F6F0D8] text-[#365C1C] p-8 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-all duration-300">
+          <div class="bg-[#365C1C]/10 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-2xl mb-4">[Pillar 1]</h3>
+          <p class="leading-relaxed text-[#365C1C]/80">
+            [Description of the first pillar or component of this service]
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-[#F6F0D8] text-[#365C1C] p-8 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-all duration-300 mt-0 md:-mt-8">
+          <div class="bg-[#365C1C]/10 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-2xl mb-4">[Pillar 2]</h3>
+          <p class="leading-relaxed text-[#365C1C]/80">
+            [Description of the second pillar or component of this service]
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-[#F6F0D8] text-[#365C1C] p-8 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-all duration-300">
+          <div class="bg-[#365C1C]/10 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-2xl mb-4">[Pillar 3]</h3>
+          <p class="leading-relaxed text-[#365C1C]/80">
+            [Description of the third pillar or component of this service]
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PRACTICAL APPLICATION -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-16">
+
+        <div>
+          <h3 class="font-serif text-3xl text-[#365C1C] mb-8">[How It Works Headline]</h3>
+          <div class="space-y-8">
+            <div class="flex gap-6">
+              <div class="flex-none w-12 text-[#B69F38] font-serif text-4xl font-bold">01</div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-lg mb-2">[Step 1 Title]</h4>
+                <p class="text-gray-600">[Step 1 description]</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="flex-none w-12 text-[#B69F38] font-serif text-4xl font-bold">02</div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-lg mb-2">[Step 2 Title]</h4>
+                <p class="text-gray-600">[Step 2 description]</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="flex-none w-12 text-[#B69F38] font-serif text-4xl font-bold">03</div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-lg mb-2">[Step 3 Title]</h4>
+                <p class="text-gray-600">[Step 3 description]</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
+          <h3 class="font-serif text-2xl text-[#365C1C] mb-6">Why It Matters</h3>
+          <blockquote class="text-xl text-gray-600 italic leading-relaxed mb-6">
+            "[Client testimonial - what they loved about this service and how it helped them]"
+          </blockquote>
+          <cite class="not-italic font-bold text-[#B69F38] block mb-1">- [Client Name], [Client Title]</cite>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <section class="py-20 bg-[#F6F0D8]">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-serif text-4xl text-[#365C1C] mb-6">[Your CTA Headline]</h2>
+      <p class="text-lg text-[#365C1C]/70 mb-10">
+        [Your CTA description - encourage visitors to take the next step]
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#365C1C] rounded-full hover:bg-[#2a4715] transition-all duration-300 shadow-lg">
+          Contact Us
+        </a>
+        <a href="https://vertexplatformsolutions.com/offers/healthcare-agencies" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[#365C1C] bg-white border border-[#365C1C]/20 rounded-full hover:bg-gray-50 transition-all duration-300">
+          Get This Site Built For You
+        </a>
+      </div>
+    </div>
+  </section>
+
+</SiteLayout>

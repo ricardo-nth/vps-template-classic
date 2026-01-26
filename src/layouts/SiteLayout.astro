@@ -1,0 +1,117 @@
+---
+/**
+ * SiteLayout.astro - Outer/Presentation Layout
+ *
+ * This layout wraps TechnicalLayout and adds visual structure:
+ * - Header navigation
+ * - Footer
+ * - Main content area
+ * - Page-specific styling
+ *
+ * This demonstrates the two-tier layout pattern:
+ * TechnicalLayout (technical concerns) → SiteLayout (presentation) → Page Content
+ *
+ * Pages pass SEO and Schema data as props. SiteLayout renders the components.
+ *
+ * Benefits:
+ * - Separation of concerns (technical vs. presentation)
+ * - Reusability (can create BlogLayout, LandingLayout, etc. using same TechnicalLayout)
+ * - Easier maintenance
+ * - Clear responsibility boundaries
+ * - Clean page templates (no component rendering in page body)
+ */
+
+import TechnicalLayout from './TechnicalLayout.astro';
+import { SEO } from 'astro-seo';
+import { Schema } from 'astro-seo-schema';
+
+// ============================================================================
+// COMPONENT IMPORTS - Easy to swap between versions
+// ============================================================================
+// Original components (commented for easy revert):
+// import Header from '../components/Header.astro';
+// import Footer from '../components/Footer.astro';
+
+// Healthcare components (active):
+import Header from '../components/NavbarHealthcare.astro';
+import SecondaryNav from '../components/SecondaryNav.astro';
+import Footer from '../components/FooterHealthcare.astro';
+
+// Define props interface
+interface Props {
+  // Page Metadata (simplified single object)
+  metadata?: {
+    title: string;
+    description?: string;
+    index?: boolean; // Default: true (index, follow) | false (noindex, nofollow)
+    schema?: any; // Optional page-specific schema
+  };
+
+  // Layout-specific Props
+  showHeader?: boolean;
+  showFooter?: boolean;
+  containerClass?: string;
+}
+
+// Destructure props with defaults
+const {
+  metadata,
+  showHeader = true,
+  showFooter = true,
+  containerClass = '',
+} = Astro.props;
+
+// Generate canonical URL from current page
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+
+// Build SEO props from metadata
+const seoProps = metadata ? {
+  title: metadata.title,
+  description: metadata.description,
+  canonical: canonical,
+  extend: {
+    meta: [
+      { name: 'robots', content: metadata.index !== false ? 'index, follow' : 'noindex, nofollow' },
+    ],
+  },
+} : undefined;
+
+// Use schema from metadata if provided
+const schemaProps = metadata?.schema;
+---
+
+<!-- Wrap everything in TechnicalLayout for SEO and technical concerns -->
+<TechnicalLayout>
+  <!-- Render SEO component if seoProps provided -->
+  {seoProps && (
+    <SEO slot="seo" {...seoProps} />
+  )}
+
+  <!-- Render Schema component if schemaProps provided -->
+  {schemaProps && (
+    <Schema slot="schema" item={schemaProps as any} />
+  )}
+
+  <!-- Page Structure -->
+  <div class="min-h-screen flex flex-col">
+
+    <!-- Header Navigation (optional) -->
+    {showHeader && (
+      <div class="sticky top-0 z-50 w-full">
+        <SecondaryNav />
+        <Header />
+      </div>
+    )}
+
+    <!-- Main Content Area -->
+    <main class={`flex-1 ${containerClass}`}>
+      <!-- Slot for page content -->
+      <slot />
+    </main>
+
+    <!-- Footer (optional) -->
+    {showFooter && <Footer />}
+  </div>
+</TechnicalLayout>
+
+

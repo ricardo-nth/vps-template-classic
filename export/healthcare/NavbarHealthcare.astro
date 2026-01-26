@@ -1,0 +1,138 @@
+---
+interface NavLink {
+  label: string;
+  href: string;
+  active?: boolean;
+}
+
+interface Props {
+  brandName?: string;
+  brandHref?: string;
+  navLinks?: NavLink[];
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const {
+  brandName = "Dignity Care",
+  brandHref = "#",
+  navLinks = [
+    { label: "Home", href: "#", active: true },
+    { label: "Our services", href: "#services" },
+    { label: "Why choose us", href: "#why-us" },
+    { label: "Contact us", href: "#contact" },
+    { label: "Join our team", href: "#team" }
+  ],
+  ctaText = "Call us: 0208 677 6465",
+  ctaHref = "tel:02086776465",
+} = Astro.props as Props;
+---
+
+<header class="w-full bg-primary text-primary-foreground shadow-sm">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Brand -->
+      <a href={brandHref} class="flex items-center gap-2">
+        <div class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary-foreground/10">
+          <span class="text-lg font-semibold">P</span>
+        </div>
+        <span class="text-lg font-semibold tracking-tight">
+          {brandName}
+        </span>
+      </a>
+
+      <!-- Desktop navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        <ul class="flex items-center gap-6 text-sm font-medium">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class={`border-b-2 border-transparent pb-1 transition-colors hover:border-primary-foreground/60 ${
+                  link.active ? "border-primary-foreground" : ""
+                }`}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {ctaText && (
+          <a
+            href={ctaHref}
+            class="inline-flex items-center rounded-full bg-primary-foreground/10 px-4 py-1.5 text-xs font-medium shadow-sm hover:bg-primary-foreground/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:ring-primary-foreground"
+          >
+            {ctaText}
+          </a>
+        )}
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        type="button"
+        class="md:hidden inline-flex items-center justify-center rounded-md border border-primary-foreground/40 p-2 text-primary-foreground hover:bg-primary-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground"
+        data-hs-collapse="#healthcare-mobile-nav"
+        aria-controls="healthcare-mobile-nav"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <svg
+          class="hs-collapse-open:hidden h-5 w-5"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="3" x2="21" y1="6" y2="6" />
+          <line x1="3" x2="21" y1="12" y2="12" />
+          <line x1="3" x2="21" y1="18" y2="18" />
+        </svg>
+        <svg
+          class="hs-collapse-open:block hidden h-5 w-5"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile navigation -->
+    <div id="healthcare-mobile-nav" class="hs-collapse hidden pb-4 md:hidden">
+      <ul class="space-y-1 text-sm font-medium">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={`flex items-center justify-between rounded-md px-3 py-2 hover:bg-primary-foreground/10 ${
+                link.active ? "bg-primary-foreground/10" : ""
+              }`}
+            >
+              <span>{link.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      {ctaText && (
+        <a
+          href={ctaHref}
+          class="mt-3 inline-flex w-full items-center justify-center rounded-full bg-primary-foreground/10 px-4 py-2 text-xs font-semibold hover:bg-primary-foreground/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground"
+        >
+          {ctaText}
+        </a>
+      )}
+    </div>
+  </nav>
+</header>
+

@@ -1,0 +1,60 @@
+---
+/**
+ * TechnicalLayout.astro - Base/Inner Layout
+ *
+ * This layout handles all technical concerns:
+ * - Global CSS imports (Tailwind)
+ * - Font optimization
+ * - Base Schema.org structured data (Organization, WebSite)
+ * - Named slots for page-specific SEO and Schema
+ *
+ * Pages should import and configure SEO and Schema components in their frontmatter,
+ * then pass them to the named slots.
+ *
+ * This layout should be wrapped by presentation layouts (SiteLayout, BlogLayout, etc.)
+ */
+
+import { Schema } from 'astro-seo-schema';
+import '../styles/global.css';
+import { getBaseSchemas } from '../config/site';
+import { Font } from 'astro:assets';
+
+// Base site-wide Schema.org nodes (Organization, WebSite)
+const siteUrl = (Astro.site ?? new URL('/', 'http://localhost')) as URL;
+const baseSchemas: any[] = getBaseSchemas(siteUrl);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Font Optimization -->
+    <Font cssVariable="--font-inter" preload />
+    <Font cssVariable="--font-playfair" preload />
+
+    <!-- Base Site Schema (Organization, WebSite) - Always present -->
+    {baseSchemas.map((item) => <Schema item={item} />)}
+
+    <!-- Page-specific SEO - Configured in page frontmatter -->
+    <slot name="seo" />
+
+    <!-- Page-specific Schema - Configured in page frontmatter -->
+    <slot name="schema" />
+  </head>
+
+  <body class="font-sans antialiased">
+    <!-- Slot for content from outer layouts or pages -->
+    <slot />
+    <script>
+      import "preline/dist/preline.js";
+    </script>
+  </body>
+</html>
+

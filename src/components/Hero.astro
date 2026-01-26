@@ -1,0 +1,31 @@
+---
+interface Props {
+  heading?: string;
+  subheading?: string;
+  backgroundImage?: string;
+  socialProof?: string;
+}
+
+const {
+  heading = "[Your Main Headline]",
+  subheading = "[Your subheading - briefly describe what you do]",
+  backgroundImage = "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2069&auto=format&fit=crop",
+  socialProof = "[Your social proof - e.g., 'Trusted by 100+ clients']",
+} = Astro.props as Props;
+---
+
+<!-- Hero -->
+<div class="px-4 sm:px-6 lg:px-8">
+  <div class="h-120 md:h-[80dvh] flex flex-col bg-cover bg-center bg-no-repeat rounded-2xl relative overflow-hidden" style={`background-image: url('${backgroundImage}')`}>
+    <div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+    <div class="mt-auto w-2/3 md:max-w-lg ps-5 pb-5 md:ps-10 md:pb-10 relative z-10">
+      <h1 class="text-xl md:text-3xl lg:text-5xl text-white font-serif font-bold mb-4">
+        {heading}
+      </h1>
+      <p class="text-white/80 text-sm md:text-base mb-4">{subheading}</p>
+      {socialProof && <p class="text-accent text-xs md:text-sm font-medium">{socialProof}</p>}
+    </div>
+  </div>
+</div>
+<!-- End Hero -->

@@ -1,0 +1,85 @@
+---
+interface Point {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  intro?: string;
+  points?: Point[];
+  imageSrc?: string;
+  imageAlt?: string;
+}
+
+const {
+  eyebrow = "Why choose us",
+  heading = "A small practice feel with hospital-level standards",
+  intro =
+    "Swap this copy for your own value proposition. The layout keeps things simple: one image, a short intro, and a few bullet points.",
+  imageSrc =
+    "https://images.unsplash.com/photo-1584466977773-270f5fcd5864?auto=format&fit=crop&w=900&q=80",
+  imageAlt = "Nurse smiling with a patient",
+  points = [
+    {
+      title: "CQC-compliant care",
+      description:
+        "Use this row to highlight your regulatory standard, inspection rating or clinical governance.",
+    },
+    {
+      title: "Flexible visit patterns",
+      description:
+        "Explain how families can choose visit times, duration and live-in options that fit their routine.",
+    },
+    {
+      title: "Dedicated care coordinator",
+      description:
+        "Introduce the person who will be the single point of contact for families and professionals.",
+    },
+  ],
+} = Astro.props as Props;
+---
+
+<section class="bg-secondary" id="why-us">
+  <div
+    class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 grid gap-8 md:grid-cols-2 md:items-center"
+  >
+    <div class="space-y-4">
+      {eyebrow && (
+        <p class="text-sm font-semibold uppercase tracking-wide text-primary">
+          {eyebrow}
+        </p>
+      )}
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground">
+        {heading}
+      </h2>
+      <p class="text-sm sm:text-base text-muted-foreground">{intro}</p>
+
+      <ul class="mt-4 space-y-3">
+        {points.map((point) => (
+          <li class="flex gap-3">
+            <span
+              class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary"
+            >
+              <span class="text-xs font-bold">✓</span>
+            </span>
+            <div>
+              <p class="text-sm font-medium text-foreground">{point.title}</p>
+              {point.description && (
+                <p class="text-sm text-muted-foreground">{point.description}</p>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="md:order-first">
+      <div class="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+        <img src={imageSrc} alt={imageAlt} class="h-full w-full object-cover" />
+      </div>
+    </div>
+  </div>
+</section>
+
