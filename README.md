@@ -1,38 +1,69 @@
-# Classic - Healthcare Website Template
+# Classic Healthcare Template
+🔗 **Live Demo:** https://vps-template-classic.vercel.app
 
-A traditional, serif-based, and professional Astro.js template designed for healthcare and care agencies.
+A professional Astro.js template designed for healthcare and care agencies with a traditional, trustworthy aesthetic.
 
-## Quick Start
+## ✨ Features
+
+- Astro 5.x
+- Tailwind CSS v4
+- TypeScript
+- SEO optimized
+- Responsive design
+
+## 🚀 Quick Start
 
 1. Click "Use This Template" on GitHub
 2. Clone your new repository
-3. Run `pnpm install`
-4. Update `src/config/site.ts` with your business details
-5. Replace placeholder content in pages and components
-6. Run `pnpm dev` to preview
+3. Install dependencies: `pnpm install`
+4. Start the dev server: `pnpm dev`
+5. Create a production build: `pnpm build`
 
-## Customization Checklist
+## ✅ Customization Checklist
 
-- [ ] Update site.ts with your business name and description
-- [ ] Replace [Business Name] placeholders throughout
-- [ ] Add your contact details
-- [ ] Update services and about content
-- [ ] Add real testimonials
-- [ ] Replace placeholder images with your own
-- [ ] Update favicon and logo
+- [ ] Update `src/config/site.ts` with business details
+- [ ] Replace `[Business Name]` placeholders
+- [ ] Add contact details
+- [ ] Update services content
+- [ ] Add testimonials
+- [ ] Replace images
+- [ ] Update favicon/logo
 
-## Need Help?
+## 🗂️ Project Structure
 
-**Want this template professionally customized for your business?**
+```
+.
+├── public/
+├── src/
+│   ├── components/
+│   ├── config/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
+```
 
-Visit [vertexplatformsolutions.com/offers/healthcare-agencies](https://vertexplatformsolutions.com/offers/healthcare-agencies) to get your website built and hosted - you just provide content, we handle everything else.
+## 🩺 Service Detail Pages
 
-## Tech Stack
+The template includes an example service detail page at `/services/residential-care` to demonstrate a multi-page structure.
 
-- Astro.js 5.x
+## 📜 Available Scripts
+
+- `pnpm dev` — start the development server
+- `pnpm build` — create a production build
+- `pnpm preview` — preview the production build locally
+
+## 🤝 Need Professional Help?
+
+Visit https://vertexplatformsolutions.com/offers/healthcare-agencies
+
+## 🧰 Tech Stack
+
+- Astro 5.x
 - Tailwind CSS v4
 - TypeScript
 
-## License
+## 📄 License
 
-MIT - Use freely for personal or commercial projects.
+MIT
