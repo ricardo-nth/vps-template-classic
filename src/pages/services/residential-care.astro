@@ -1,0 +1,141 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ServicesOverview from '../../components/ServicesOverview.astro';
+import WhyChooseUs from '../../components/WhyChooseUs.astro';
+import ContactSection from '../../components/ContactSection.astro';
+
+const metadata = {
+  title: 'Residential Care Services - [Business Name]',
+  description: 'Compassionate residential care that supports daily living, safety, and wellbeing.',
+  schema: {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Residential Care Services',
+    description: 'Compassionate residential care that supports daily living, safety, and wellbeing.',
+    provider: {
+      '@type': 'Organization',
+      name: '[Business Name]'
+    }
+  },
+};
+
+const relatedServices = [
+  {
+    title: 'Transitional Care',
+    description: 'Short-term support and recovery services during life transitions.',
+    href: '/transitional-care',
+    imageSrc:
+      'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Caregiver support during recovery',
+  },
+  {
+    title: 'Wellbeing Support',
+    description: 'Holistic programs that nurture physical, social, and emotional wellbeing.',
+    href: '/wellbeing-support',
+    imageSrc:
+      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Residents participating in activities',
+  },
+  {
+    title: 'Our Facility',
+    description: 'Explore our comfortable spaces designed for safety and connection.',
+    href: '/our-home',
+    imageSrc:
+      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Warm and welcoming residence',
+  },
+];
+---
+
+<SiteLayout metadata={metadata}>
+  <PageHero
+    eyebrow="Residential care"
+    heading="Residential Care Services"
+    subheading="A supportive, home-like environment with compassionate care tailored to each resident."
+  />
+
+  <section class="bg-background py-16">
+    <div class="max-w-6xl mx-auto px-4 grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="font-serif text-3xl text-primary mb-4">What Residential Care Includes</h2>
+        <p class="text-muted-foreground mb-6">
+          Residential care provides round-the-clock support so residents can live safely, comfortably, and with dignity.
+        </p>
+        <ul class="space-y-4 text-sm text-muted-foreground">
+          <li class="flex gap-3">
+            <span class="text-accent mt-1">✓</span>
+            Assistance with personal care, mobility, and daily routines.
+          </li>
+          <li class="flex gap-3">
+            <span class="text-accent mt-1">✓</span>
+            Medication reminders and coordination with healthcare providers.
+          </li>
+          <li class="flex gap-3">
+            <span class="text-accent mt-1">✓</span>
+            Nutritious meals, hydration support, and dietary accommodations.
+          </li>
+          <li class="flex gap-3">
+            <span class="text-accent mt-1">✓</span>
+            Social connection, enrichment activities, and community engagement.
+          </li>
+        </ul>
+      </div>
+      <div class="bg-white rounded-2xl border border-border shadow-sm p-8">
+        <h3 class="font-serif text-2xl text-primary mb-4">Daily Life, Made Comfortable</h3>
+        <p class="text-muted-foreground mb-6">
+          We focus on personalized routines that prioritize comfort, independence, and meaningful moments throughout the day.
+        </p>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-secondary/40 p-4">
+            <p class="text-sm font-semibold text-primary">Care planning</p>
+            <p class="text-sm text-muted-foreground">Individualized plans created in partnership with residents and families.</p>
+          </div>
+          <div class="rounded-xl bg-secondary/40 p-4">
+            <p class="text-sm font-semibold text-primary">Safety &amp; supervision</p>
+            <p class="text-sm text-muted-foreground">24/7 presence and proactive support to reduce risks.</p>
+          </div>
+          <div class="rounded-xl bg-secondary/40 p-4">
+            <p class="text-sm font-semibold text-primary">Meaningful engagement</p>
+            <p class="text-sm text-muted-foreground">Activities tailored to interests, abilities, and goals.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <WhyChooseUs
+    heading="Why Families Choose Our Residential Care"
+    intro="Consistent support, compassionate caregivers, and a focus on the whole person."
+    points={[
+      {
+        title: 'Personalized care plans',
+        description: 'Every resident receives a tailored plan that adapts as their needs change.',
+      },
+      {
+        title: 'Experienced care team',
+        description: 'Skilled professionals who provide steady, respectful support each day.',
+      },
+      {
+        title: 'Warm, home-like environment',
+        description: 'A comfortable setting that helps residents feel safe and connected.',
+      },
+    ]}
+    imageSrc="https://images.unsplash.com/photo-1584466977773-270f5fcd5864?auto=format&fit=crop&w=900&q=80"
+    imageAlt="Caregiver assisting a resident"
+  />
+
+  <ServicesOverview
+    eyebrow="Related services"
+    heading="Continue exploring care options"
+    intro="Discover additional services that can complement residential care."
+    ctaText="View all services"
+    ctaHref="/services"
+    services={relatedServices}
+  />
+
+  <ContactSection
+    heading="Talk with our care team"
+    intro="We’re here to answer questions and help you understand if residential care is the right fit."
+  />
+</SiteLayout>

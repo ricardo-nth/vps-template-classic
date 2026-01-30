@@ -1,0 +1,29 @@
+---
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  subheading?: string;
+}
+
+const {
+  eyebrow = "Our services",
+  heading = "[Page Heading]",
+  subheading = "[Page intro - briefly describe this service]",
+} = Astro.props as Props;
+---
+
+<section class="bg-secondary/30 py-20">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    {eyebrow && (
+      <p class="text-sm font-semibold uppercase tracking-wide text-primary mb-3">
+        {eyebrow}
+      </p>
+    )}
+    <h1 class="font-serif text-5xl text-primary mb-6">{heading}</h1>
+    {subheading && (
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        {subheading}
+      </p>
+    )}
+  </div>
+</section>

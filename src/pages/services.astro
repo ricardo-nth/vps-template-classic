@@ -21,7 +21,7 @@ const metadata = {
 const services = [
   {
     title: '[Service 1 Name]',
-    slug: '/transitional-care',
+    slug: '/services/residential-care',
     description: '[Brief description of service 1 - what it offers and who it serves]',
     image: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2049&auto=format&fit=crop',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />`,
@@ -101,7 +101,6 @@ const services = [
                 {service.description}
               </p>
 
-              <!-- Uncomment when service detail pages are added
               <a
                 href={service.slug}
                 class="inline-flex items-center gap-2 text-accent font-semibold hover:gap-4 transition-all duration-300"
@@ -111,7 +110,6 @@ const services = [
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
-              -->
             </div>
           </div>
         ))}
