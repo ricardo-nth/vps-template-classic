@@ -5,6 +5,11 @@
  */
 
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import heroBg from '@assets/images/hero-bg.jpg';
+import serviceHighlight from '@assets/images/service-highlight.jpg';
+import featuredSection from '@assets/images/featured-section.jpg';
 
 const metadata = {
   title: '[Business Name] - [Your Tagline]',
@@ -24,10 +29,12 @@ const metadata = {
   <section class="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0 z-0">
-      <img
-        src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2069&auto=format&fit=crop"
-        alt="[Describe your hero image]"
+      <Image
+        src={heroBg}
+        alt="Healthcare facility with warm, welcoming atmosphere"
         class="w-full h-full object-cover"
+        loading="eager"
+        fetchpriority="high"
       />
       <div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
@@ -78,18 +85,17 @@ const metadata = {
         <!-- Service Card -->
         <div class="group relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
           <div class="aspect-w-16 aspect-h-9 h-80 overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2049&auto=format&fit=crop"
-              alt="[Service image description]"
+            <Image
+              src={serviceHighlight}
+              alt="Compassionate care service"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
             />
           </div>
           <div class="p-8 lg:p-10">
             <div class="flex items-center gap-3 mb-4">
               <span class="p-2 bg-secondary rounded-full text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
+                <Icon name="tabler:home" class="h-6 w-6" />
               </span>
               <h3 class="font-serif text-3xl text-primary">[Service Name]</h3>
             </div>
@@ -159,10 +165,11 @@ const metadata = {
         </div>
         <div class="relative">
           <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
-            <img
-              src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop"
-              alt="[Section image description]"
+            <Image
+              src={featuredSection}
+              alt="Comfortable and welcoming care facility"
               class="w-full h-full object-cover"
+              loading="lazy"
             />
           </div>
           <div class="absolute -bottom-6 -left-6 w-2/3 h-2/3 border-2 border-accent rounded-2xl -z-10"></div>

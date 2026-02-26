@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Point {
   title: string;
   description: string;
@@ -9,7 +12,7 @@ interface Props {
   heading?: string;
   intro?: string;
   points?: Point[];
-  imageSrc?: string;
+  imageSrc?: ImageMetadata;
   imageAlt?: string;
 }
 
@@ -18,8 +21,7 @@ const {
   heading = "[Your Value Proposition Headline]",
   intro =
     "[Describe what makes you different - your unique approach and why clients should choose you]",
-  imageSrc =
-    "https://images.unsplash.com/photo-1584466977773-270f5fcd5864?auto=format&fit=crop&w=900&q=80",
+  imageSrc,
   imageAlt = "[Your image description]",
   points = [
     {
@@ -75,11 +77,13 @@ const {
       </ul>
     </div>
 
-    <div class="md:order-first">
-      <div class="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
-        <img src={imageSrc} alt={imageAlt} class="h-full w-full object-cover" />
+    {imageSrc && (
+      <div class="md:order-first">
+        <div class="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+          <Image src={imageSrc} alt={imageAlt} class="h-full w-full object-cover" loading="lazy" />
+        </div>
       </div>
-    </div>
+    )}
   </div>
 </section>
 
