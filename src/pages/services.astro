@@ -5,6 +5,11 @@
  */
 
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import serviceHighlight from '@assets/images/service-highlight.jpg';
+import wellbeingSupport from '@assets/images/wellbeing-support.jpg';
+import facilityTour from '@assets/images/facility-tour.jpg';
 
 const metadata = {
   title: 'Our Services - [Business Name]',
@@ -23,22 +28,22 @@ const services = [
     title: '[Service 1 Name]',
     slug: '/services/residential-care',
     description: '[Brief description of service 1 - what it offers and who it serves]',
-    image: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2049&auto=format&fit=crop',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />`,
+    image: serviceHighlight,
+    icon: 'tabler:home',
   },
   {
     title: '[Service 2 Name]',
     slug: '/wellbeing-support',
     description: '[Brief description of service 2 - what it offers and who it serves]',
-    image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=2073&auto=format&fit=crop',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />`,
+    image: wellbeingSupport,
+    icon: 'tabler:heart',
   },
   {
     title: '[Service 3 Name]',
     slug: '/contact',
     description: '[Brief description of service 3 - what it offers and who it serves]',
-    image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=2078&auto=format&fit=crop',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />`,
+    image: facilityTour,
+    icon: 'tabler:settings',
   },
 ];
 ---
@@ -77,13 +82,14 @@ const services = [
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service) => (
           <div class="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-            
+
             <!-- Image -->
             <div class="aspect-w-16 aspect-h-9 h-64 overflow-hidden">
-              <img
+              <Image
                 src={service.image}
                 alt={service.title}
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
             </div>
@@ -92,7 +98,7 @@ const services = [
             <div class="p-8">
               <div class="flex items-center gap-3 mb-4">
                 <span class="p-2 bg-secondary rounded-full text-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" set:html={service.icon} />
+                  <Icon name={service.icon} class="h-6 w-6" />
                 </span>
                 <h3 class="font-serif text-2xl text-primary">{service.title}</h3>
               </div>
@@ -106,9 +112,7 @@ const services = [
                 class="inline-flex items-center gap-2 text-accent font-semibold hover:gap-4 transition-all duration-300"
               >
                 Learn More
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                <Icon name="tabler:arrow-right" class="h-5 w-5" />
               </a>
             </div>
           </div>

@@ -18,10 +18,11 @@ import { Schema } from 'astro-seo-schema';
 import '../styles/global.css';
 import { getBaseSchemas } from '../config/site';
 import { Font } from 'astro:assets';
+import type { Thing } from 'schema-dts';
 
 // Base site-wide Schema.org nodes (Organization, WebSite)
 const siteUrl = (Astro.site ?? new URL('/', 'http://localhost')) as URL;
-const baseSchemas: any[] = getBaseSchemas(siteUrl);
+const baseSchemas: Thing[] = getBaseSchemas(siteUrl) as Thing[];
 ---
 
 <!doctype html>

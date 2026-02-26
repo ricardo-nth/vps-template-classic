@@ -1,81 +1,201 @@
 ---
-/**
- * Header.astro - Site Navigation Component
- * 
- * A simple, accessible navigation header with:
- * - Logo/site name
- * - Main navigation links
- * - Responsive design with Tailwind CSS
- * - Semantic HTML
- */
+import { Icon } from 'astro-icon/components';
 
-// Navigation items - easily customizable
-const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/our-home', label: 'Our Facility' },
-  { href: '/contact', label: 'Contact' },
-];
+interface NavLink {
+  label: string;
+  href: string;
+  active?: boolean;
+}
 
-// Get current path for active link styling
+interface Props {
+  brandName?: string;
+  brandHref?: string;
+  navLinks?: NavLink[];
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const {
+  brandName = "[Business Name]",
+  brandHref = "/",
+  navLinks = [
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Our Facility", href: "/our-home" },
+  ],
+  ctaText = "Contact Us",
+  ctaHref = "/contact",
+} = Astro.props as Props;
+
 const currentPath = Astro.url.pathname;
+const isActive = (href: string) => {
+  if (href === '/' && currentPath === '/') return true;
+  // Check if current path starts with href (for subpages) but ignore root href '/'
+  if (href !== '/' && currentPath.startsWith(href)) return true;
+  return false;
+};
+
+const calculatedLinks = navLinks.map(link => ({
+  ...link,
+  active: isActive(link.href)
+}));
 ---
 
-<!-- ========== HEADER ========== -->
-<header class="flex flex-wrap  md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-200 dark:bg-neutral-800 dark:border-neutral-700">
-  <nav class="relative max-w-[85rem] w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center gap-x-1">
-      <a class="flex-none font-serif font-bold text-xl text-primary focus:outline-hidden focus:opacity-80 dark:text-white" href="/" aria-label="[Business Name]">
-        [Business Name]
+<header class="relative flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-nav-primary text-nav-primary-foreground shadow-sm">
+  <nav class="relative max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Brand -->
+      <a href={brandHref} class="flex items-center gap-2">
+        <div class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-nav-secondary text-nav-secondary-foreground">
+          <span class="text-lg font-semibold">U</span>
+        </div>
+        <span class="text-lg font-semibold tracking-tight">
+          {brandName}
+        </span>
       </a>
 
-      <!-- Collapse Button -->
-      <button type="button" class="hs-collapse-toggle md:hidden relative size-9 flex justify-center items-center font-medium text-sm rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" id="hs-header-base-collapse"  aria-expanded="false" aria-controls="hs-header-base" aria-label="Toggle navigation"  data-hs-collapse="#hs-header-base" >
-        <svg class="hs-collapse-open:hidden size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
-        <svg class="hs-collapse-open:block shrink-0 hidden size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      <!-- Desktop navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        <ul class="flex items-center gap-6 text-sm font-medium">
+          {calculatedLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class={`border-b-2 pb-1 transition-colors hover:border-primary hover:text-primary ${
+                  link.active
+                    ? "border-primary text-primary font-semibold"
+                    : "border-transparent text-nav-primary-foreground"
+                }`}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+
+          <!-- Contact Mega Menu -->
+          <li class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] [--trigger:hover] relative">
+            <button id="hs-mega-menu-contact" type="button" class="flex items-center text-nav-primary-foreground hover:text-primary font-medium transition-colors">
+              Contact
+              <Icon name="tabler:chevron-down" class="ms-1 size-4" />
+            </button>
+
+            <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full md:w-[600px] hidden z-10 top-full start-0 md:start-auto md:end-0 mt-2 bg-white rounded-xl shadow-xl border border-[#B69F38]/20 overflow-hidden" role="menu" aria-orientation="vertical" aria-labelledby="hs-mega-menu-contact">
+              <div class="grid md:grid-cols-2">
+                <!-- Careers Section -->
+                <div class="p-6 bg-[#F6F0D8]">
+                  <a href="/careers" class="group block">
+                    <div class="flex items-center gap-x-4 mb-4">
+                      <div class="bg-white p-2 rounded-lg shadow-sm">
+                        <Icon name="tabler:users" class="size-6 text-[#365C1C]" />
+                      </div>
+                      <div>
+                        <h3 class="font-serif font-bold text-[#365C1C] group-hover:text-[#B69F38] transition-colors">Join the Team</h3>
+                        <p class="text-xs text-gray-600">Explore career opportunities</p>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-3">
+                      We are always looking for compassionate individuals to join our family. View our current vacancies.
+                    </p>
+                    <span class="text-[#365C1C] text-sm font-medium inline-flex items-center gap-x-1 group-hover:gap-x-2 transition-all">
+                      View Careers
+                      <Icon name="tabler:arrow-right" class="size-4" />
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Contact Options -->
+                <div class="p-6 flex flex-col justify-center bg-white">
+                  <span class="text-xs font-semibold text-[#B69F38] uppercase tracking-wider mb-4">Get in Touch</span>
+                  <div class="space-y-4">
+                    <a href="/contact" class="flex items-center gap-x-3 group">
+                      <div class="bg-[#365C1C]/10 p-2 rounded-full text-[#365C1C] group-hover:bg-[#365C1C] group-hover:text-white transition-colors">
+                        <Icon name="tabler:mail" class="size-4" />
+                      </div>
+                      <span class="text-sm font-medium text-gray-800 group-hover:text-[#365C1C]">Send an Email</span>
+                    </a>
+                    <a href="tel:[Your Phone]" class="flex items-center gap-x-3 group">
+                      <div class="bg-[#365C1C]/10 p-2 rounded-full text-[#365C1C] group-hover:bg-[#365C1C] group-hover:text-white transition-colors">
+                        <Icon name="tabler:phone" class="size-4" />
+                      </div>
+                      <span class="text-sm font-medium text-gray-800 group-hover:text-[#365C1C]">[Your Phone]</span>
+                    </a>
+                    <a href="/contact" class="flex items-center gap-x-3 group">
+                      <div class="bg-[#365C1C]/10 p-2 rounded-full text-[#365C1C] group-hover:bg-[#365C1C] group-hover:text-white transition-colors">
+                        <Icon name="tabler:map-pin" class="size-4" />
+                      </div>
+                      <span class="text-sm font-medium text-gray-800 group-hover:text-[#365C1C]">Visit our Office</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        {ctaText && (
+          <a
+            href={ctaHref}
+            class="inline-flex items-center rounded-full bg-primary px-4 py-1.5 text-xs font-medium text-primary-foreground shadow-sm hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:ring-primary-foreground"
+          >
+            {ctaText}
+          </a>
+        )}
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        type="button"
+        class="hs-collapse-toggle md:hidden inline-flex items-center justify-center rounded-md border border-nav-primary-foreground/40 p-2 text-nav-primary-foreground hover:bg-nav-primary-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nav-primary-foreground"
+        id="hs-navbar-header-floating-collapse"
+        aria-expanded="false"
+        aria-controls="hs-navbar-header-floating"
+        data-hs-collapse="#hs-navbar-header-floating"
+      >
         <span class="sr-only">Toggle navigation</span>
+        <Icon name="tabler:menu-2" class="hs-collapse-open:hidden h-5 w-5" />
+        <Icon name="tabler:x" class="hs-collapse-open:block hidden h-5 w-5" />
       </button>
-      <!-- End Collapse Button -->
     </div>
 
-    <!-- Collapse -->
-    <div id="hs-header-base" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block "  aria-labelledby="hs-header-base-collapse" >
-      <div class="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
-        <div class="py-2 md:py-0  flex flex-col md:flex-row md:items-center gap-0.5 md:gap-1">
-          <div class="grow">
-            <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-0.5 md:gap-1">
-              {navItems.map(item => (
-                <a 
-                  class={`p-2 flex items-center text-sm font-medium rounded-lg focus:outline-hidden 
-                    ${currentPath === item.href 
-                      ? 'bg-secondary/50 text-primary' 
-                      : 'text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700'
-                    }`} 
-                  href={item.href} 
-                  aria-current={currentPath === item.href ? 'page' : undefined}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </div>
+    <!-- Mobile navigation -->
+    <div id="hs-navbar-header-floating" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:hidden absolute top-16 left-0 w-full bg-nav-primary shadow-md sm:static sm:shadow-none sm:w-auto sm:bg-transparent" aria-labelledby="hs-navbar-header-floating-collapse">
+      <div class="flex flex-col gap-y-4 p-4 sm:p-0">
+        <ul class="space-y-1 text-sm font-medium">
+          {calculatedLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class={`flex items-center justify-between rounded-md px-3 py-2 hover:bg-primary/10 hover:text-primary ${
+                  link.active ? "bg-primary/10 text-primary font-semibold" : "text-nav-primary-foreground"
+                }`}
+              >
+                <span>{link.label}</span>
+              </a>
+            </li>
+          ))}
 
-          <div class="my-2 md:my-0 md:mx-2">
-            <div class="w-full h-px md:w-px md:h-4 bg-gray-100 md:bg-gray-300 dark:bg-neutral-700"></div>
-          </div>
-
-          <!-- Button Group -->
-          <div class=" flex flex-wrap items-center gap-x-1.5">
-            <a class="py-2 px-2.5 inline-flex items-center font-medium text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:bg-blue-600" href="/contact">
-              Get started
+          <li>
+            <a href="/careers" class="flex items-center justify-between rounded-md px-3 py-2 hover:bg-primary/10 hover:text-primary text-nav-primary-foreground">
+              <span>Careers</span>
             </a>
-          </div>
-          <!-- End Button Group -->
-        </div>
+          </li>
+          <li>
+            <a href="/contact" class="flex items-center justify-between rounded-md px-3 py-2 hover:bg-primary/10 hover:text-primary text-nav-primary-foreground">
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+
+        {ctaText && (
+          <a
+            href={ctaHref}
+            class="inline-flex w-full items-center justify-center rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nav-primary-foreground"
+          >
+            {ctaText}
+          </a>
+        )}
       </div>
     </div>
-    <!-- End Collapse -->
   </nav>
 </header>
-<!-- ========== END HEADER ========== -->
+

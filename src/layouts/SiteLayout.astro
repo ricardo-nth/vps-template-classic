@@ -24,18 +24,12 @@
 import TechnicalLayout from './TechnicalLayout.astro';
 import { SEO } from 'astro-seo';
 import { Schema } from 'astro-seo-schema';
+import type { Thing } from 'schema-dts';
 
-// ============================================================================
-// COMPONENT IMPORTS - Easy to swap between versions
-// ============================================================================
-// Original components (commented for easy revert):
-// import Header from '../components/Header.astro';
-// import Footer from '../components/Footer.astro';
-
-// Healthcare components (active):
-import Header from '../components/NavbarHealthcare.astro';
-import SecondaryNav from '../components/SecondaryNav.astro';
-import Footer from '../components/FooterHealthcare.astro';
+// Component imports
+import Header from '../components/Header.astro';
+import TopNav from '../components/TopNav.astro';
+import Footer from '../components/Footer.astro';
 
 // Define props interface
 interface Props {
@@ -44,7 +38,7 @@ interface Props {
     title: string;
     description?: string;
     index?: boolean; // Default: true (index, follow) | false (noindex, nofollow)
-    schema?: any; // Optional page-specific schema
+    schema?: Thing; // Optional page-specific schema
   };
 
   // Layout-specific Props
@@ -89,7 +83,7 @@ const schemaProps = metadata?.schema;
 
   <!-- Render Schema component if schemaProps provided -->
   {schemaProps && (
-    <Schema slot="schema" item={schemaProps as any} />
+    <Schema slot="schema" item={schemaProps} />
   )}
 
   <!-- Page Structure -->
@@ -98,7 +92,7 @@ const schemaProps = metadata?.schema;
     <!-- Header Navigation (optional) -->
     {showHeader && (
       <div class="sticky top-0 z-50 w-full">
-        <SecondaryNav />
+        <TopNav />
         <Header />
       </div>
     )}

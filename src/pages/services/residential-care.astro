@@ -4,6 +4,10 @@ import PageHero from '../../components/PageHero.astro';
 import ServicesOverview from '../../components/ServicesOverview.astro';
 import WhyChooseUs from '../../components/WhyChooseUs.astro';
 import ContactSection from '../../components/ContactSection.astro';
+import residentialCare from '@assets/images/residential-care.jpg';
+import transitionalCare from '@assets/images/transitional-care.jpg';
+import wellbeingSupport from '@assets/images/wellbeing-support.jpg';
+import featuredSection from '@assets/images/featured-section.jpg';
 
 const metadata = {
   title: 'Residential Care Services - [Business Name]',
@@ -25,24 +29,21 @@ const relatedServices = [
     title: 'Transitional Care',
     description: 'Short-term support and recovery services during life transitions.',
     href: '/transitional-care',
-    imageSrc:
-      'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80',
+    imageSrc: transitionalCare,
     imageAlt: 'Caregiver support during recovery',
   },
   {
     title: 'Wellbeing Support',
     description: 'Holistic programs that nurture physical, social, and emotional wellbeing.',
     href: '/wellbeing-support',
-    imageSrc:
-      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80',
+    imageSrc: wellbeingSupport,
     imageAlt: 'Residents participating in activities',
   },
   {
     title: 'Our Facility',
     description: 'Explore our comfortable spaces designed for safety and connection.',
     href: '/our-home',
-    imageSrc:
-      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
+    imageSrc: featuredSection,
     imageAlt: 'Warm and welcoming residence',
   },
 ];
@@ -121,7 +122,7 @@ const relatedServices = [
         description: 'A comfortable setting that helps residents feel safe and connected.',
       },
     ]}
-    imageSrc="https://images.unsplash.com/photo-1584466977773-270f5fcd5864?auto=format&fit=crop&w=900&q=80"
+    imageSrc={residentialCare}
     imageAlt="Caregiver assisting a resident"
   />
 
