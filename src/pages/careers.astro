@@ -1,6 +1,7 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import { getEntry } from 'astro:content';
+import PageHero from '@components/PageHero.astro';
 
 const careersEntry = await getEntry('classicCareers', 'default');
 const careersDomEntry = await getEntry('classicCareers', 'dom-care');
@@ -21,12 +22,12 @@ const profiles = [
   <div data-care-profile-switcher>
     {profiles.map(({ key, content }) => (
       <div data-care-profile-panel={key} class:list={{ hidden: key !== 'supported-living' }}>
-        <section class="bg-secondary py-20">
-          <div class="max-w-6xl mx-auto px-4 text-center">
-            <h1 class="font-serif text-5xl text-primary mb-6">{content.hero.heading}</h1>
-            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">{content.hero.description}</p>
-          </div>
-        </section>
+        <PageHero
+          eyebrow={content.hero.eyebrow}
+          heading={content.hero.heading}
+          subheading={content.hero.subheading}
+          profileContent={content.hero.profileContent}
+        />
 
         <section class="py-20 max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-16">
           <div>

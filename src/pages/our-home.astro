@@ -4,9 +4,16 @@ import { getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import PageHero from '@components/PageHero.astro';
+import ServicesOverview from '../components/ServicesOverview.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { Icon } from 'astro-icon/components';
 import serviceGeneral from '@assets/images/service-general.jpg';
 import facilityTour from '@assets/images/facility-tour.jpg';
 import featuredSection from '@assets/images/featured-section.jpg';
+import residentialCare from '@assets/images/residential-care.jpg';
+import transitionalCare from '@assets/images/transitional-care.jpg';
+import wellbeingSupport from '@assets/images/wellbeing-support.jpg';
 
 const ourHomeEntry = await getEntry('classicOurHome', 'default');
 const ourHomeDomEntry = await getEntry('classicOurHome', 'dom-care');
@@ -26,6 +33,9 @@ const imageMap: Record<string, ImageMetadata> = {
   'service-general': serviceGeneral,
   'facility-tour': facilityTour,
   'featured-section': featuredSection,
+  'residential-care': residentialCare,
+  'transitional-care': transitionalCare,
+  'wellbeing-support': wellbeingSupport,
 };
 ---
 
@@ -39,6 +49,82 @@ const imageMap: Record<string, ImageMetadata> = {
           subheading={content.hero.subheading}
           profileContent={content.hero.profileContent}
         />
+
+        <section class="bg-secondary/30 border-y border-border/40 py-14">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-8">
+              <h2 class="font-serif text-3xl text-primary mb-3">{content.outcomesSnapshot.heading}</h2>
+              <p class="text-muted-foreground">{content.outcomesSnapshot.intro}</p>
+            </div>
+            <div class="grid gap-5 md:grid-cols-3">
+              {content.outcomesSnapshot.stats.map((stat) => (
+                <article class="rounded-xl border border-border bg-white p-6 shadow-sm">
+                  <p class="font-serif text-4xl text-primary">{stat.value}</p>
+                  <p class="mt-2 text-lg font-semibold text-foreground">{stat.label}</p>
+                  <p class="mt-2 text-sm text-muted-foreground">{stat.detail}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-background py-16">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-primary">
+              {content.serviceFit.badgeLabel}
+            </span>
+            <h2 class="mt-4 font-serif text-4xl text-primary">{content.serviceFit.heading}</h2>
+            <p class="mt-4 max-w-3xl text-muted-foreground">{content.serviceFit.intro}</p>
+
+            <div class="mt-8 grid gap-6 lg:grid-cols-2">
+              <article class="rounded-xl border border-border bg-white p-6 shadow-sm">
+                <h3 class="font-serif text-2xl text-primary mb-4">{content.serviceFit.suitableForTitle}</h3>
+                <ul class="space-y-3 text-sm text-muted-foreground">
+                  {content.serviceFit.suitableFor.map((item) => (
+                    <li class="flex gap-3">
+                      <Icon name="tabler:check" class="mt-0.5 h-4 w-4 text-accent shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+
+              <article class="rounded-xl border border-border bg-white p-6 shadow-sm">
+                <h3 class="font-serif text-2xl text-primary mb-4">{content.serviceFit.alternativeSupportTitle}</h3>
+                <ul class="space-y-3 text-sm text-muted-foreground">
+                  {content.serviceFit.alternativeSupport.map((item) => (
+                    <li class="flex gap-3">
+                      <Icon name="tabler:minus" class="mt-0.5 h-4 w-4 text-accent shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-secondary/20 py-16">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif text-4xl text-primary">{content.firstThirtyDays.heading}</h2>
+            <p class="mt-4 max-w-3xl text-muted-foreground">{content.firstThirtyDays.intro}</p>
+
+            <div class="mt-8 grid gap-5 md:grid-cols-3">
+              {content.firstThirtyDays.milestones.map((milestone) => (
+                <article class="rounded-xl border border-border bg-white p-6 shadow-sm">
+                  <div class="flex items-center justify-between gap-3">
+                    <span class="inline-flex rounded-full bg-accent/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
+                      {milestone.dayRange}
+                    </span>
+                    <Icon name={milestone.icon} class="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 class="mt-4 font-serif text-xl text-primary">{milestone.title}</h3>
+                  <p class="mt-2 text-sm text-muted-foreground">{milestone.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <section class="py-16 bg-background">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
@@ -91,19 +177,22 @@ const imageMap: Record<string, ImageMetadata> = {
           </div>
         </section>
 
-        <section class="py-16 bg-background">
-          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 md:grid-cols-2">
+        <section class="bg-background py-16">
+          <div class="max-w-6xl mx-auto px-4 grid gap-10 md:grid-cols-2">
             <div>
-              <h2 class="font-serif text-4xl text-primary mb-4">{content.locationSection.heading}</h2>
+              <h2 class="font-serif text-3xl text-primary mb-4">{content.locationSection.heading}</h2>
               <p class="text-muted-foreground mb-6">{content.locationSection.description}</p>
-              <div class="space-y-4">
+              <ul class="space-y-4 text-sm text-muted-foreground">
                 {content.locationSection.points.map((point) => (
-                  <div>
-                    <h3 class="font-semibold text-foreground">{point.title}</h3>
-                    <p class="text-sm text-muted-foreground">{point.description}</p>
-                  </div>
+                  <li class="flex gap-3">
+                    <span class="text-accent mt-1">✓</span>
+                    <div>
+                      <h3 class="font-semibold text-foreground">{point.title}</h3>
+                      <p class="text-muted-foreground">{point.description}</p>
+                    </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
             <div class="rounded-2xl border border-border bg-secondary/40 p-8 flex flex-col justify-center">
               <p class="text-muted-foreground mb-6">Visit planning is available for families and professionals. Contact our team to arrange a suitable time.</p>
@@ -114,15 +203,82 @@ const imageMap: Record<string, ImageMetadata> = {
           </div>
         </section>
 
-        <section class="py-16 bg-secondary/50">
-          <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="font-serif text-4xl text-primary mb-6">{content.ctaSection.heading}</h2>
-            <p class="text-muted-foreground mb-8">{content.ctaSection.description}</p>
-            <a href={content.ctaSection.primaryHref} class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-primary rounded-full hover:bg-primary/90 transition-colors shadow-lg">
-              {content.ctaSection.primaryText}
-            </a>
+        <section class="bg-background py-16">
+          <div class="max-w-6xl mx-auto px-4 grid gap-10 lg:grid-cols-2">
+            <div>
+              <h2 class="font-serif text-3xl text-primary mb-4">{content.approach.heading}</h2>
+              <p class="text-muted-foreground mb-6">{content.approach.description}</p>
+              <ul class="space-y-4 text-sm text-muted-foreground">
+                {content.approach.points.map((point) => (
+                  <li class="flex gap-3">
+                    <span class="text-accent mt-1">✓</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="bg-white rounded-2xl border border-border shadow-sm p-8">
+              <h3 class="font-serif text-2xl text-primary mb-4">Living Environment Benefits</h3>
+              <div class="space-y-4">
+                <div class="rounded-xl bg-secondary/40 p-4">
+                  <p class="text-sm text-muted-foreground">Safe, accessible spaces designed for independence</p>
+                </div>
+                <div class="rounded-xl bg-secondary/40 p-4">
+                  <p class="text-sm text-muted-foreground">Community-connected locations near amenities</p>
+                </div>
+                <div class="rounded-xl bg-secondary/40 p-4">
+                  <p class="text-sm text-muted-foreground">Warm, supportive atmosphere with consistent staff</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
+
+        <WhyChooseUs
+          heading={content.whyChooseUs.heading}
+          intro={content.whyChooseUs.intro}
+          points={content.whyChooseUs.points}
+          imageSrc={imageMap[content.whyChooseUs.imageKey] || serviceGeneral}
+          imageAlt={content.whyChooseUs.imageAlt}
+        />
+
+        <section class="bg-background py-16">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif text-4xl text-primary">{content.faqSection.heading}</h2>
+            <p class="mt-4 text-muted-foreground">{content.faqSection.intro}</p>
+            <div class="mt-8 space-y-4">
+              {content.faqSection.items.map((item) => (
+                <details class="group rounded-xl border border-border bg-white p-5 shadow-sm">
+                  <summary class="flex list-none cursor-pointer items-center justify-between gap-4 font-semibold text-foreground">
+                    <span>{item.question}</span>
+                    <Icon name="tabler:chevron-down" class="h-5 w-5 shrink-0 text-primary transition-transform group-open:rotate-180" />
+                  </summary>
+                  <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <ServicesOverview
+          eyebrow={content.relatedServices.eyebrow}
+          heading={content.relatedServices.heading}
+          intro={content.relatedServices.intro}
+          ctaText={content.relatedServices.ctaText}
+          ctaHref={content.relatedServices.ctaHref}
+          services={content.relatedServices.services.map((service) => ({
+            ...service,
+            imageSrc: imageMap[service.imageKey] || featuredSection,
+          }))}
+        />
+
+        <ContactSection
+          heading={content.contactSection.heading}
+          intro={content.contactSection.intro}
+          phoneLabel={content.contactSection.phoneLabel}
+          phoneHref={content.contactSection.phoneHref}
+          address={content.contactSection.address}
+        />
       </div>
     ))}
   </div>

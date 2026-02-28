@@ -169,8 +169,10 @@ const classicServices = defineCollection({
   schema: z.object({
     metadata: metadataSchema,
     hero: z.object({
+      eyebrow: z.string().optional(),
       heading: z.string(),
       subheading: z.string(),
+      profileContent: profileContentSchema.optional(),
     }),
     services: z.array(
       z.object({
@@ -245,8 +247,10 @@ const classicContact = defineCollection({
   schema: z.object({
     metadata: metadataSchema,
     hero: z.object({
+      eyebrow: z.string().optional(),
       heading: z.string(),
-      description: z.string(),
+      subheading: z.string(),
+      profileContent: profileContentSchema.optional(),
     }),
     contactInfo: z.object({
       phoneLabel: z.string(),
@@ -264,8 +268,10 @@ const classicCareers = defineCollection({
   schema: z.object({
     metadata: metadataSchema,
     hero: z.object({
+      eyebrow: z.string().optional(),
       heading: z.string(),
-      description: z.string(),
+      subheading: z.string(),
+      profileContent: profileContentSchema.optional(),
     }),
     benefitsHeading: z.string(),
     benefits: z.array(
@@ -285,6 +291,42 @@ const classicCareers = defineCollection({
     ),
     fallbackCopy: z.string(),
   }),
+});
+
+const whyChooseUsSchema = z.object({
+  heading: z.string(),
+  intro: z.string(),
+  points: z.array(
+    z.object({
+      title: z.string(),
+      description: z.string(),
+    })
+  ),
+  imageKey: z.string(),
+  imageAlt: z.string(),
+});
+
+const relatedServicesSchema = z.object({
+  eyebrow: z.string(),
+  heading: z.string(),
+  intro: z.string(),
+  ctaText: z.string(),
+  ctaHref: z.string(),
+  services: z.array(
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      href: z.string(),
+      imageKey: z.string(),
+      imageAlt: z.string(),
+    })
+  ),
+});
+
+const approachSchema = z.object({
+  heading: z.string(),
+  description: z.string(),
+  points: z.array(z.string()),
 });
 
 const classicOurHome = defineCollection({
@@ -327,6 +369,14 @@ const classicOurHome = defineCollection({
       ctaText: z.string(),
       ctaHref: z.string(),
     }),
+    outcomesSnapshot: outcomesSnapshotSchema,
+    serviceFit: serviceFitSchema,
+    firstThirtyDays: firstThirtyDaysSchema,
+    approach: approachSchema,
+    whyChooseUs: whyChooseUsSchema,
+    faqSection: faqSectionSchema,
+    relatedServices: relatedServicesSchema,
+    contactSection: contactSectionSchema,
     ctaSection: z.object({
       heading: z.string(),
       description: z.string(),
@@ -360,6 +410,14 @@ const classicTransitionalCare = defineCollection({
       description: z.string(),
       outcomes: z.array(z.string()),
     }),
+    outcomesSnapshot: outcomesSnapshotSchema,
+    serviceFit: serviceFitSchema,
+    firstThirtyDays: firstThirtyDaysSchema,
+    approach: approachSchema,
+    whyChooseUs: whyChooseUsSchema,
+    faqSection: faqSectionSchema,
+    relatedServices: relatedServicesSchema,
+    contactSection: contactSectionSchema,
     ctaSection: z.object({
       heading: z.string(),
       description: z.string(),
@@ -393,6 +451,14 @@ const classicWellbeingSupport = defineCollection({
       description: z.string(),
       outcomes: z.array(z.string()),
     }),
+    outcomesSnapshot: outcomesSnapshotSchema,
+    serviceFit: serviceFitSchema,
+    firstThirtyDays: firstThirtyDaysSchema,
+    approach: approachSchema,
+    whyChooseUs: whyChooseUsSchema,
+    faqSection: faqSectionSchema,
+    relatedServices: relatedServicesSchema,
+    contactSection: contactSectionSchema,
     ctaSection: z.object({
       heading: z.string(),
       description: z.string(),

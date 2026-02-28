@@ -52,6 +52,119 @@ locationSection:
       description: Routine communication with community teams and referrers.
   ctaText: Speak to Home Care Team
   ctaHref: /contact
+outcomesSnapshot:
+  heading: Home Care Service Outcomes
+  intro: Key metrics demonstrating the quality and reliability of our domiciliary services.
+  stats:
+    - value: "96%"
+      label: "Visit Reliability"
+      detail: "Scheduled visits completed on time, every time."
+    - value: "24/7"
+      label: "On-Call Support"
+      detail: "Round-the-clock coordination and emergency response."
+    - value: "100%"
+      label: "Compliance Rating"
+      detail: "Full adherence to CQC standards and local authority requirements."
+
+serviceFit:
+  badgeLabel: "Service Fit"
+  heading: "Who Our Home Care Suits Best"
+  intro: "Our domiciliary service is designed for adults who need reliable support to maintain independence at home."
+  suitableForTitle: "Ideal For"
+  suitableFor:
+    - "Adults needing regular support visits in their own homes."
+    - "Individuals transitioning from hospital or residential care back home."
+    - "Families seeking consistent, reliable care for their loved ones."
+  alternativeSupportTitle: "May Not Be Suitable When"
+  alternativeSupport:
+    - "24-hour residential care or nursing is required."
+    - "The home environment is unsuitable or unsafe for visits."
+    - "Intensive clinical interventions are the primary need."
+
+firstThirtyDays:
+  heading: "Your First 30 Days of Home Care"
+  intro: "A structured onboarding process to ensure safe, consistent support from day one."
+  milestones:
+    - dayRange: "Days 1-7"
+      title: "Assessment and Planning"
+      description: "Comprehensive needs assessment, risk evaluation, and personalised care plan development."
+      icon: "tabler:clipboard-check"
+    - dayRange: "Days 8-14"
+      title: "Team Matching"
+      description: "Careful selection of support workers based on skills, personality, and consistency."
+      icon: "tabler:users-group"
+    - dayRange: "Days 15-30"
+      title: "Review and Refinement"
+      description: "First formal review, feedback gathering, and adjustments to optimise support."
+      icon: "tabler:chart-line"
+
+approach:
+  heading: "Our Home Care Delivery Approach"
+  description: "A reliable, person-centred model focused on consistency and quality."
+  points:
+    - "Thorough assessment covering needs, risks, preferences, and goals"
+    - "Careful team matching for compatibility and continuity"
+    - "Structured visits with clear documentation and communication"
+    - "Regular reviews and responsive adjustments as needs change"
+
+whyChooseUs:
+  heading: "Why Choose Our Home Care Service"
+  intro: "We combine operational excellence with genuinely caring, person-centred support."
+  points:
+    - title: "Consistent Teams"
+      description: "The same familiar faces providing care, building trust and understanding."
+    - title: "Reliable Scheduling"
+      description: "Robust systems ensuring visits happen when promised, with backup plans ready."
+    - title: "Clear Communication"
+      description: "Regular updates to families and professionals, with responsive query handling."
+  imageKey: "service-general"
+  imageAlt: "Domiciliary care worker providing support at home"
+
+faqSection:
+  heading: "Home Care FAQs"
+  intro: "Common questions about our domiciliary care services."
+  items:
+    - question: "How quickly can home care start?"
+      answer: "Following assessment, we can typically begin support within 48-72 hours, with urgent cases prioritised."
+    - question: "Will I have the same carer each visit?"
+      answer: "We prioritise consistency, aiming to provide the same small team of familiar support workers."
+    - question: "What happens if my regular carer is unavailable?"
+      answer: "We have backup staff who are fully briefed on your needs, ensuring no gaps in support."
+    - question: "Can care times be changed if my needs change?"
+      answer: "Absolutely. We regularly review schedules and can adjust visit times and duration as required."
+
+relatedServices:
+  eyebrow: "Related services"
+  heading: "Explore Related Support Services"
+  intro: "These services complement our home care for comprehensive support."
+  ctaText: "View all services"
+  ctaHref: "/services"
+  services:
+    - title: "Residential Care"
+      description: "Structured supported living with independence outcomes."
+      href: "/services/residential-care"
+      imageKey: "residential-care"
+      imageAlt: "Residential care environment"
+    - title: "Transitional Care"
+      description: "Support for returning home from hospital or residential settings."
+      href: "/transitional-care"
+      imageKey: "transitional-care"
+      imageAlt: "Transition planning support"
+    - title: "Wellbeing Support"
+      description: "Companionship and social support to complement personal care."
+      href: "/wellbeing-support"
+      imageKey: "wellbeing-support"
+      imageAlt: "Wellbeing support session"
+
+contactSection:
+  heading: "Speak With Our Home Care Team"
+  intro: "Discuss your domiciliary care needs and how we can support independent living at home."
+  phoneLabel: "0208 555 0199"
+  phoneHref: "tel:+442085550199"
+  emailLabel: "referrals@harborcare.co.uk"
+  emailHref: "mailto:referrals@harborcare.co.uk"
+  address: "Unit 12, Healthcare Business Park, London, SE1 7PB"
+
 ctaSection:
   heading: Need Reliable Domiciliary Support?
   description: Tell us your current requirements and we will map a practical package around safety and consistency.

@@ -33,6 +33,120 @@ outcomesSection:
     - Faster post-discharge routine stabilisation
     - Improved confidence in home-based daily living
     - Reduced risk of avoidable readmission
+
+outcomesSnapshot:
+  heading: Hospital Discharge Support Outcomes
+  intro: Key metrics demonstrating the effectiveness of our post-discharge reablement.
+  stats:
+    - value: "85%"
+      label: "Successful Home Stabilisation"
+      detail: "Clients maintaining independent routines 12 weeks after discharge."
+    - value: "92%"
+      label: "Family Confidence"
+      detail: "Families reporting reassurance and satisfaction with support."
+    - value: "78%"
+      label: "Readmission Reduction"
+      detail: "Lower readmission rates compared to unsupported discharges."
+
+serviceFit:
+  badgeLabel: "Service Fit"
+  heading: "Who Benefits from Discharge Support"
+  intro: "Our reablement service is designed for adults returning home from hospital who need structured short-term support."
+  suitableForTitle: "Ideal For"
+  suitableFor:
+    - "Adults being discharged from hospital who need temporary support at home."
+    - "Individuals with reduced mobility or confidence after illness or surgery."
+    - "Those at risk of readmission without structured reablement support."
+  alternativeSupportTitle: "May Not Be Suitable When"
+  alternativeSupport:
+    - "Long-term nursing or clinical care is the primary requirement."
+    - "Immediate return to full independence with no support needed."
+    - "Residential rehabilitation is more appropriate for recovery."
+
+firstThirtyDays:
+  heading: "Your First 30 Days After Discharge"
+  intro: "A focused reablement pathway to rebuild confidence and establish stable routines."
+  milestones:
+    - dayRange: "Days 1-3"
+      title: "Rapid Mobilisation"
+      description: "Immediate assessment, risk evaluation, and first support visits within 24-48 hours of discharge."
+      icon: "tabler:clipboard-check"
+    - dayRange: "Days 4-14"
+      title: "Intensive Reablement"
+      description: "Daily or twice-daily visits focused on rebuilding skills, confidence, and routine."
+      icon: "tabler:activity"
+    - dayRange: "Days 15-30"
+      title: "Graduation Planning"
+      description: "Step down to longer-term support or independent living with ongoing monitoring."
+      icon: "tabler:chart-line"
+
+approach:
+  heading: "Our Discharge Support Process"
+  description: "A rapid-response model focused on preventing readmission and rebuilding independence."
+  points:
+    - "Pre-discharge liaison with hospital teams to understand needs and risks"
+    - "Rapid home assessment and safety checks within 24 hours of return"
+    - "Intensive reablement visits with daily living skills practice"
+    - "Gradual step-down or transition to longer-term support as confidence returns"
+
+whyChooseUs:
+  heading: "Why Choose Our Discharge Support"
+  intro: "We specialise in rapid, effective reablement that reduces readmission and restores independence."
+  points:
+    - title: "Rapid Response"
+      description: "Support can begin within hours of discharge with pre-planned mobilisation."
+    - title: "Readmission Focus"
+      description: "Structured interventions specifically targeting the common causes of readmission."
+    - title: "Flexible Duration"
+      description: "Packages from one week to several months, adjusting as recovery progresses."
+  imageKey: "transitional-care"
+  imageAlt: "Support worker helping client after hospital discharge"
+
+faqSection:
+  heading: "Hospital Discharge Support FAQs"
+  intro: "Common questions about our post-discharge reablement services."
+  items:
+    - question: "How quickly can support start after discharge?"
+      answer: "We can begin support within 24 hours of discharge with pre-discharge planning, or 48 hours for urgent referrals."
+    - question: "How long does reablement typically last?"
+      answer: "Most packages last 2-6 weeks depending on recovery progress, with flexibility to extend if needed."
+    - question: "What happens after reablement ends?"
+      answer: "We assess ongoing needs and either step down to independence, arrange longer-term support, or liaise with other services."
+    - question: "Can family members be involved in planning?"
+      answer: "Absolutely. We involve families in discharge planning and keep them updated throughout the reablement period."
+
+relatedServices:
+  eyebrow: "Related services"
+  heading: "Explore Related Support Services"
+  intro: "These services complement discharge support for comprehensive care."
+  ctaText: "View all services"
+  ctaHref: "/services"
+  services:
+    - title: "Residential Care"
+      description: "Long-term supported living with structured independence outcomes."
+      href: "/services/residential-care"
+      imageKey: "residential-care"
+      imageAlt: "Residential care environment"
+    - title: "Wellbeing Support"
+      description: "Ongoing social and emotional support to maintain independence."
+      href: "/wellbeing-support"
+      imageKey: "wellbeing-support"
+      imageAlt: "Wellbeing support session"
+    - title: "Our Home"
+      description: "Explore our living environments for longer-term care needs."
+      href: "/our-home"
+      imageKey: "featured-section"
+      imageAlt: "Care home living space"
+
+contactSection:
+  heading: "Speak With Our Discharge Team"
+  intro: "Discuss post-discharge support needs and how we can help with safe hospital returns."
+  phoneLabel: "0208 555 0199"
+  phoneHref: "tel:+442085550199"
+  emailLabel: "referrals@harborcare.co.uk"
+  emailHref: "mailto:referrals@harborcare.co.uk"
+  address: "Unit 12, Healthcare Business Park, London, SE1 7PB"
+
 ctaSection:
   heading: Arrange Post-Discharge Support
   description: Share discharge details and we will outline a practical reablement pathway.

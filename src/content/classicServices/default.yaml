@@ -7,8 +7,16 @@ metadata:
     name: Harbor Care Services
     description: Specialist supported living and domiciliary care pathways for adults with diverse support needs.
 hero:
+  eyebrow: "Our Services"
   heading: "Care Pathways Designed for Real-World Delivery"
   subheading: "From tenancy-based support to home visits, every package is structured around safety, continuity, and measurable progress."
+  profileContent:
+    supported-living:
+      heading: "Care Pathways Designed for Real-World Delivery"
+      subheading: "From tenancy-based support to home visits, every package is structured around safety, continuity, and measurable progress."
+    dom-care:
+      heading: "Home Care Services Built for Reliability"
+      subheading: "Consistent, professional domiciliary support delivered with clear communication and practical outcomes."
 services:
   - title: "Tenancy and Daily Living Support"
     description: "Core tenancy support covering routines, risk planning, and independent living milestones."

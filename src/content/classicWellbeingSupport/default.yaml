@@ -33,6 +33,119 @@ outcomesSection:
     - Reduced social isolation
     - Improved routine engagement
     - Greater confidence in community participation
+outcomesSnapshot:
+  heading: Wellbeing Support Outcomes Snapshot
+  intro: Measurable improvements we track for all wellbeing support packages.
+  stats:
+    - value: "91%"
+      label: "Reduced Isolation"
+      detail: "Service users reporting improved social connection after 8 weeks."
+    - value: "89%"
+      label: "Improved Confidence"
+      detail: "Increased willingness to engage in community activities."
+    - value: "100%"
+      label: "Person-Centred Plans"
+      detail: "All support built around individual preferences and goals."
+
+serviceFit:
+  badgeLabel: "Service Fit"
+  heading: "Who Benefits from Wellbeing Support"
+  intro: "Our wellbeing service is designed for adults who need structured social and emotional support to maintain independence."
+  suitableForTitle: "Ideal For"
+  suitableFor:
+    - "Adults experiencing social isolation or loneliness."
+    - "Individuals needing support to access community activities."
+    - "Those transitioning from intensive care to lower support levels."
+  alternativeSupportTitle: "May Not Be Suitable When"
+  alternativeSupport:
+    - "Primary needs are clinical mental health treatment."
+    - "24-hour supervision or intensive personal care is required."
+    - "Service user prefers entirely independent living without any support."
+
+firstThirtyDays:
+  heading: "Your First 30 Days of Wellbeing Support"
+  intro: "A gradual pathway to build trust, assess needs, and establish routines."
+  milestones:
+    - dayRange: "Days 1-7"
+      title: "Introduction and Assessment"
+      description: "Meet your support worker, discuss interests, and set initial wellbeing goals."
+      icon: "tabler:clipboard-check"
+    - dayRange: "Days 8-14"
+      title: "Activity Planning"
+      description: "Identify preferred activities, make introductions to groups, and plan outings."
+      icon: "tabler:calendar"
+    - dayRange: "Days 15-30"
+      title: "Routine Building"
+      description: "Establish regular support pattern, review progress, and adjust goals as needed."
+      icon: "tabler:chart-line"
+
+approach:
+  heading: "Our Wellbeing Approach"
+  description: "A strengths-based model that focuses on what people can do, not what they can't."
+  points:
+    - "Initial consultation to understand interests, preferences, and barriers"
+    - "Co-produced support plan with clear, achievable social goals"
+    - "Gradual introduction to activities at the service user's pace"
+    - "Regular review and celebration of progress and achievements"
+
+whyChooseUs:
+  heading: "Why Choose Our Wellbeing Support"
+  intro: "We combine professional expertise with genuine warmth and understanding."
+  points:
+    - title: "Matched Support Workers"
+      description: "We pair service users with workers who share their interests and personality."
+    - title: "Flexible Scheduling"
+      description: "Support arranged at times that suit the service user's natural rhythms."
+    - title: "Community Connections"
+      description: "Strong local partnerships providing access to diverse activities and groups."
+  imageKey: "wellbeing-support"
+  imageAlt: "Support worker and service user enjoying a community activity"
+
+faqSection:
+  heading: "Wellbeing Support FAQs"
+  intro: "Common questions about our wellbeing and companionship services."
+  items:
+    - question: "How often can wellbeing support visits be arranged?"
+      answer: "From a few hours weekly to daily visits, depending on needs and preferences."
+    - question: "Can support workers accompany me to medical appointments?"
+      answer: "Yes, we can provide transport and support for appointments, shopping, or social visits."
+    - question: "What types of activities can we do together?"
+      answer: "Anything from walking and hobbies to cinema trips, cafe visits, or attending clubs and classes."
+    - question: "Can family members join in activities?"
+      answer: "Absolutely. We encourage family involvement where appropriate and welcomed."
+
+relatedServices:
+  eyebrow: "Related services"
+  heading: "Explore Related Support Services"
+  intro: "These services complement wellbeing support for comprehensive care."
+  ctaText: "View all services"
+  ctaHref: "/services"
+  services:
+    - title: "Residential Care"
+      description: "Structured supported living with independence outcomes."
+      href: "/services/residential-care"
+      imageKey: "residential-care"
+      imageAlt: "Residential care environment"
+    - title: "Transitional Care"
+      description: "Support during moves between care settings."
+      href: "/transitional-care"
+      imageKey: "transitional-care"
+      imageAlt: "Transition planning support"
+    - title: "Our Home"
+      description: "Explore our comfortable, safe living environments."
+      href: "/our-home"
+      imageKey: "featured-section"
+      imageAlt: "Care home living space"
+
+contactSection:
+  heading: "Talk With Our Wellbeing Team"
+  intro: "Discuss how our wellbeing support can improve quality of life and social connection."
+  phoneLabel: "0208 555 0199"
+  phoneHref: "tel:+442085550199"
+  emailLabel: "referrals@harborcare.co.uk"
+  emailHref: "mailto:referrals@harborcare.co.uk"
+  address: "Unit 12, Healthcare Business Park, London, SE1 7PB"
+
 ctaSection:
   heading: Arrange Wellbeing Support
   description: Discuss your current needs and we will recommend a practical wellbeing pathway.

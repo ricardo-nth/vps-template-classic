@@ -6,8 +6,16 @@ metadata:
     '@type': WebPage
     name: Careers at Harbor Home Care
 hero:
-  heading: Build a Career in Home Care
-  description: Join a team focused on continuity, safe delivery, and practical support for adults living at home.
+  eyebrow: "Careers"
+  heading: "Build a Career in Home Care"
+  subheading: "Join a team focused on continuity, safe delivery, and practical support for adults living at home."
+  profileContent:
+    supported-living:
+      heading: "Join Our Team"
+      subheading: "Make a practical difference every day in a service focused on quality, dignity, and measurable outcomes."
+    dom-care:
+      heading: "Build a Career in Home Care"
+      subheading: "Join a team focused on continuity, safe delivery, and practical support for adults living at home."
 benefitsHeading: Why Work With Harbor Home Care
 benefits:
   - title: Reliable Scheduling Systems

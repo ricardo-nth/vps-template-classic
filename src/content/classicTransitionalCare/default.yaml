@@ -33,6 +33,112 @@ outcomesSection:
     - Stable first 12-week transition plan
     - Clear responsibilities across all stakeholders
     - Faster confidence in daily routine tasks
+outcomesSnapshot:
+  heading: Transition Support Outcomes Snapshot
+  intro: Key metrics demonstrating the effectiveness of our transition pathways.
+  stats:
+    - value: "88%"
+      label: "Successful Transitions"
+      detail: "Service users maintaining stable placements after transition."
+    - value: "94%"
+      label: "Stakeholder Satisfaction"
+      detail: "Positive feedback from families and professionals on transition planning."
+    - value: "100%"
+      label: "Risk Assessment Compliance"
+      detail: "Complete safeguarding reviews prior to every transition."
+
+serviceFit:
+  badgeLabel: "Service Fit"
+  heading: "Who Benefits from Transition Support"
+  intro: "Our transition service is designed for individuals moving between care settings or into independent living."
+  suitableForTitle: "Ideal For"
+  suitableFor:
+    - "Adults leaving hospital who need structured step-down support."
+    - "Individuals transitioning from residential care to supported living."
+    - "Those requiring coordinated multi-agency transition planning."
+  alternativeSupportTitle: "May Not Be Suitable When"
+  alternativeSupport:
+    - "Long-term residential care is the preferred outcome."
+    - "Immediate discharge with no time for planned transition."
+    - "Service user is already in stable, suitable accommodation."
+firstThirtyDays:
+  heading: "Your First 30 Days of Transition Support"
+  intro: "A structured pathway to ensure safe, stable moves with continuous review."
+  milestones:
+    - dayRange: "Days 1-7"
+      title: "Assessment and Planning"
+      description: "Comprehensive needs assessment, risk profiling, and stakeholder coordination."
+      icon: "tabler:clipboard-check"
+    - dayRange: "Days 8-14"
+      title: "Transition Preparation"
+      description: "Visit new setting, meet support team, and prepare personalised routines."
+      icon: "tabler:users-group"
+    - dayRange: "Days 15-30"
+      title: "Settling and Review"
+      description: "Daily check-ins, rapid issue resolution, and first progress review."
+      icon: "tabler:chart-line"
+approach:
+  heading: "Our Transition Process"
+  description: "A proven methodology for safe, person-centred transitions."
+  points:
+    - "Pre-transition assessment with full risk and needs analysis"
+    - "Coordinated planning involving service user, family, and professionals"
+    - "Gradual introduction to new environment with supported visits"
+    - "Post-transition monitoring and early intervention for any challenges"
+whyChooseUs:
+  heading: "Why Choose Our Transition Support"
+  intro: "We specialise in reducing the risks and anxieties associated with care transitions."
+  points:
+    - title: "Experienced Transition Coordinators"
+      description: "Dedicated staff with expertise in complex discharge and transfer planning."
+    - title: "Multi-Agency Collaboration"
+      description: "Seamless coordination with hospitals, social workers, and community teams."
+    - title: "Family Communication"
+      description: "Regular updates and involvement for families throughout the transition."
+  imageKey: "transitional-care"
+  imageAlt: "Support worker assisting with transition planning"
+faqSection:
+  heading: "Transition Support FAQs"
+  intro: "Common questions about our transition pathways."
+  items:
+    - question: "How long does a typical transition take?"
+      answer: "Most transitions are completed within 4-6 weeks, though complex cases may require longer planning periods."
+    - question: "Can family members be involved in the transition?"
+      answer: "Absolutely. We actively encourage family participation in planning meetings and settling-in visits."
+    - question: "What happens if the transition doesn't work out?"
+      answer: "We have contingency plans in place and work closely with commissioners to find alternative solutions quickly."
+    - question: "Do you support emergency transitions?"
+      answer: "Yes, we can mobilise quickly for urgent placements while maintaining thorough risk assessment."
+relatedServices:
+  eyebrow: "Related services"
+  heading: "Explore Related Support Services"
+  intro: "These services work alongside transition support for comprehensive care."
+  ctaText: "View all services"
+  ctaHref: "/services"
+  services:
+    - title: "Residential Care"
+      description: "Long-term supported living with structured independence outcomes."
+      href: "/services/residential-care"
+      imageKey: "residential-care"
+      imageAlt: "Residential care environment"
+    - title: "Wellbeing Support"
+      description: "Emotional and social support to maintain placement stability."
+      href: "/wellbeing-support"
+      imageKey: "wellbeing-support"
+      imageAlt: "Wellbeing support session"
+    - title: "Our Home"
+      description: "Explore our living environments designed for comfort and progress."
+      href: "/our-home"
+      imageKey: "featured-section"
+      imageAlt: "Care home living space"
+contactSection:
+  heading: "Talk With Our Transition Team"
+  intro: "Discuss your transition needs, timelines, and how we can support your move."
+  phoneLabel: "0208 555 0199"
+  phoneHref: "tel:+442085550199"
+  emailLabel: "referrals@harborcare.co.uk"
+  emailHref: "mailto:referrals@harborcare.co.uk"
+  address: "Unit 12, Healthcare Business Park, London, SE1 7PB"
 ctaSection:
   heading: Plan a Safe Transition Pathway
   description: Discuss your current case and we will map a practical plan with clear next actions.

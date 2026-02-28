@@ -6,8 +6,16 @@ metadata:
     "@type": ContactPage
     name: Contact Harbor Home Care
 hero:
+  eyebrow: "Get in Touch"
   heading: "Speak With Our Home Care Team"
-  description: "We help families and professionals arrange reliable domiciliary support with clear scheduling and communication."
+  subheading: "We help families and professionals arrange reliable domiciliary support with clear scheduling and communication."
+  profileContent:
+    supported-living:
+      heading: "Speak With Our Referrals Team"
+      subheading: "We support families, professionals, and commissioners with clear next steps for supported living and domiciliary referrals."
+    dom-care:
+      heading: "Speak With Our Home Care Team"
+      subheading: "We help families and professionals arrange reliable domiciliary support with clear scheduling and communication."
 contactInfo:
   phoneLabel: "0208 555 0199"
   phoneHref: "tel:+442085550199"

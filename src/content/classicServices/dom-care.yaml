@@ -7,8 +7,16 @@ metadata:
     name: Domiciliary Care Services
     description: Home-based personal care and practical support pathways for adults.
 hero:
+  eyebrow: "Our Services"
   heading: "Domiciliary Care Services"
   subheading: "Reliable home support for adults who need consistent visits, safer routines, and practical daily help."
+  profileContent:
+    supported-living:
+      heading: "Care Pathways Designed for Real-World Delivery"
+      subheading: "From tenancy-based support to home visits, every package is structured around safety, continuity, and measurable progress."
+    dom-care:
+      heading: "Domiciliary Care Services"
+      subheading: "Reliable home support for adults who need consistent visits, safer routines, and practical daily help."
 services:
   - title: "Personal Care"
     description: "Support with washing, dressing, hygiene, and dignity-led daily routines."

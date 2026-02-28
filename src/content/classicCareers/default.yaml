@@ -6,8 +6,16 @@ metadata:
     '@type': WebPage
     name: Careers at Harbor Care Services
 hero:
-  heading: Join Our Team
-  description: Make a practical difference every day in a service focused on quality, dignity, and measurable outcomes.
+  eyebrow: "Careers"
+  heading: "Join Our Team"
+  subheading: "Make a practical difference every day in a service focused on quality, dignity, and measurable outcomes."
+  profileContent:
+    supported-living:
+      heading: "Join Our Team"
+      subheading: "Make a practical difference every day in a service focused on quality, dignity, and measurable outcomes."
+    dom-care:
+      heading: "Join Our Home Care Team"
+      subheading: "Deliver reliable, compassionate domiciliary care that helps adults live well at home."
 benefitsHeading: Why Work With Harbor Care
 benefits:
   - title: Specialist Training and Development

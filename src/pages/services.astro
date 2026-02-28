@@ -9,6 +9,7 @@ import { getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import type { ImageMetadata } from 'astro';
+import PageHero from '@components/PageHero.astro';
 import serviceHighlight from '@assets/images/service-highlight.jpg';
 import wellbeingSupport from '@assets/images/wellbeing-support.jpg';
 import facilityTour from '@assets/images/facility-tour.jpg';
@@ -39,25 +40,17 @@ const imageMap: Record<string, ImageMetadata> = {
   <div data-care-profile-switcher>
     {profiles.map(({ key, content }) => (
       <div data-care-profile-panel={key} class:list={{ hidden: key !== 'supported-living' }}>
-        <!-- HERO SECTION -->
-        <section class="relative py-24 lg:py-32 bg-primary overflow-hidden">
-          <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
-          <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
-
-          <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-8">
-              {content.hero.heading}
-            </h1>
-            <p class="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              {content.hero.subheading}
-            </p>
-          </div>
-        </section>
+        <PageHero
+          eyebrow={content.hero.eyebrow}
+          heading={content.hero.heading}
+          subheading={content.hero.subheading}
+          profileContent={content.hero.profileContent}
+        />
 
         <!-- SERVICES GRID -->
         <section class="py-20 bg-background">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             <!-- Section Intro -->
             <div class="max-w-3xl mx-auto text-center mb-16">
               <span class="text-accent font-serif italic text-xl mb-4 block">Comprehensive Care</span>

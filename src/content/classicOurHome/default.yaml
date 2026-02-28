@@ -52,6 +52,119 @@ locationSection:
       description: Easy coordination with local authority, NHS, and partner teams.
   ctaText: Arrange a Visit
   ctaHref: /contact
+outcomesSnapshot:
+  heading: Our Home Environment Outcomes
+  intro: Key benefits of our purpose-designed living spaces.
+  stats:
+    - value: "95%"
+      label: "Resident Satisfaction"
+      detail: "Service users reporting comfort and safety in our environments."
+    - value: "24/7"
+      label: "On-Call Support"
+      detail: "Round-the-clock leadership and emergency response."
+    - value: "100%"
+      label: "Inspection Compliance"
+      detail: "All locations meeting or exceeding regulatory standards."
+
+serviceFit:
+  badgeLabel: "Environment Fit"
+  heading: "Who Our Homes Are Designed For"
+  intro: "Our living environments are purpose-built for adults who need structured, safe, and community-connected accommodation."
+  suitableForTitle: "Ideal For"
+  suitableFor:
+    - "Adults requiring supported living with 24-hour staff availability."
+    - "Individuals transitioning from residential care or hospital settings."
+    - "Those who benefit from communal living with structured routines."
+  alternativeSupportTitle: "May Not Be Suitable When"
+  alternativeSupport:
+    - "Complete independent living without any support is the goal."
+    - "Intensive clinical or nursing care is the primary need."
+    - "The service user strongly prefers solitary living arrangements."
+
+firstThirtyDays:
+  heading: "Your First 30 Days in Our Home"
+  intro: "A structured settling-in period to build familiarity and comfort."
+  milestones:
+    - dayRange: "Days 1-7"
+      title: "Welcome and Orientation"
+      description: "Tour the home, meet staff and residents, and settle into your personalised space."
+      icon: "tabler:home"
+    - dayRange: "Days 8-14"
+      title: "Routine Building"
+      description: "Establish daily patterns, join communal activities, and build relationships."
+      icon: "tabler:calendar"
+    - dayRange: "Days 15-30"
+      title: "Goal Setting"
+      description: "Review initial experience, set independence goals, and plan community engagement."
+      icon: "tabler:target"
+
+approach:
+  heading: "Our Home Environment Philosophy"
+  description: "Creating spaces that balance safety, independence, and community connection."
+  points:
+    - "Person-centred design with input from residents and families"
+    - "Clear structure and routines that provide security and predictability"
+    - "Gradual independence building with appropriate risk-taking encouraged"
+    - "Community integration with local amenities, transport, and activities"
+
+whyChooseUs:
+  heading: "Why Choose Our Living Environment"
+  intro: "Our homes combine practical design with warm, person-centred support."
+  points:
+    - title: "Purpose-Designed Spaces"
+      description: "Every area designed with accessibility, safety, and comfort in mind."
+    - title: "Community Atmosphere"
+      description: "Supportive relationships between residents, staff, and families."
+    - title: "Local Connectivity"
+      description: "Homes situated near amenities, transport links, and community resources."
+  imageKey: "service-general"
+  imageAlt: "Comfortable, modern care home living space"
+
+faqSection:
+  heading: "Our Home FAQs"
+  intro: "Common questions about living in our supported environments."
+  items:
+    - question: "Can I personalise my room?"
+      answer: "Absolutely. We encourage residents to make their rooms their own with personal belongings, decorations, and furniture where possible."
+    - question: "Are visitors allowed?"
+      answer: "Yes, family and friends are welcome to visit. We also have comfortable visitor areas for private time together."
+    - question: "Can I come and go as I please?"
+      answer: "We support independence and community access, with risk assessments ensuring everyone stays safe while maintaining freedom."
+    - question: "What activities are available?"
+      answer: "A range of in-house and community activities including arts, cooking, exercise, and local outings based on resident interests."
+
+relatedServices:
+  eyebrow: "Related services"
+  heading: "Explore Related Support Services"
+  intro: "These services work alongside our living environments for comprehensive care."
+  ctaText: "View all services"
+  ctaHref: "/services"
+  services:
+    - title: "Residential Care"
+      description: "Outcome-led supported living with structured independence."
+      href: "/services/residential-care"
+      imageKey: "residential-care"
+      imageAlt: "Residential care environment"
+    - title: "Transitional Care"
+      description: "Support for moving into our homes from other settings."
+      href: "/transitional-care"
+      imageKey: "transitional-care"
+      imageAlt: "Transition planning support"
+    - title: "Wellbeing Support"
+      description: "Emotional and social support for residents."
+      href: "/wellbeing-support"
+      imageKey: "wellbeing-support"
+      imageAlt: "Wellbeing support session"
+
+contactSection:
+  heading: "Arrange a Visit to Our Home"
+  intro: "Contact us to arrange a tour and discuss whether our environment is right for you."
+  phoneLabel: "0208 555 0199"
+  phoneHref: "tel:+442085550199"
+  emailLabel: "referrals@harborcare.co.uk"
+  emailHref: "mailto:referrals@harborcare.co.uk"
+  address: "Unit 12, Healthcare Business Park, London, SE1 7PB"
+
 ctaSection:
   heading: Discuss the Right Living Environment
   description: Speak with our team about placement suitability, support needs, and transition planning.

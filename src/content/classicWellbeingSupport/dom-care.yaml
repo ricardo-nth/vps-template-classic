@@ -33,6 +33,120 @@ outcomesSection:
     - Better day-to-day emotional stability
     - Increased social connection
     - Improved confidence with regular routines
+
+outcomesSnapshot:
+  heading: Home Wellbeing Support Outcomes
+  intro: Key metrics demonstrating the impact of our companionship services.
+  stats:
+    - value: "90%"
+      label: "Reduced Loneliness"
+      detail: "Clients reporting less isolation after 8 weeks of support."
+    - value: "87%"
+      label: "Improved Mood"
+      detail: "Noticeable improvements in emotional wellbeing and outlook."
+    - value: "100%"
+      label: "Flexible Scheduling"
+      detail: "Visit times arranged to suit individual preferences and routines."
+
+serviceFit:
+  badgeLabel: "Service Fit"
+  heading: "Who Benefits from Home Wellbeing Support"
+  intro: "Our companionship service is designed for adults at home who need social connection and emotional support."
+  suitableForTitle: "Ideal For"
+  suitableFor:
+    - "Adults experiencing loneliness or isolation at home."
+    - "Individuals needing support to maintain social connections and community access."
+    - "Those recovering from illness who need companionship during recuperation."
+  alternativeSupportTitle: "May Not Be Suitable When"
+  alternativeSupport:
+    - "Clinical mental health treatment is the primary need."
+    - "Intensive personal care or medical interventions are required."
+    - "The individual strongly prefers complete solitude without any visitors."
+
+firstThirtyDays:
+  heading: "Your First 30 Days of Companionship Support"
+  intro: "A gradual introduction to build rapport, understand preferences, and establish meaningful routines."
+  milestones:
+    - dayRange: "Days 1-7"
+      title: "Getting to Know You"
+      description: "Initial visits focused on building rapport, understanding interests, and assessing social needs."
+      icon: "tabler:heart"
+    - dayRange: "Days 8-14"
+      title: "Activity Introduction"
+      description: "Introducing preferred activities, community resources, and establishing regular visit patterns."
+      icon: "tabler:calendar"
+    - dayRange: "Days 15-30"
+      title: "Routine Establishment"
+      description: "Settled companionship routine with regular activities and ongoing feedback and adjustments."
+      icon: "tabler:mood-happy"
+
+approach:
+  heading: "Our Companionship Approach"
+  description: "A person-centred model focused on genuine connection and meaningful engagement."
+  points:
+    - "Comprehensive assessment of interests, preferences, and social goals"
+    - "Careful matching with compatible support workers who share common interests"
+    - "Flexible, responsive support that adapts to changing needs and moods"
+    - "Regular reviews ensuring the relationship remains positive and beneficial"
+
+whyChooseUs:
+  heading: "Why Choose Our Home Wellbeing Support"
+  intro: "We provide genuine companionship that makes a real difference to daily life and emotional health."
+  points:
+    - title: "Interest-Based Matching"
+      description: "Support workers matched based on shared interests, hobbies, and personality compatibility."
+    - title: "Consistent Relationships"
+      description: "The same support worker for every visit, building genuine connection and understanding."
+    - title: "Flexible Activities"
+      description: "From home-based hobbies to community outings, tailored to preferences and energy levels."
+  imageKey: "wellbeing-support"
+  imageAlt: "Companionship visit at home with tea and conversation"
+
+faqSection:
+  heading: "Home Wellbeing Support FAQs"
+  intro: "Common questions about our companionship and social support services."
+  items:
+    - question: "How often can companionship visits be arranged?"
+      answer: "From once a week to daily visits, depending on needs, preferences, and budget."
+    - question: "What sort of activities do companionship visits include?"
+      answer: "Anything from conversation and games at home, to walks, cafe visits, shopping, or attending local groups together."
+    - question: "Will I have the same companion each time?"
+      answer: "Yes, we prioritise consistency so you build a genuine relationship with your regular support worker."
+    - question: "Can family members join in companionship activities?"
+      answer: "Of course. Family involvement is welcome, and we can support family visits or outings together."
+
+relatedServices:
+  eyebrow: "Related services"
+  heading: "Explore Related Support Services"
+  intro: "These services complement companionship support for comprehensive home care."
+  ctaText: "View all services"
+  ctaHref: "/services"
+  services:
+    - title: "Residential Care"
+      description: "Structured supported living with independence outcomes."
+      href: "/services/residential-care"
+      imageKey: "residential-care"
+      imageAlt: "Residential care environment"
+    - title: "Transitional Care"
+      description: "Support for returning home from hospital or residential settings."
+      href: "/transitional-care"
+      imageKey: "transitional-care"
+      imageAlt: "Transition planning support"
+    - title: "Our Home"
+      description: "Explore our living environments for longer-term care needs."
+      href: "/our-home"
+      imageKey: "featured-section"
+      imageAlt: "Care home living space"
+
+contactSection:
+  heading: "Speak With Our Wellbeing Team"
+  intro: "Discuss companionship needs and how we can support social connection and emotional wellbeing at home."
+  phoneLabel: "0208 555 0199"
+  phoneHref: "tel:+442085550199"
+  emailLabel: "referrals@harborcare.co.uk"
+  emailHref: "mailto:referrals@harborcare.co.uk"
+  address: "Unit 12, Healthcare Business Park, London, SE1 7PB"
+
 ctaSection:
   heading: Arrange Companionship Support
   description: Tell us what support is needed and we will design a practical wellbeing package.
