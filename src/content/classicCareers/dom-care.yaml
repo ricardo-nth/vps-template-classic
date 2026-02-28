@@ -1,0 +1,33 @@
+metadata:
+  title: Careers - Harbor Home Care
+  description: Join Harbor Home Care and support adults through reliable, person-centred domiciliary services.
+  schema:
+    '@context': https://schema.org
+    '@type': WebPage
+    name: Careers at Harbor Home Care
+hero:
+  heading: Build a Career in Home Care
+  description: Join a team focused on continuity, safe delivery, and practical support for adults living at home.
+benefitsHeading: Why Work With Harbor Home Care
+benefits:
+  - title: Reliable Scheduling Systems
+    description: Work in a continuity-led service with clear planning and strong team communication.
+  - title: Practical Clinical Support
+    description: Ongoing competency support in medication, safeguarding, and home-care standards.
+  - title: Clear Progression Pathways
+    description: Grow from frontline delivery into senior care and coordination roles.
+vacanciesHeading: Current Vacancies
+vacancies:
+  - title: Domiciliary Care Worker
+    employmentType: Full-time
+    location: South and Central London
+    applyEmail: careers@harborcare.co.uk
+  - title: Weekend Care Worker
+    employmentType: Part-time
+    location: Borough-wide coverage
+    applyEmail: careers@harborcare.co.uk
+  - title: Home Care Coordinator
+    employmentType: Full-time
+    location: Head Office
+    applyEmail: careers@harborcare.co.uk
+fallbackCopy: If you do not see the right vacancy, send your CV to careers@harborcare.co.uk and our recruitment team will contact you.

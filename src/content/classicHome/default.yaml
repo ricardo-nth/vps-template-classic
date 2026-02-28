@@ -1,0 +1,53 @@
+metadata:
+  title: Harbor Care Services
+  description: Outcome-led supported living and dependable domiciliary care delivered with clear governance, continuity, and person-centred planning.
+  schema:
+    "@context": https://schema.org
+    "@type": Organization
+    name: Harbor Care Services
+    description: Outcome-led supported living and dependable domiciliary care delivered with clear governance, continuity, and person-centred planning.
+hero:
+  profileContent:
+    supported-living:
+      heading: "Supported Living Services <br/><span class='text-secondary'>Clear Independence Outcomes</span>"
+      subheading: "Structured tenancy support that helps adults build life skills, sustain placements, and participate confidently in their communities."
+    dom-care:
+      heading: "Domiciliary Care <br/><span class='text-secondary'>Families Can Rely On</span>"
+      subheading: "Reliable home visits with continuity of carers, safe routines, and communication that keeps everyone informed."
+  primaryCtaText: "Explore Services"
+  primaryCtaHref: "/services"
+  secondaryCtaText: "Talk to Our Team"
+  secondaryCtaHref: "/contact"
+  imageKey: "hero-bg"
+  imageAlt: "Care coordinator reviewing a person-centred plan with a client"
+welcome:
+  eyebrow: "Welcome to Harbor Care"
+  heading: "Care Services Built Around Stability and Progress"
+  description: "We support adults, families, and commissioners with structured planning, dependable teams, and outcomes that are visible in everyday life. Our model combines robust oversight with practical frontline delivery so adults can progress safely and consistently."
+serviceHighlight:
+  title: "Supported Living Service Lines"
+  description: "Our supported living pathways are built around tenancy stability, life-skills development, and measurable independence outcomes."
+  features:
+    - "Tenancy and Daily Living Support"
+    - "Life Skills Development"
+    - "Community Access and Confidence"
+    - "Complex Needs Support"
+  imageKey: "service-highlight"
+  imageAlt: "Supported living service environments"
+testimonial:
+  quote: "Harbor Care gave us a plan we could trust and outcomes we could actually track."
+  author: "A. Rahman"
+  role: "Family Representative"
+featuredSection:
+  eyebrow: "Why Harbor Care"
+  heading: "Designed for Dependability Across Every Package"
+  description: "Our model prioritises safe delivery, continuity of relationships, and measurable outcomes from first referral to long-term support."
+  benefits:
+    - "CQC-Aligned Governance"
+    - "Continuity of Team"
+    - "Review-Led Outcomes"
+  imageKey: "featured-section"
+  imageAlt: "Family and care coordinator discussing progress outcomes"
+cta:
+  heading: "Plan the Right Care Package"
+  description: "Share your referral goals and we will shape a practical support model with clear outcomes and dependable delivery."

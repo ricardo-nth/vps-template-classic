@@ -1,0 +1,59 @@
+metadata:
+  title: Our Home - Harbor Care Services
+  description: Explore Harbor Care's supported living environments designed for safety, routine stability, and independence outcomes.
+  schema:
+    '@context': https://schema.org
+    '@type': WebPage
+    name: Our Home
+    description: Explore Harbor Care's supported living environments designed for safety, routine stability, and independence outcomes.
+hero:
+  heading: A Home Environment Built for Progress
+  subheading: Safe, calm, community-connected living spaces where adults can build confidence and independence.
+  profileContent:
+    supported-living:
+      heading: Supported Living Environments
+      subheading: Structured homes that support tenancy sustainment and day-to-day independence.
+    dom-care:
+      heading: Home Care Service Environment
+      subheading: Operationally strong teams supporting adults in their own homes across the community.
+overview:
+  heading: Designed Around Safety and Daily Routine
+  description: Our environments combine practical accessibility, staff visibility, and person-centred planning so support remains consistent and respectful.
+  features:
+    - 24/7 on-call leadership support
+    - Structured medication and risk workflows
+    - Calm shared spaces for social routines
+    - Community access planning
+  imageKey: service-general
+  imageAlt: Harbor care environment with support worker and resident
+spacesSection:
+  heading: Spaces That Support Everyday Life
+  intro: Each area is designed to make routines easier, safer, and more predictable.
+  spaces:
+    - name: Shared Living Areas
+      description: Comfortable communal spaces for social activities, reviews, and family visits.
+      imageKey: featured-section
+      imageAlt: Shared living area in supported living setting
+    - name: Quiet Reflection Spaces
+      description: Low-stimulation rooms for emotional regulation and one-to-one support.
+      imageKey: facility-tour
+      imageAlt: Quiet room for wellbeing support
+    - name: Skills Practice Zones
+      description: Practical kitchen and household spaces for life-skills coaching.
+      imageKey: service-general
+      imageAlt: Practical life-skills training area
+locationSection:
+  heading: Community-Connected Location
+  description: Our locations are selected to support appointments, local participation, and family access.
+  points:
+    - title: Local Access
+      description: Close to public transport, GP services, and community facilities.
+    - title: Professional Collaboration
+      description: Easy coordination with local authority, NHS, and partner teams.
+  ctaText: Arrange a Visit
+  ctaHref: /contact
+ctaSection:
+  heading: Discuss the Right Living Environment
+  description: Speak with our team about placement suitability, support needs, and transition planning.
+  primaryText: Contact Our Team
+  primaryHref: /contact

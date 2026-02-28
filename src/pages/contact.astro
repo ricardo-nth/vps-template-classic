@@ -1,111 +1,120 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { getEntry } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 
-const metadata = {
-  title: 'Contact Us - [Business Name]',
-  description: 'Get in touch with [Business Name] to discuss your needs or schedule a visit.',
-  schema: {
-    '@context': 'https://schema.org',
-    '@type': 'ContactPage',
-    name: 'Contact [Business Name]',
-  }
-};
+const contactEntry = await getEntry('classicContact', 'default');
+const contactDomEntry = await getEntry('classicContact', 'dom-care');
+if (!contactEntry) {
+  throw new Error('Missing content entry: classicContact/default');
+}
+if (!contactDomEntry) {
+  throw new Error('Missing content entry: classicContact/dom-care');
+}
+
+const profiles = [
+  { key: 'supported-living', content: contactEntry.data },
+  { key: 'dom-care', content: contactDomEntry.data },
+] as const;
 ---
 
-<SiteLayout metadata={metadata}>
-  <div class="bg-secondary py-20">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h1 class="font-serif text-5xl text-primary mb-6">Get in Touch</h1>
-      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-        We are here to answer your questions and help you find the right solution.
-      </p>
-    </div>
-  </div>
-
-  <div class="py-20 max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-16">
-    <!-- Contact Info -->
-    <div>
-      <h2 class="font-serif text-3xl text-primary mb-8">Contact Information</h2>
-      <div class="space-y-8">
-        <div class="flex items-start gap-4">
-          <div class="bg-primary/10 p-3 rounded-full text-primary">
-            <Icon name="tabler:phone" class="h-6 w-6" />
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg">Phone</h3>
-            <p class="text-muted-foreground mb-1">[Your availability hours]</p>
-            <a href="tel:[Your Phone]" class="text-xl text-primary font-medium hover:underline">[Your Phone]</a>
+<SiteLayout metadata={contactEntry.data.metadata}>
+  <div data-care-profile-switcher>
+    {profiles.map(({ key, content }) => (
+      <div data-care-profile-panel={key} class:list={{ hidden: key !== 'supported-living' }}>
+        <div class="bg-secondary py-20">
+          <div class="max-w-6xl mx-auto px-4 text-center">
+            <h1 class="font-serif text-5xl text-primary mb-6">{content.hero.heading}</h1>
+            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+              {content.hero.description}
+            </p>
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
-          <div class="bg-primary/10 p-3 rounded-full text-primary">
-            <Icon name="tabler:mail" class="h-6 w-6" />
-          </div>
+        <div class="py-20 max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-16">
+          <!-- Contact Info -->
           <div>
-            <h3 class="font-semibold text-lg">Email</h3>
-            <p class="text-muted-foreground mb-1">For general enquiries</p>
-            <a href="mailto:[Your Email]" class="text-xl text-primary font-medium hover:underline">[Your Email]</a>
-          </div>
-        </div>
+            <h2 class="font-serif text-3xl text-primary mb-8">Contact Information</h2>
+            <div class="space-y-8">
+              <div class="flex items-start gap-4">
+                <div class="bg-primary/10 p-3 rounded-full text-primary">
+                  <Icon name="tabler:phone" class="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg">Phone</h3>
+                  <p class="text-muted-foreground mb-1">{content.contactInfo.phoneAvailability}</p>
+                  <a href={content.contactInfo.phoneHref} class="text-xl text-primary font-medium hover:underline">{content.contactInfo.phoneLabel}</a>
+                </div>
+              </div>
 
-        <div class="flex items-start gap-4">
-          <div class="bg-primary/10 p-3 rounded-full text-primary">
-            <Icon name="tabler:map-pin" class="h-6 w-6" />
+              <div class="flex items-start gap-4">
+                <div class="bg-primary/10 p-3 rounded-full text-primary">
+                  <Icon name="tabler:mail" class="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg">Email</h3>
+                  <p class="text-muted-foreground mb-1">For general enquiries</p>
+                  <a href={content.contactInfo.emailHref} class="text-xl text-primary font-medium hover:underline">{content.contactInfo.emailLabel}</a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="bg-primary/10 p-3 rounded-full text-primary">
+                  <Icon name="tabler:map-pin" class="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg">Location</h3>
+                  <address class="not-italic text-muted-foreground text-lg whitespace-pre-line">
+                    {content.contactInfo.address}
+                  </address>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA for custom site -->
+            <div class="mt-12 p-6 bg-secondary/50 rounded-2xl">
+              <h3 class="font-serif text-xl text-primary mb-2">Need a Website Like This?</h3>
+              <p class="text-muted-foreground mb-4">Get your own professional website built and hosted - you just provide content, we handle everything else.</p>
+              <a
+                href="https://vertexplatformsolutions.com/offers/healthcare-agencies"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-primary rounded-full hover:bg-primary/90 transition-colors"
+              >
+                Get This Site Built For You
+              </a>
+            </div>
           </div>
-          <div>
-            <h3 class="font-semibold text-lg">Location</h3>
-            <address class="not-italic text-muted-foreground text-lg">
-              [Business Name]<br/>
-              [Your City], [Your Region]<br/>
-              [Additional address info if needed]
-            </address>
+
+          <!-- Form -->
+          <div class="bg-white p-8 rounded-2xl shadow-lg border border-border">
+            <h2 class="font-serif text-2xl text-primary mb-6">Send us a Message</h2>
+            <form class="space-y-4">
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label for="first-name" class="block text-sm font-medium text-foreground mb-1">First Name</label>
+                  <input type="text" id="first-name" name="first-name" autocomplete="given-name" required class="w-full rounded-lg border-border bg-background px-4 py-2 focus:border-primary focus:ring-primary" />
+                </div>
+                <div>
+                  <label for="last-name" class="block text-sm font-medium text-foreground mb-1">Last Name</label>
+                  <input type="text" id="last-name" name="last-name" autocomplete="family-name" required class="w-full rounded-lg border-border bg-background px-4 py-2 focus:border-primary focus:ring-primary" />
+                </div>
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-foreground mb-1">Email Address</label>
+                <input type="email" id="email" name="email" autocomplete="email" required class="w-full rounded-lg border-border bg-background px-4 py-2 focus:border-primary focus:ring-primary" />
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-medium text-foreground mb-1">How can we help?</label>
+                <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border-border bg-background px-4 py-2 focus:border-primary focus:ring-primary"></textarea>
+              </div>
+              <button type="submit" class="w-full bg-primary text-white font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors">
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
       </div>
-
-      <!-- CTA for custom site -->
-      <div class="mt-12 p-6 bg-secondary/50 rounded-2xl">
-        <h3 class="font-serif text-xl text-primary mb-2">Need a Website Like This?</h3>
-        <p class="text-muted-foreground mb-4">Get your own professional website built and hosted - you just provide content, we handle everything else.</p>
-        <a
-          href="https://vertexplatformsolutions.com/offers/healthcare-agencies"
-          target="_blank"
-          rel="noopener"
-          class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-primary rounded-full hover:bg-primary/90 transition-colors"
-        >
-          Get This Site Built For You
-        </a>
-      </div>
-    </div>
-
-    <!-- Form -->
-    <div class="bg-white p-8 rounded-2xl shadow-lg border border-border">
-      <h2 class="font-serif text-2xl text-primary mb-6">Send us a Message</h2>
-      <form class="space-y-4">
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label for="first-name" class="block text-sm font-medium text-foreground mb-1">First Name</label>
-            <input type="text" id="first-name" name="first-name" autocomplete="given-name" required class="w-full rounded-lg border-border bg-background px-4 py-2 focus:border-primary focus:ring-primary" />
-          </div>
-          <div>
-            <label for="last-name" class="block text-sm font-medium text-foreground mb-1">Last Name</label>
-            <input type="text" id="last-name" name="last-name" autocomplete="family-name" required class="w-full rounded-lg border-border bg-background px-4 py-2 focus:border-primary focus:ring-primary" />
-          </div>
-        </div>
-        <div>
-          <label for="email" class="block text-sm font-medium text-foreground mb-1">Email Address</label>
-          <input type="email" id="email" name="email" autocomplete="email" required class="w-full rounded-lg border-border bg-background px-4 py-2 focus:border-primary focus:ring-primary" />
-        </div>
-        <div>
-          <label for="message" class="block text-sm font-medium text-foreground mb-1">How can we help?</label>
-          <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border-border bg-background px-4 py-2 focus:border-primary focus:ring-primary"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-primary text-white font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors">
-          Send Message
-        </button>
-      </form>
-    </div>
+    ))}
   </div>
 </SiteLayout>

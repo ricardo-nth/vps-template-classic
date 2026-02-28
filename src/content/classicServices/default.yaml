@@ -1,0 +1,52 @@
+metadata:
+  title: Services - Harbor Care Services
+  description: Explore supported living and domiciliary care pathways delivered with clear governance, continuity of teams, and measurable outcomes.
+  schema:
+    "@context": https://schema.org
+    "@type": Service
+    name: Harbor Care Services
+    description: Specialist supported living and domiciliary care pathways for adults with diverse support needs.
+hero:
+  heading: "Care Pathways Designed for Real-World Delivery"
+  subheading: "From tenancy-based support to home visits, every package is structured around safety, continuity, and measurable progress."
+services:
+  - title: "Tenancy and Daily Living Support"
+    description: "Core tenancy support covering routines, risk planning, and independent living milestones."
+    features:
+      - "Routine establishment"
+      - "Risk planning"
+      - "Independent living goals"
+    imageKey: "service-1"
+    imageAlt: "Supported living professional and resident planning goals"
+  - title: "Life Skills Development"
+    description: "Coaching for cooking, budgeting, household routines, and safe independent decision-making."
+    features:
+      - "Cooking and budgeting"
+      - "Household management"
+      - "Daily decision-making"
+    imageKey: "service-2"
+    imageAlt: "Support worker helping a resident build daily life skills"
+  - title: "Community Access"
+    description: "Support for appointments, shopping, and social routines that build confidence."
+    features:
+      - "Appointment support"
+      - "Community participation"
+      - "Social confidence building"
+    imageKey: "service-3"
+    imageAlt: "Service user and support worker in the community"
+  - title: "Complex Needs Support"
+    description: "Joined-up support for learning disability, autism, and mental health needs."
+    features:
+      - "Learning disability"
+      - "Autism support"
+      - "Mental health pathways"
+    imageKey: "service-1"
+    imageAlt: "Care team planning a multidisciplinary support package"
+  - title: "Transition Support"
+    description: "Step-down support from hospital or residential care into stable tenancy routines."
+    features:
+      - "Step-down planning"
+      - "Tenancy readiness"
+      - "Community reintegration"
+    imageKey: "service-2"
+    imageAlt: "Care coordinator reviewing transition plans with stakeholders"

@@ -4,6 +4,8 @@
  * Displays below the main navigation with links to reviews, reports, etc.
  */
 
+import { sharedContactConfig } from '@/config/site';
+
 interface NavLink {
   label: string;
   href: string;
@@ -15,7 +17,7 @@ interface Props {
 
 const {
   links = [
-    { label: "Speak to our team: 01234 567 890", href: "tel:01234567890" },
+    { label: `Speak to our team: ${sharedContactConfig.phoneLabel}`, href: sharedContactConfig.phoneHref },
     { label: "Book a Visit", href: "/contact" }
   ]
 } = Astro.props as Props;
@@ -37,4 +39,3 @@ const {
     </ul>
   </nav>
 </div>
-

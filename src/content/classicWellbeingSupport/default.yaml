@@ -1,0 +1,40 @@
+metadata:
+  title: Wellbeing Support Services - Harbor Care Services
+  description: Structured social support that reduces isolation and improves emotional wellbeing with measurable outcomes.
+  schema:
+    '@context': https://schema.org
+    '@type': Service
+    name: Wellbeing Support Services
+    description: Planned social support to reduce isolation and improve emotional wellbeing.
+hero:
+  heading: Wellbeing Support Services
+  subheading: Structured social support that reduces isolation and improves emotional wellbeing.
+  profileContent:
+    supported-living:
+      heading: Community-Based Wellbeing Support
+      subheading: Support for appointments, shopping, and social routines that build confidence.
+    dom-care:
+      heading: Home-Based Wellbeing Support
+      subheading: Companionship visits and structured social support at home.
+overview:
+  heading: Wellbeing Support That Builds Confidence
+  description: We deliver planned social and emotional support that helps adults stay connected, motivated, and engaged.
+features:
+  - title: Social Participation
+    description: Support for accessing community activities and building connections.
+  - title: Emotional Wellbeing
+    description: Regular support to reduce isolation and improve mental health.
+  - title: Confidence Building
+    description: Gradual progression toward greater independence.
+outcomesSection:
+  heading: Wellbeing Outcomes We Track
+  description: Progress is monitored through practical indicators linked to stability and confidence.
+  outcomes:
+    - Reduced social isolation
+    - Improved routine engagement
+    - Greater confidence in community participation
+ctaSection:
+  heading: Arrange Wellbeing Support
+  description: Discuss your current needs and we will recommend a practical wellbeing pathway.
+  primaryText: Contact Our Team
+  primaryHref: /contact

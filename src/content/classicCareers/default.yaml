@@ -1,0 +1,33 @@
+metadata:
+  title: Careers - Harbor Care Services
+  description: Join Harbor Care Services and help deliver high-quality supported living and domiciliary care across London.
+  schema:
+    '@context': https://schema.org
+    '@type': WebPage
+    name: Careers at Harbor Care Services
+hero:
+  heading: Join Our Team
+  description: Make a practical difference every day in a service focused on quality, dignity, and measurable outcomes.
+benefitsHeading: Why Work With Harbor Care
+benefits:
+  - title: Specialist Training and Development
+    description: Structured onboarding, role-based training, and regular supervision support your progression.
+  - title: Outcome-Focused Practice
+    description: Work in a team that values measurable progress and person-centred delivery.
+  - title: Supportive Leadership
+    description: Clear communication, accessible managers, and practical support in day-to-day delivery.
+vacanciesHeading: Current Vacancies
+vacancies:
+  - title: Supported Living Support Worker
+    employmentType: Full-time
+    location: South London
+    applyEmail: careers@harborcare.co.uk
+  - title: Domiciliary Care Worker
+    employmentType: Part-time
+    location: London Borough Coverage
+    applyEmail: careers@harborcare.co.uk
+  - title: Care Coordinator
+    employmentType: Full-time
+    location: Head Office
+    applyEmail: careers@harborcare.co.uk
+fallbackCopy: Don't see a suitable role? Send your CV to careers@harborcare.co.uk and we will keep your details for future opportunities.

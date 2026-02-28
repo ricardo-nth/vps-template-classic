@@ -1,0 +1,59 @@
+metadata:
+  title: Our Home Care Model - Harbor Home Care
+  description: Learn how Harbor Home Care organises domiciliary delivery with strong continuity, safeguarding controls, and practical communication.
+  schema:
+    '@context': https://schema.org
+    '@type': WebPage
+    name: Our Home Care Model
+    description: Learn how Harbor Home Care organises domiciliary delivery with strong continuity, safeguarding controls, and practical communication.
+hero:
+  heading: Home Care Delivery Built for Reliability
+  subheading: Practical systems and continuity-focused teams that keep support dependable in clients' homes.
+  profileContent:
+    supported-living:
+      heading: Supported Living Environments
+      subheading: Structured homes that support tenancy sustainment and day-to-day independence.
+    dom-care:
+      heading: Home Care Service Environment
+      subheading: Operationally strong teams supporting adults in their own homes across the community.
+overview:
+  heading: Operational Foundations for Safe Home Care
+  description: Our model balances compassionate delivery with disciplined workflows for scheduling, medication, communication, and escalation.
+  features:
+    - Continuity-led rostering
+    - Structured medication support records
+    - Family communication standards
+    - Escalation and safeguarding pathways
+  imageKey: service-general
+  imageAlt: Domiciliary support worker reviewing care notes
+spacesSection:
+  heading: Where and How We Deliver Support
+  intro: Services are coordinated from our local office and delivered in homes across the boroughs we cover.
+  spaces:
+    - name: Home Visit Planning Hub
+      description: Coordination desk for scheduling, continuity checks, and response planning.
+      imageKey: featured-section
+      imageAlt: Care coordination office team
+    - name: Medication and Compliance Oversight
+      description: Quality checks and supervision cycles that maintain safe delivery standards.
+      imageKey: facility-tour
+      imageAlt: Quality assurance review meeting
+    - name: Family Communication Pathways
+      description: Clear updates and follow-up channels for relatives and professionals.
+      imageKey: service-general
+      imageAlt: Family communication and care review session
+locationSection:
+  heading: Local Coverage and Response
+  description: We support adults across London boroughs with practical routes for urgent updates and planned reviews.
+  points:
+    - title: Rapid Local Coordination
+      description: Nearby operations support timely schedule updates and escalations.
+    - title: Professional Integration
+      description: Routine communication with community teams and referrers.
+  ctaText: Speak to Home Care Team
+  ctaHref: /contact
+ctaSection:
+  heading: Need Reliable Domiciliary Support?
+  description: Tell us your current requirements and we will map a practical package around safety and consistency.
+  primaryText: Contact Home Care Team
+  primaryHref: /contact

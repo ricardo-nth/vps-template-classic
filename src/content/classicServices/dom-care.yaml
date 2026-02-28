@@ -1,0 +1,52 @@
+metadata:
+  title: Domiciliary Care Services - Harbor Home Care
+  description: Explore domiciliary care services delivered through reliable home visits, continuity of carers, and practical outcome-focused support.
+  schema:
+    "@context": https://schema.org
+    "@type": Service
+    name: Domiciliary Care Services
+    description: Home-based personal care and practical support pathways for adults.
+hero:
+  heading: "Domiciliary Care Services"
+  subheading: "Reliable home support for adults who need consistent visits, safer routines, and practical daily help."
+services:
+  - title: "Personal Care"
+    description: "Support with washing, dressing, hygiene, and dignity-led daily routines."
+    features:
+      - "Personal hygiene"
+      - "Mobility support"
+      - "Dignity-led routines"
+    imageKey: "service-1"
+    imageAlt: "Carer assisting with personal care planning"
+  - title: "Medication and Health Monitoring"
+    description: "Prompting and administration support with documented records and escalation pathways."
+    features:
+      - "Medication prompting"
+      - "Administration support"
+      - "Clear records"
+    imageKey: "service-2"
+    imageAlt: "Care worker managing medication records"
+  - title: "Meal Preparation and Nutrition"
+    description: "Help with meal preparation, hydration support, and safe nutrition routines."
+    features:
+      - "Meal preparation"
+      - "Hydration support"
+      - "Nutritional planning"
+    imageKey: "service-3"
+    imageAlt: "Home care support worker assisting with meal routines"
+  - title: "Wellbeing and Companionship"
+    description: "Planned social support to reduce isolation and improve emotional wellbeing."
+    features:
+      - "Social support"
+      - "Emotional wellbeing"
+      - "Companionship visits"
+    imageKey: "service-1"
+    imageAlt: "Support worker engaging in companionship visit"
+  - title: "Post-Discharge Home Support"
+    description: "Structured short-term support following hospital discharge to reduce readmission risk."
+    features:
+      - "Reablement support"
+      - "Confidence rebuilding"
+      - "Reduced readmission risk"
+    imageKey: "service-2"
+    imageAlt: "Home care review after hospital discharge"

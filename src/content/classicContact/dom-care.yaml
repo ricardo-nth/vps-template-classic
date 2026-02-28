@@ -1,0 +1,36 @@
+metadata:
+  title: Contact Harbor Home Care
+  description: Contact Harbor Home Care for domiciliary referrals, home visit enquiries, and practical support planning.
+  schema:
+    "@context": https://schema.org
+    "@type": ContactPage
+    name: Contact Harbor Home Care
+hero:
+  heading: "Speak With Our Home Care Team"
+  description: "We help families and professionals arrange reliable domiciliary support with clear scheduling and communication."
+contactInfo:
+  phoneLabel: "0208 555 0199"
+  phoneHref: "tel:+442085550199"
+  phoneAvailability: "Monday - Friday: 8:30 AM - 6:30 PM, Saturday: 10:00 AM - 2:00 PM"
+  emailLabel: "referrals@harborcare.co.uk"
+  emailHref: "mailto:referrals@harborcare.co.uk"
+  address: |
+    Harbor Home Care
+    Unit 12, Healthcare Business Park
+    London, SE1 7PB
+quickContactOptions:
+  - icon: tabler:phone
+    title: Domiciliary Referrals
+    value: 0208 555 0199
+    href: tel:+442085550199
+    description: New home-care packages and urgent questions
+  - icon: tabler:mail
+    title: Home Care Email
+    value: referrals@harborcare.co.uk
+    href: mailto:referrals@harborcare.co.uk
+    description: Response within one business day
+  - icon: tabler:clock-hour-4
+    title: Out-of-Hours Support
+    value: 0800 555 1188
+    href: tel:+448005551188
+    description: Existing service users can access emergency support 24/7

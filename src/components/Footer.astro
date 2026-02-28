@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { sharedContactConfig, siteConfig } from '@/config/site';
 
 interface Props {
   brandName?: string;
@@ -7,16 +8,18 @@ interface Props {
   address?: string;
   phoneLabel?: string;
   phoneHref?: string;
-  email?: string;
+  emailLabel?: string;
+  emailHref?: string;
 }
 
 const {
-  brandName = "[Business Name]",
-  tagline = "[Your business tagline - what you do and who you serve]",
-  address = "[Your City], [Your Region]",
-  phoneLabel = "[Your Phone]",
-  phoneHref = "tel:[Your Phone]",
-  email = "[Your Email]",
+  brandName = siteConfig.name,
+  tagline = siteConfig.description,
+  address = sharedContactConfig.address,
+  phoneLabel = sharedContactConfig.phoneLabel,
+  phoneHref = sharedContactConfig.phoneHref,
+  emailLabel = sharedContactConfig.emailLabel,
+  emailHref = sharedContactConfig.emailHref,
 } = Astro.props as Props;
 
 const siteLinks = [
@@ -26,8 +29,9 @@ const siteLinks = [
 ];
 
 const servicesLinks = [
-  { label: "[Service 1]", href: "/services" },
-  { label: "[Service 2]", href: "/services" },
+  { label: "Residential Care", href: "/services/residential-care" },
+  { label: "Transitional Care", href: "/transitional-care" },
+  { label: "Wellbeing Support", href: "/wellbeing-support" },
   { label: "Our Facility", href: "/our-home" },
 ];
 ---
@@ -91,7 +95,7 @@ const servicesLinks = [
         <ul class="space-y-4 text-sm">
           <li class="flex items-start gap-3">
             <Icon name="tabler:mail" class="size-5 text-[#B69F38] mt-0.5 shrink-0" />
-            <a href={`mailto:${email}`} class="hover:text-[#B69F38] transition-colors">{email}</a>
+            <a href={emailHref} class="hover:text-[#B69F38] transition-colors">{emailLabel}</a>
           </li>
           <li class="flex items-start gap-3">
             <Icon name="tabler:phone" class="size-5 text-[#B69F38] mt-0.5 shrink-0" />
@@ -116,4 +120,3 @@ const servicesLinks = [
     </div>
   </div>
 </footer>
-

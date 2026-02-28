@@ -1,0 +1,38 @@
+metadata:
+  title: About Harbor Care Services
+  description: Learn how Harbor Care Services delivers supported living and domiciliary care through strong governance, continuity of teams, and person-centred outcomes.
+  schema:
+    "@context": https://schema.org
+    "@type": AboutPage
+    name: About Harbor Care Services
+hero:
+  eyebrow: "Our Purpose"
+  heading: "Built on Accountability, Compassion, and Progress"
+  subheading: "Harbor Care combines operational discipline with person-centred delivery"
+  description: "We support adults, families, and commissioners with structured planning, dependable teams, and outcomes that are visible in everyday life."
+story:
+  heading: "Our Journey"
+  paragraphs:
+    - "Harbor Care Services started with a clear goal to deliver support that is compassionate in practice and robust in governance."
+    - "As demand grew, we invested in specialist training, stronger supervision, and outcome-led review frameworks to improve consistency."
+    - "Today we support adults across supported living and domiciliary pathways with clear plans, stable teams, and measurable progress."
+  quote: "Building services that are both person-centred and inspection-ready."
+  imageKey: "team-portrait"
+  imageAlt: "Harbor Care leadership team discussing service quality"
+values:
+  - title: "Dignity in Every Interaction"
+    description: "We deliver respectful, person-centred support that protects choice and autonomy."
+  - title: "Reliability Through Systems"
+    description: "Governance, supervision, and auditing keep quality consistent from policy to frontline practice."
+  - title: "Outcome-Focused Delivery"
+    description: "Care plans are linked to practical goals and reviewed regularly with stakeholders."
+  - title: "Partnership and Transparency"
+    description: "Families, professionals, and teams stay aligned through clear and timely communication."
+valuesSection:
+  heading: "Our Core Values"
+  intro: "These principles shape every referral, review, and quality decision across our services."
+ctaSection:
+  heading: "Need a Dependable Care Partner?"
+  intro: "Talk to our team about referral requirements and the outcomes you need to achieve."
+  buttonText: "Contact Us"
+  buttonHref: "/contact"

@@ -1,180 +1,88 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
-import { Icon } from 'astro-icon/components';
+import PageHero from '@components/PageHero.astro';
 import teamPortrait from '@assets/images/team-portrait.jpg';
 
-const metadata = {
-  title: 'About Us - [Business Name]',
-  description: '[Your about page description - who you are and what makes you different]',
-  schema: {
-    '@context': 'https://schema.org',
-    '@type': 'AboutPage',
-    name: 'About [Business Name]',
-  }
-};
+const aboutEntry = await getEntry('classicAbout', 'default');
+const aboutDomEntry = await getEntry('classicAbout', 'dom-care');
+if (!aboutEntry) {
+  throw new Error('Missing content entry: classicAbout/default');
+}
+if (!aboutDomEntry) {
+  throw new Error('Missing content entry: classicAbout/dom-care');
+}
+
+const profiles = [
+  { key: 'supported-living', content: aboutEntry.data },
+  { key: 'dom-care', content: aboutDomEntry.data },
+] as const;
 ---
 
-<SiteLayout metadata={metadata}>
+<SiteLayout metadata={aboutEntry.data.metadata}>
+  <div data-care-profile-switcher>
+    {profiles.map(({ key, content }) => (
+      <div data-care-profile-panel={key} class:list={{ hidden: key !== 'supported-living' }}>
+        <PageHero
+          eyebrow={content.hero.eyebrow}
+          heading={content.hero.heading}
+          subheading={content.hero.subheading}
+        />
 
-  <!-- 1. HERO SECTION: IMPACTFUL & MINIMALIST -->
-  <section class="relative py-24 lg:py-32 bg-[#F6F0D8] overflow-hidden">
-    <!-- Organic background shape decoration -->
-    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-[#B69F38]/10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-[#365C1C]/5 rounded-full blur-3xl"></div>
+        <section class="py-20 bg-white">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-12 lg:grid-cols-2 items-center">
+            <div>
+              <h2 class="font-serif text-4xl text-primary mb-6">{content.story.heading}</h2>
+              <div class="space-y-4 text-muted-foreground leading-relaxed">
+                {content.story.paragraphs.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+              </div>
+              <blockquote class="mt-8 border-l-4 border-accent pl-6 italic text-primary text-lg">
+                "{content.story.quote}"
+              </blockquote>
+            </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl">
-        <h4 class="text-[#B69F38] font-bold tracking-widest uppercase text-sm mb-6">Our Purpose</h4>
-        <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl text-[#365C1C] leading-[1.1] mb-8">
-          [Your About Headline] <br class="hidden md:block" />
-          <span class="italic text-[#B69F38]">[Your Emphasis Line]</span>
-        </h1>
-        <p class="text-xl text-[#365C1C]/80 max-w-2xl leading-relaxed">
-          [Your about intro - describe your mission and what drives your business]
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. THE NARRATIVE: FOUNDERS' STORY (Magazine Style Layout) -->
-  <section class="py-20 lg:py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-12 gap-12 items-center">
-
-        <!-- Image Side (Offset Grid) -->
-        <div class="lg:col-span-5 relative">
-          <div class="relative z-10 rounded-none overflow-hidden shadow-2xl aspect-[3/4] bg-gray-100">
-            <Image
-              src={teamPortrait}
-              alt="Our dedicated team of care professionals"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-border">
+              <Image
+                src={teamPortrait}
+                alt={content.story.imageAlt}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
-          <!-- Decorative border frame -->
-          <div class="absolute top-8 -right-8 w-full h-full border-2 border-[#B69F38] -z-0 hidden md:block"></div>
-        </div>
+        </section>
 
-        <!-- Text Side -->
-        <div class="lg:col-span-7 lg:pl-12">
-          <h2 class="font-serif text-4xl md:text-5xl text-[#365C1C] mb-8">[Your Story Headline]</h2>
+        <section class="py-20 bg-primary text-white">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+              <h2 class="font-serif text-4xl mb-4">{content.valuesSection.heading}</h2>
+              <p class="text-white/85">{content.valuesSection.intro}</p>
+            </div>
 
-          <div class="prose prose-lg text-gray-600 leading-relaxed space-y-6">
-            <p>
-              [Your story paragraph 1 - introduce your founders or team and their background]
-            </p>
-            <p>
-              [Your story paragraph 2 - describe the problem you saw and why you started this business]
-            </p>
-            <p>
-              [Your story paragraph 3 - explain your approach and what makes you different]
-            </p>
-
-            <blockquote class="border-l-4 border-[#B69F38] pl-6 my-8 italic text-[#365C1C] text-xl">
-              "[Your founder quote - what drives you and your vision for the future]"
-            </blockquote>
+            <div class="grid gap-6 md:grid-cols-2">
+              {content.values.map((value) => (
+                <div class="rounded-xl border border-white/20 p-8 bg-white/5">
+                  <h3 class="font-serif text-2xl mb-3">{value.title}</h3>
+                  <p class="text-white/80 leading-relaxed">{value.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. CORE PHILOSOPHY: BESPOKE CARDS -->
-  <section class="py-24 bg-[#365C1C] text-white relative overflow-hidden">
-    <!-- Background Pattern -->
-    <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/noise-lines.png')]"></div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-20">
-        <h2 class="font-serif text-4xl md:text-5xl mb-6">Our Approach</h2>
-        <p class="text-[#F6F0D8]/80 text-lg max-w-2xl mx-auto">
-          [Describe your approach in one or two sentences]
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div class="group p-8 border border-[#F6F0D8]/20 rounded-xl hover:bg-[#F6F0D8] hover:text-[#365C1C] transition-all duration-500 ease-out cursor-default">
-          <div class="h-12 w-12 mb-6 text-[#B69F38] group-hover:scale-110 transition-transform">
-            <Icon name="tabler:heart" class="w-full h-full" />
+        <section class="py-20 bg-secondary/50">
+          <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-4xl text-primary mb-6">{content.ctaSection.heading}</h2>
+            <p class="text-muted-foreground mb-8">{content.ctaSection.intro}</p>
+            <a href={content.ctaSection.buttonHref} class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-primary rounded-full hover:bg-primary/90 transition-colors shadow-lg">
+              {content.ctaSection.buttonText}
+            </a>
           </div>
-          <h3 class="font-serif text-2xl mb-4 group-hover:text-[#365C1C]">[Value 1]</h3>
-          <p class="text-[#F6F0D8]/70 leading-relaxed group-hover:text-[#365C1C]/80">
-            [Description of your first core value or approach]
-          </p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="group p-8 border border-[#F6F0D8]/20 rounded-xl hover:bg-[#F6F0D8] hover:text-[#365C1C] transition-all duration-500 ease-out cursor-default">
-          <div class="h-12 w-12 mb-6 text-[#B69F38] group-hover:scale-110 transition-transform">
-            <Icon name="tabler:circle-check" class="w-full h-full" />
-          </div>
-          <h3 class="font-serif text-2xl mb-4 group-hover:text-[#365C1C]">[Value 2]</h3>
-          <p class="text-[#F6F0D8]/70 leading-relaxed group-hover:text-[#365C1C]/80">
-            [Description of your second core value or approach]
-          </p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="group p-8 border border-[#F6F0D8]/20 rounded-xl hover:bg-[#F6F0D8] hover:text-[#365C1C] transition-all duration-500 ease-out cursor-default">
-          <div class="h-12 w-12 mb-6 text-[#B69F38] group-hover:scale-110 transition-transform">
-            <Icon name="tabler:users-group" class="w-full h-full" />
-          </div>
-          <h3 class="font-serif text-2xl mb-4 group-hover:text-[#365C1C]">[Value 3]</h3>
-          <p class="text-[#F6F0D8]/70 leading-relaxed group-hover:text-[#365C1C]/80">
-            [Description of your third core value or approach]
-          </p>
-        </div>
+        </section>
       </div>
-    </div>
-  </section>
-
-  <!-- 4. VALUES & FUTURE -->
-  <section class="py-24 bg-[#F6F0D8]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="lg:text-center max-w-3xl mx-auto mb-16">
-        <h2 class="font-serif text-4xl text-[#365C1C] mb-6">Our Vision for the Future</h2>
-        <p class="text-lg text-[#365C1C]/80">
-          [Describe your vision and future plans]
-        </p>
-      </div>
-
-      <!-- Asymmetrical Layout -->
-      <div class="grid lg:grid-cols-2 gap-8">
-        <div class="bg-white p-10 rounded-2xl shadow-sm border-l-4 border-[#B69F38]">
-          <h3 class="font-serif text-2xl text-[#365C1C] mb-4">[Commitment 1]</h3>
-          <p class="text-gray-600 leading-relaxed">
-            [Description of your first commitment or standard]
-          </p>
-        </div>
-        <div class="bg-white p-10 rounded-2xl shadow-sm border-l-4 border-[#365C1C]">
-          <h3 class="font-serif text-2xl text-[#365C1C] mb-4">[Commitment 2]</h3>
-          <p class="text-gray-600 leading-relaxed">
-            [Description of your second commitment or standard]
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. CTA -->
-  <section class="py-24 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-serif text-5xl text-[#365C1C] mb-8">[Your CTA Headline]</h2>
-      <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-        [Your CTA description - encourage visitors to take the next step]
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#365C1C] rounded-full hover:bg-[#2a4715] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
-          Contact Us
-        </a>
-        <a href="https://vertexplatformsolutions.com/offers/healthcare-agencies" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[#365C1C] bg-[#F6F0D8] rounded-full hover:bg-[#eaddb5] transition-all duration-300">
-          Get This Site Built For You
-        </a>
-      </div>
-    </div>
-  </section>
-
+    ))}
+  </div>
 </SiteLayout>

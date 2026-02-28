@@ -1,0 +1,53 @@
+metadata:
+  title: Harbor Home Care Services
+  description: Reliable domiciliary care services with continuity of carers, safe routines, and practical support that helps adults remain independent at home.
+  schema:
+    "@context": https://schema.org
+    "@type": Organization
+    name: Harbor Home Care Services
+    description: Reliable domiciliary care services with continuity of carers, safe routines, and practical support that helps adults remain independent at home.
+hero:
+  profileContent:
+    supported-living:
+      heading: "Supported Living Services <br/><span class='text-secondary'>Clear Independence Outcomes</span>"
+      subheading: "Structured tenancy support that helps adults build life skills, sustain placements, and participate confidently in their communities."
+    dom-care:
+      heading: "Domiciliary Care <br/><span class='text-secondary'>Families Can Rely On</span>"
+      subheading: "Reliable home visits with continuity of carers, safe routines, and communication that keeps everyone informed."
+  primaryCtaText: "Explore Home Care Services"
+  primaryCtaHref: "/services"
+  secondaryCtaText: "Contact Our Team"
+  secondaryCtaHref: "/contact"
+  imageKey: "hero-bg"
+  imageAlt: "Domiciliary care worker supporting an adult during a home visit"
+welcome:
+  eyebrow: "Welcome to Harbor Home Care"
+  heading: "Home Care That Protects Routine and Independence"
+  description: "We deliver dependable domiciliary visits with clear care planning, continuity of carers, and communication families can trust. Every package is built around routine, safety, and communication so families get reliable support."
+serviceHighlight:
+  title: "Practical Home Support, Delivered Consistently"
+  description: "Services designed around routine reliability, safeguarding confidence, and clear communication with families."
+  features:
+    - "Personal Care Visits"
+    - "Medication Support"
+    - "Meal and Nutrition Support"
+    - "Wellbeing and Companionship"
+  imageKey: "service-highlight"
+  imageAlt: "Home care professional helping with daily routines"
+testimonial:
+  quote: "For the first time, our family felt informed and confident in every step of care."
+  author: "S. Hughes"
+  role: "Family Representative"
+featuredSection:
+  eyebrow: "Why Families Choose Us"
+  heading: "Continuity, Communication, and Safer Daily Routines"
+  description: "We focus on operational reliability and practical outcomes that make everyday life more manageable at home."
+  benefits:
+    - "Continuity-Led Rostering"
+    - "Safe Medication Workflows"
+    - "Family-First Communication"
+  imageKey: "featured-section"
+  imageAlt: "Care coordinator discussing home care progress with family"
+cta:
+  heading: "Arrange a Reliable Home Care Package"
+  description: "Tell us what support is needed and we will map a practical domiciliary plan built around routine and safety."

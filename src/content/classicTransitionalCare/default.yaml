@@ -1,0 +1,40 @@
+metadata:
+  title: Transition Support Services - Harbor Care Services
+  description: Step-down support from hospital or residential care into stable tenancy routines with structured planning and measurable outcomes.
+  schema:
+    '@context': https://schema.org
+    '@type': Service
+    name: Transition Support Services
+    description: Step-down pathways helping adults move into stable long-term support arrangements.
+hero:
+  heading: Transition Support Services
+  subheading: Step-by-step pathways from residential or hospital settings into stable independent living.
+  profileContent:
+    supported-living:
+      heading: Transition Support for Supported Living
+      subheading: Step-down pathways helping adults move into stable long-term tenancy arrangements.
+    dom-care:
+      heading: Home Care Transition Support
+      subheading: Support for returning home after hospital discharge with structured reablement.
+overview:
+  heading: Transition Pathways That Reduce Placement Breakdown
+  description: We coordinate practical steps, stakeholder communication, and review checkpoints so transitions stay safe and predictable.
+features:
+  - title: Tenancy Readiness
+    description: Preparation work to ensure successful move into independent living.
+  - title: Household Management Skills
+    description: Practical coaching for daily living independence.
+  - title: Family and Professional Liaison
+    description: Coordinated communication with all stakeholders.
+outcomesSection:
+  heading: What Good Transition Looks Like
+  description: Our transition model is designed to improve confidence quickly while reducing avoidable disruption.
+  outcomes:
+    - Stable first 12-week transition plan
+    - Clear responsibilities across all stakeholders
+    - Faster confidence in daily routine tasks
+ctaSection:
+  heading: Plan a Safe Transition Pathway
+  description: Discuss your current case and we will map a practical plan with clear next actions.
+  primaryText: Contact Transition Team
+  primaryHref: /contact

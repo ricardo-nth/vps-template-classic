@@ -1,0 +1,38 @@
+metadata:
+  title: About Harbor Home Care
+  description: Meet Harbor Home Care's domiciliary leadership team and learn how we deliver reliable home visits with continuity, safeguarding, and clear communication.
+  schema:
+    "@context": https://schema.org
+    "@type": AboutPage
+    name: About Harbor Home Care
+hero:
+  eyebrow: "Our Purpose"
+  heading: "Home Care Built on Consistency and Trust"
+  subheading: "Our domiciliary team combines compassionate support with robust systems"
+  description: "We deliver dependable domiciliary visits with clear care planning, continuity of carers, and communication families can trust."
+story:
+  heading: "Our Journey"
+  paragraphs:
+    - "Harbor Home Care was created to provide home support that feels both professional and genuinely personal."
+    - "We invested early in continuity-led rostering, structured communication, and safeguarding oversight to improve reliability."
+    - "Today our domiciliary teams deliver practical support that protects routine, wellbeing, and independent living."
+  quote: "Building dependable home-care delivery for adults and families."
+  imageKey: "team-portrait"
+  imageAlt: "Domiciliary care managers discussing service delivery standards"
+values:
+  - title: "Respectful Daily Support"
+    description: "We deliver personal care with dignity, empathy, and attention to individual preference."
+  - title: "Reliability You Can Plan Around"
+    description: "Stable scheduling and contingency planning improve trust and reduce disruption."
+  - title: "Safe and Accountable Practice"
+    description: "Safeguarding and governance standards are embedded in every package."
+  - title: "Family Communication"
+    description: "Relatives and professionals receive clear updates and responsive support."
+valuesSection:
+  heading: "Our Home Care Values"
+  intro: "These principles keep domiciliary support reliable, compassionate, and accountable."
+ctaSection:
+  heading: "Need Reliable Home Care?"
+  intro: "Speak with our team about practical domiciliary support for your current needs."
+  buttonText: "Contact Home Care Team"
+  buttonHref: "/contact"

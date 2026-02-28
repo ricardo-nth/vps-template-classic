@@ -1,142 +1,105 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getEntry } from 'astro:content';
 import PageHero from '../../components/PageHero.astro';
 import ServicesOverview from '../../components/ServicesOverview.astro';
 import WhyChooseUs from '../../components/WhyChooseUs.astro';
 import ContactSection from '../../components/ContactSection.astro';
+import type { ImageMetadata } from 'astro';
 import residentialCare from '@assets/images/residential-care.jpg';
 import transitionalCare from '@assets/images/transitional-care.jpg';
 import wellbeingSupport from '@assets/images/wellbeing-support.jpg';
 import featuredSection from '@assets/images/featured-section.jpg';
 
-const metadata = {
-  title: 'Residential Care Services - [Business Name]',
-  description: 'Compassionate residential care that supports daily living, safety, and wellbeing.',
-  schema: {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: 'Residential Care Services',
-    description: 'Compassionate residential care that supports daily living, safety, and wellbeing.',
-    provider: {
-      '@type': 'Organization',
-      name: '[Business Name]'
-    }
-  },
-};
+const residentialEntry = await getEntry('classicResidentialCare', 'default');
+const residentialDomEntry = await getEntry('classicResidentialCare', 'dom-care');
+if (!residentialEntry) {
+  throw new Error('Missing content entry: classicResidentialCare/default');
+}
+if (!residentialDomEntry) {
+  throw new Error('Missing content entry: classicResidentialCare/dom-care');
+}
 
-const relatedServices = [
-  {
-    title: 'Transitional Care',
-    description: 'Short-term support and recovery services during life transitions.',
-    href: '/transitional-care',
-    imageSrc: transitionalCare,
-    imageAlt: 'Caregiver support during recovery',
-  },
-  {
-    title: 'Wellbeing Support',
-    description: 'Holistic programs that nurture physical, social, and emotional wellbeing.',
-    href: '/wellbeing-support',
-    imageSrc: wellbeingSupport,
-    imageAlt: 'Residents participating in activities',
-  },
-  {
-    title: 'Our Facility',
-    description: 'Explore our comfortable spaces designed for safety and connection.',
-    href: '/our-home',
-    imageSrc: featuredSection,
-    imageAlt: 'Warm and welcoming residence',
-  },
-];
+const profiles = [
+  { key: 'supported-living', content: residentialEntry.data },
+  { key: 'dom-care', content: residentialDomEntry.data },
+] as const;
+
+const imageMap: Record<string, ImageMetadata> = {
+  'residential-care': residentialCare,
+  'transitional-care': transitionalCare,
+  'wellbeing-support': wellbeingSupport,
+  'featured-section': featuredSection,
+};
 ---
 
-<SiteLayout metadata={metadata}>
-  <PageHero
-    eyebrow="Residential care"
-    heading="Residential Care Services"
-    subheading="A supportive, home-like environment with compassionate care tailored to each resident."
-  />
+<SiteLayout metadata={residentialEntry.data.metadata}>
+  <div data-care-profile-switcher>
+    {profiles.map(({ key, content }) => (
+      <div data-care-profile-panel={key} class:list={{ hidden: key !== 'supported-living' }}>
+        <PageHero
+          eyebrow="Residential care"
+          heading={content.hero.heading}
+          subheading={content.hero.subheading}
+          profileContent={content.hero.profileContent}
+        />
 
-  <section class="bg-background py-16">
-    <div class="max-w-6xl mx-auto px-4 grid gap-10 lg:grid-cols-2">
-      <div>
-        <h2 class="font-serif text-3xl text-primary mb-4">What Residential Care Includes</h2>
-        <p class="text-muted-foreground mb-6">
-          Residential care provides round-the-clock support so residents can live safely, comfortably, and with dignity.
-        </p>
-        <ul class="space-y-4 text-sm text-muted-foreground">
-          <li class="flex gap-3">
-            <span class="text-accent mt-1">✓</span>
-            Assistance with personal care, mobility, and daily routines.
-          </li>
-          <li class="flex gap-3">
-            <span class="text-accent mt-1">✓</span>
-            Medication reminders and coordination with healthcare providers.
-          </li>
-          <li class="flex gap-3">
-            <span class="text-accent mt-1">✓</span>
-            Nutritious meals, hydration support, and dietary accommodations.
-          </li>
-          <li class="flex gap-3">
-            <span class="text-accent mt-1">✓</span>
-            Social connection, enrichment activities, and community engagement.
-          </li>
-        </ul>
+        <section class="bg-background py-16">
+          <div class="max-w-6xl mx-auto px-4 grid gap-10 lg:grid-cols-2">
+            <div>
+              <h2 class="font-serif text-3xl text-primary mb-4">{content.overview.heading}</h2>
+              <p class="text-muted-foreground mb-6">{content.overview.description}</p>
+              <ul class="space-y-4 text-sm text-muted-foreground">
+                {content.overview.features.map((feature) => (
+                  <li class="flex gap-3">
+                    <span class="text-accent mt-1">✓</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="bg-white rounded-2xl border border-border shadow-sm p-8">
+              <h3 class="font-serif text-2xl text-primary mb-4">{content.approach.heading}</h3>
+              <p class="text-muted-foreground mb-6">{content.approach.description}</p>
+              <div class="space-y-4">
+                {content.approach.points.map((point) => (
+                  <div class="rounded-xl bg-secondary/40 p-4">
+                    <p class="text-sm text-muted-foreground">{point}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <WhyChooseUs
+          heading={content.whyChooseUs.heading}
+          intro={content.whyChooseUs.intro}
+          points={content.whyChooseUs.points}
+          imageSrc={imageMap[content.whyChooseUs.imageKey] || residentialCare}
+          imageAlt={content.whyChooseUs.imageAlt}
+        />
+
+        <ServicesOverview
+          eyebrow={content.relatedServices.eyebrow}
+          heading={content.relatedServices.heading}
+          intro={content.relatedServices.intro}
+          ctaText={content.relatedServices.ctaText}
+          ctaHref={content.relatedServices.ctaHref}
+          services={content.relatedServices.services.map((service) => ({
+            ...service,
+            imageSrc: imageMap[service.imageKey] || residentialCare,
+          }))}
+        />
+
+        <ContactSection
+          heading={content.contactSection.heading}
+          intro={content.contactSection.intro}
+          phoneLabel={content.contactSection.phoneLabel}
+          phoneHref={content.contactSection.phoneHref}
+          address={content.contactSection.address}
+        />
       </div>
-      <div class="bg-white rounded-2xl border border-border shadow-sm p-8">
-        <h3 class="font-serif text-2xl text-primary mb-4">Daily Life, Made Comfortable</h3>
-        <p class="text-muted-foreground mb-6">
-          We focus on personalized routines that prioritize comfort, independence, and meaningful moments throughout the day.
-        </p>
-        <div class="space-y-4">
-          <div class="rounded-xl bg-secondary/40 p-4">
-            <p class="text-sm font-semibold text-primary">Care planning</p>
-            <p class="text-sm text-muted-foreground">Individualized plans created in partnership with residents and families.</p>
-          </div>
-          <div class="rounded-xl bg-secondary/40 p-4">
-            <p class="text-sm font-semibold text-primary">Safety &amp; supervision</p>
-            <p class="text-sm text-muted-foreground">24/7 presence and proactive support to reduce risks.</p>
-          </div>
-          <div class="rounded-xl bg-secondary/40 p-4">
-            <p class="text-sm font-semibold text-primary">Meaningful engagement</p>
-            <p class="text-sm text-muted-foreground">Activities tailored to interests, abilities, and goals.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <WhyChooseUs
-    heading="Why Families Choose Our Residential Care"
-    intro="Consistent support, compassionate caregivers, and a focus on the whole person."
-    points={[
-      {
-        title: 'Personalized care plans',
-        description: 'Every resident receives a tailored plan that adapts as their needs change.',
-      },
-      {
-        title: 'Experienced care team',
-        description: 'Skilled professionals who provide steady, respectful support each day.',
-      },
-      {
-        title: 'Warm, home-like environment',
-        description: 'A comfortable setting that helps residents feel safe and connected.',
-      },
-    ]}
-    imageSrc={residentialCare}
-    imageAlt="Caregiver assisting a resident"
-  />
-
-  <ServicesOverview
-    eyebrow="Related services"
-    heading="Continue exploring care options"
-    intro="Discover additional services that can complement residential care."
-    ctaText="View all services"
-    ctaHref="/services"
-    services={relatedServices}
-  />
-
-  <ContactSection
-    heading="Talk with our care team"
-    intro="We’re here to answer questions and help you understand if residential care is the right fit."
-  />
+    ))}
+  </div>
 </SiteLayout>

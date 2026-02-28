@@ -1,0 +1,40 @@
+metadata:
+  title: Wellbeing and Companionship - Harbor Home Care
+  description: Planned social support to reduce isolation and improve emotional wellbeing through companionship visits.
+  schema:
+    '@context': https://schema.org
+    '@type': Service
+    name: Wellbeing and Companionship Services
+    description: Planned social support to reduce isolation and improve emotional wellbeing.
+hero:
+  heading: Wellbeing and Companionship
+  subheading: Planned social support to reduce isolation and improve emotional wellbeing.
+  profileContent:
+    supported-living:
+      heading: Community Wellbeing Support
+      subheading: Support for accessing community activities and building connections.
+    dom-care:
+      heading: Home Companionship Support
+      subheading: Regular companionship visits and structured social support at home.
+overview:
+  heading: Companionship Support for Everyday Stability
+  description: Practical social support visits that improve emotional wellbeing and reduce isolation at home.
+features:
+  - title: Companionship Visits
+    description: Regular social contact to reduce isolation at home.
+  - title: Emotional Support
+    description: Support worker engagement for wellbeing and mental health.
+  - title: Community Connection
+    description: Support for accessing social activities and maintaining relationships.
+outcomesSection:
+  heading: Home Wellbeing Outcomes
+  description: We track practical improvements in mood, routine participation, and confidence.
+  outcomes:
+    - Better day-to-day emotional stability
+    - Increased social connection
+    - Improved confidence with regular routines
+ctaSection:
+  heading: Arrange Companionship Support
+  description: Tell us what support is needed and we will design a practical wellbeing package.
+  primaryText: Contact Home Care Team
+  primaryHref: /contact

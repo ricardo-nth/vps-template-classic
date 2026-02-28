@@ -1,0 +1,76 @@
+metadata:
+  title: Domiciliary Care Services - Harbor Home Care
+  description: Responsive domiciliary care services with reliable home visits, continuity of carers, and regular outcome reviews.
+  schema:
+    "@context": https://schema.org
+    "@type": Service
+    name: Domiciliary Care Services
+    description: Responsive domiciliary care with reliable home visits, practical support, and review-led quality assurance.
+hero:
+  heading: "Domiciliary Care Services"
+  subheading: "Reliable home support that keeps routines stable, wellbeing protected, and families informed."
+  profileContent:
+    supported-living:
+      heading: "Supported Living Services <br/><span class='text-secondary'>Tenancy-Based Support</span>"
+      subheading: "Structured tenancy support that helps adults grow confidence, maintain stability, and progress toward greater independence."
+    dom-care:
+      heading: "Domiciliary Care <br/><span class='text-secondary'>Home-Based Support</span>"
+      subheading: "Reliable home support that keeps routines stable, wellbeing protected, and families informed."
+overview:
+  heading: "Home Care Overview"
+  description: "Services designed around routine reliability, safeguarding confidence, and clear communication with families."
+  features:
+    - "Personal Care Visits"
+    - "Medication Support"
+    - "Meal and Nutrition Support"
+    - "Wellbeing and Companionship"
+approach:
+  heading: "Our Delivery Process"
+  description: "A practical framework that keeps home support safe, consistent, and tailored to daily life."
+  points:
+    - "Needs and Home Assessment with service users, relatives, and professionals"
+    - "Visit Plan Setup with visit windows, care tasks, and contingencies"
+    - "Carer Matching and Start for compatibility and continuity before go-live"
+    - "Ongoing Review to monitor outcomes and adapt support as needs evolve"
+whyChooseUs:
+  heading: "Why Families Choose Our Home Care"
+  intro: "Domiciliary support delivered with continuity, practical planning, and responsive communication."
+  points:
+    - title: "Reliable Visit Delivery"
+      description: "Schedules and backup cover planning reduce missed visits and disruption."
+    - title: "Continuity of Carers"
+      description: "Familiar carers build trust and improve support quality over time."
+    - title: "Quality and Safeguarding Controls"
+      description: "Governance, supervision, and escalation processes keep care safe and accountable."
+  imageKey: "residential-care"
+  imageAlt: "Domiciliary care worker supporting a client at home"
+relatedServices:
+  eyebrow: "Related services"
+  heading: "Explore Complementary Home Support"
+  intro: "These additional services can improve continuity and recovery outcomes."
+  ctaText: "View all services"
+  ctaHref: "/services"
+  services:
+    - title: "Hospital Discharge Support"
+      description: "Short-term reablement support after discharge to reduce readmission risk."
+      href: "/transitional-care"
+      imageKey: "transitional-care"
+      imageAlt: "Discharge support planning"
+    - title: "Wellbeing and Companionship"
+      description: "Planned social support to reduce isolation and improve emotional wellbeing."
+      href: "/wellbeing-support"
+      imageKey: "wellbeing-support"
+      imageAlt: "Companionship support visit"
+    - title: "Our Home Care Model"
+      description: "See how our systems, governance, and teams deliver reliable care."
+      href: "/our-home"
+      imageKey: "featured-section"
+      imageAlt: "Home care service model meeting"
+contactSection:
+  heading: "Talk With Our Home Care Team"
+  intro: "We can discuss domiciliary requirements, urgency, and practical next steps for your referral."
+  phoneLabel: "0208 555 0199"
+  phoneHref: "tel:+442085550199"
+  emailLabel: "referrals@harborcare.co.uk"
+  emailHref: "mailto:referrals@harborcare.co.uk"
+  address: "Unit 12, Healthcare Business Park, London, SE1 7PB"

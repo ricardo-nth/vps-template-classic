@@ -5,203 +5,203 @@
  */
 
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import heroBg from '@assets/images/hero-bg.jpg';
 import serviceHighlight from '@assets/images/service-highlight.jpg';
 import featuredSection from '@assets/images/featured-section.jpg';
 
-const metadata = {
-  title: '[Business Name] - [Your Tagline]',
-  description: '[Your business description - what you do and who you serve]',
-  schema: {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: '[Business Name]',
-    description: '[Your business description]',
-  },
-};
+const homeEntry = await getEntry('classicHome', 'default');
+const homeDomEntry = await getEntry('classicHome', 'dom-care');
+if (!homeEntry) {
+  throw new Error('Missing content entry: classicHome/default');
+}
+if (!homeDomEntry) {
+  throw new Error('Missing content entry: classicHome/dom-care');
+}
+
+const metadata = homeEntry.data.metadata;
+const profiles = [
+  { key: 'supported-living', content: homeEntry.data },
+  { key: 'dom-care', content: homeDomEntry.data },
+] as const;
 ---
 
 <SiteLayout metadata={metadata}>
-
-  <!-- HERO SECTION -->
-  <section class="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
-    <!-- Background Image with Overlay -->
-    <div class="absolute inset-0 z-0">
-      <Image
-        src={heroBg}
-        alt="Healthcare facility with warm, welcoming atmosphere"
-        class="w-full h-full object-cover"
-        loading="eager"
-        fetchpriority="high"
-      />
-      <div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
-    </div>
-
-    <!-- Content -->
-    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight drop-shadow-lg leading-tight">
-        [Your Main Headline] <br/>
-        <span class="text-secondary">[Your Emphasis Line]</span>
-      </h1>
-      <p class="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-light">
-        [Your subheading - a brief description of your services and who you serve]
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/services"
-          class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary bg-white rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg min-w-[200px]"
-        >
-          Our Services
-        </a>
-        <a
-          href="/contact"
-          class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white border-2 border-white rounded-full hover:bg-white/10 transition-colors duration-300 shadow-lg min-w-[200px]"
-        >
-          Get in Touch
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- WELCOME / INTRO -->
-  <section class="py-20 bg-background">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <span class="text-accent font-serif italic text-xl mb-4 block">Welcome to [Business Name]</span>
-      <h2 class="font-serif text-4xl md:text-5xl text-primary mb-8">[Your Welcome Headline]</h2>
-      <p class="text-lg text-muted-foreground leading-relaxed">
-        [Your welcome message - describe your mission, values, and what makes you different. This is your opportunity to connect with visitors and explain who you are and what you do.]
-      </p>
-    </div>
-  </section>
-
-  <!-- SERVICE HIGHLIGHT -->
-  <section class="py-20 bg-secondary/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto">
-
-        <!-- Service Card -->
-        <div class="group relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
-          <div class="aspect-w-16 aspect-h-9 h-80 overflow-hidden">
+  <div data-care-profile-switcher>
+    {profiles.map(({ key, content }) => (
+      <div data-care-profile-panel={key} class:list={{ hidden: key !== 'supported-living' }}>
+        <!-- HERO SECTION -->
+        <section class="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+          <!-- Background Image with Overlay -->
+          <div class="absolute inset-0 z-0">
             <Image
-              src={serviceHighlight}
-              alt="Compassionate care service"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              loading="lazy"
-            />
-          </div>
-          <div class="p-8 lg:p-10">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="p-2 bg-secondary rounded-full text-primary">
-                <Icon name="tabler:home" class="h-6 w-6" />
-              </span>
-              <h3 class="font-serif text-3xl text-primary">[Service Name]</h3>
-            </div>
-            <p class="text-muted-foreground mb-8 leading-relaxed">
-              [Service description - explain what this service offers and its benefits]
-            </p>
-            <ul class="space-y-3 mb-8 text-sm text-foreground/80">
-              <li class="flex items-center gap-2">
-                <span class="text-accent">✓</span> [Feature 1]
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-accent">✓</span> [Feature 2]
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-accent">✓</span> [Feature 3]
-              </li>
-            </ul>
-            <a href="/services" class="inline-block text-primary font-semibold border-b-2 border-primary/20 hover:border-primary transition-colors">
-              View All Services &rarr;
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIAL / TRUST -->
-  <section class="py-24 bg-primary text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-      <div class="text-accent text-6xl font-serif mb-6">"</div>
-      <blockquote class="font-serif text-3xl md:text-4xl leading-snug mb-10">
-        [Client testimonial - what they loved about your service and how it helped them]
-      </blockquote>
-      <cite class="not-italic text-white/80 text-lg block mb-2 font-semibold">- [Client Name], [Client Title/Company]</cite>
-    </div>
-  </section>
-
-  <!-- FEATURED SECTION -->
-  <section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <span class="text-accent font-serif text-2xl italic mb-4 block">[Section Eyebrow]</span>
-          <h2 class="font-serif text-4xl md:text-5xl text-primary mb-6">[Section Headline]</h2>
-          <p class="text-lg text-muted-foreground leading-relaxed mb-8">
-            [Section description - explain the key benefits or features you want to highlight in this section]
-          </p>
-          <ul class="space-y-4 mb-10">
-            <li class="flex items-center gap-3 text-foreground/80">
-              <span class="text-accent font-bold">✓</span> [Benefit 1]
-            </li>
-            <li class="flex items-center gap-3 text-foreground/80">
-              <span class="text-accent font-bold">✓</span> [Benefit 2]
-            </li>
-            <li class="flex items-center gap-3 text-foreground/80">
-              <span class="text-accent font-bold">✓</span> [Benefit 3]
-            </li>
-          </ul>
-          <a
-            href="/about"
-            class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-primary rounded-full hover:bg-primary/90 transition-colors shadow-lg"
-          >
-            Learn More
-          </a>
-        </div>
-        <div class="relative">
-          <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
-            <Image
-              src={featuredSection}
-              alt="Comfortable and welcoming care facility"
+              src={heroBg}
+              alt={content.hero.imageAlt}
               class="w-full h-full object-cover"
-              loading="lazy"
+              loading="eager"
+              fetchpriority="high"
             />
+            <div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
           </div>
-          <div class="absolute -bottom-6 -left-6 w-2/3 h-2/3 border-2 border-accent rounded-2xl -z-10"></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CALL TO ACTION -->
-  <section class="py-20 bg-secondary/50">
-    <div class="max-w-5xl mx-auto px-4 text-center">
-      <h2 class="font-serif text-4xl text-primary mb-6">[Your CTA Headline]</h2>
-      <p class="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-        [Your CTA description - encourage visitors to take the next step]
-      </p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a
-          href="/contact"
-          class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-primary rounded-full hover:bg-primary/90 transition-colors shadow-lg"
-        >
-          Contact Us Today
-        </a>
-        <a
-          href="https://vertexplatformsolutions.com/offers/healthcare-agencies"
-          target="_blank"
-          rel="noopener"
-          class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary bg-white border-2 border-primary rounded-full hover:bg-primary/5 transition-colors shadow-lg"
-        >
-          Get This Site Built For You
-        </a>
-      </div>
-    </div>
-  </section>
+          <!-- Content -->
+          <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight drop-shadow-lg leading-tight" data-care-field="heading" data-profile={key}>
+              {content.hero.profileContent[key].heading}
+            </h1>
+            <p class="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-light" data-care-field="subheading" data-profile={key}>
+              {content.hero.profileContent[key].subheading}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href={content.hero.primaryCtaHref}
+                class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary bg-white rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg min-w-[200px]"
+              >
+                {content.hero.primaryCtaText}
+              </a>
+              <a
+                href={content.hero.secondaryCtaHref}
+                class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white border-2 border-white rounded-full hover:bg-white/10 transition-colors duration-300 shadow-lg min-w-[200px]"
+              >
+                {content.hero.secondaryCtaText}
+              </a>
+            </div>
+          </div>
+        </section>
 
+        <!-- WELCOME / INTRO -->
+        <section class="py-20 bg-background">
+          <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="text-accent font-serif italic text-xl mb-4 block">{content.welcome.eyebrow}</span>
+            <h2 class="font-serif text-4xl md:text-5xl text-primary mb-8">{content.welcome.heading}</h2>
+            <p class="text-lg text-muted-foreground leading-relaxed">
+              {content.welcome.description}
+            </p>
+          </div>
+        </section>
+
+        <!-- SERVICE HIGHLIGHT -->
+        <section class="py-20 bg-secondary/30">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+
+              <!-- Service Card -->
+              <div class="group relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+                <div class="aspect-w-16 aspect-h-9 h-80 overflow-hidden">
+                  <Image
+                    src={serviceHighlight}
+                    alt={content.serviceHighlight.imageAlt}
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-8 lg:p-10">
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class="p-2 bg-secondary rounded-full text-primary">
+                      <Icon name="tabler:home" class="h-6 w-6" />
+                    </span>
+                    <h3 class="font-serif text-3xl text-primary">{content.serviceHighlight.title}</h3>
+                  </div>
+                  <p class="text-muted-foreground mb-8 leading-relaxed">
+                    {content.serviceHighlight.description}
+                  </p>
+                  <ul class="space-y-3 mb-8 text-sm text-foreground/80">
+                    {content.serviceHighlight.features.map((feature) => (
+                      <li class="flex items-center gap-2">
+                        <span class="text-accent">✓</span> {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="/services" class="inline-block text-primary font-semibold border-b-2 border-primary/20 hover:border-primary transition-colors">
+                    View All Services &rarr;
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- TESTIMONIAL / TRUST -->
+        <section class="py-24 bg-primary text-white relative overflow-hidden">
+          <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+          <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <div class="text-accent text-6xl font-serif mb-6">"</div>
+            <blockquote class="font-serif text-3xl md:text-4xl leading-snug mb-10">
+              {content.testimonial.quote}
+            </blockquote>
+            <cite class="not-italic text-white/80 text-lg block mb-2 font-semibold">- {content.testimonial.author}, {content.testimonial.role}</cite>
+          </div>
+        </section>
+
+        <!-- FEATURED SECTION -->
+        <section class="py-24 bg-white">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <span class="text-accent font-serif text-2xl italic mb-4 block">{content.featuredSection.eyebrow}</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-primary mb-6">{content.featuredSection.heading}</h2>
+                <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+                  {content.featuredSection.description}
+                </p>
+                <ul class="space-y-4 mb-10">
+                  {content.featuredSection.benefits.map((benefit) => (
+                    <li class="flex items-center gap-3 text-foreground/80">
+                      <span class="text-accent font-bold">✓</span> {benefit}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="/about"
+                  class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-primary rounded-full hover:bg-primary/90 transition-colors shadow-lg"
+                >
+                  Learn More
+                </a>
+              </div>
+              <div class="relative">
+                <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+                  <Image
+                    src={featuredSection}
+                    alt={content.featuredSection.imageAlt}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="absolute -bottom-6 -left-6 w-2/3 h-2/3 border-2 border-accent rounded-2xl -z-10"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="py-20 bg-secondary/50">
+          <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-4xl text-primary mb-6">{content.cta.heading}</h2>
+            <p class="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
+              {content.cta.description}
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-primary rounded-full hover:bg-primary/90 transition-colors shadow-lg"
+              >
+                Contact Us Today
+              </a>
+              <a
+                href="https://vertexplatformsolutions.com/offers/healthcare-agencies"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary bg-white border-2 border-primary rounded-full hover:bg-primary/5 transition-colors shadow-lg"
+              >
+                Get This Site Built For You
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    ))}
+  </div>
 </SiteLayout>

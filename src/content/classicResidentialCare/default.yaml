@@ -1,0 +1,76 @@
+metadata:
+  title: Supported Living Services - Harbor Care Services
+  description: Outcome-led supported living services that help adults sustain tenancies, build life skills, and increase independence safely.
+  schema:
+    "@context": https://schema.org
+    "@type": Service
+    name: Supported Living Services
+    description: Outcome-led supported living with person-centred planning, positive risk management, and structured progress reviews.
+hero:
+  heading: "Supported Living Services"
+  subheading: "Structured tenancy support that helps adults grow confidence, maintain stability, and progress toward greater independence."
+  profileContent:
+    supported-living:
+      heading: "Supported Living Services <br/><span class='text-secondary'>Structured Progress</span>"
+      subheading: "Structured tenancy support that helps adults grow confidence, maintain stability, and progress toward greater independence."
+    dom-care:
+      heading: "Domiciliary Care <br/><span class='text-secondary'>Home-Based Support</span>"
+      subheading: "Reliable home visits that support daily routines, wellbeing, and safer independent living in familiar surroundings."
+overview:
+  heading: "Our Approach"
+  description: "Our supported living model combines tenancy support, life-skills coaching, and structured review cycles."
+  features:
+    - "Tenancy and Daily Living Support"
+    - "Life Skills Development"
+    - "Community Access and Confidence"
+    - "Complex Needs Support"
+approach:
+  heading: "Our Delivery Process"
+  description: "A practical end-to-end framework from referral triage through long-term outcome review."
+  points:
+    - "Referral and Assessment with service users, families, and professionals"
+    - "Outcome Plan Design with clear actions, review points, and safeguarding controls"
+    - "Team Matching and Launch for compatibility, continuity, and safe service start"
+    - "Review and Adapt to track progress and refine support as needs evolve"
+whyChooseUs:
+  heading: "Why Families and Professionals Choose Us"
+  intro: "Our delivery combines person-centred support with governance discipline and continuity of teams."
+  points:
+    - title: "Structured Outcome Plans"
+      description: "Support goals are clear, measurable, and reviewed regularly with stakeholders."
+    - title: "Consistent Teams"
+      description: "Continuity of staff improves trust, communication, and routine quality."
+    - title: "Inspection-Ready Governance"
+      description: "Safeguarding, supervision, and audit workflows are embedded in day-to-day delivery."
+  imageKey: "residential-care"
+  imageAlt: "Support worker and service user reviewing a care plan"
+relatedServices:
+  eyebrow: "Related services"
+  heading: "Explore Complementary Support Pathways"
+  intro: "These services can be combined to strengthen transitions and long-term stability."
+  ctaText: "View all services"
+  ctaHref: "/services"
+  services:
+    - title: "Transitional Care"
+      description: "Short-term step-down support following discharge or placement change."
+      href: "/transitional-care"
+      imageKey: "transitional-care"
+      imageAlt: "Transition planning support"
+    - title: "Wellbeing Support"
+      description: "Structured emotional and social wellbeing support to reduce isolation."
+      href: "/wellbeing-support"
+      imageKey: "wellbeing-support"
+      imageAlt: "Wellbeing session with support worker"
+    - title: "Our Home"
+      description: "Explore our environments and community-focused living spaces."
+      href: "/our-home"
+      imageKey: "featured-section"
+      imageAlt: "Harbor care home environment"
+contactSection:
+  heading: "Talk With Our Residential Care Team"
+  intro: "We can discuss suitability, timelines, and referral requirements for your current case."
+  phoneLabel: "0208 555 0199"
+  phoneHref: "tel:+442085550199"
+  emailLabel: "referrals@harborcare.co.uk"
+  emailHref: "mailto:referrals@harborcare.co.uk"
+  address: "Unit 12, Healthcare Business Park, London, SE1 7PB"

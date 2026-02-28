@@ -25,11 +25,13 @@ import TechnicalLayout from './TechnicalLayout.astro';
 import { SEO } from 'astro-seo';
 import { Schema } from 'astro-seo-schema';
 import type { Thing } from 'schema-dts';
+import { careProfileConfig } from '@/config/site';
 
 // Component imports
 import Header from '../components/Header.astro';
 import TopNav from '../components/TopNav.astro';
 import Footer from '../components/Footer.astro';
+import CareTypeControlBar from '../components/CareTypeControlBar.astro';
 
 // Define props interface
 interface Props {
@@ -72,6 +74,7 @@ const seoProps = metadata ? {
 
 // Use schema from metadata if provided
 const schemaProps = metadata?.schema;
+const { previewEnabled, defaultProfile, storageKey } = careProfileConfig;
 ---
 
 <!-- Wrap everything in TechnicalLayout for SEO and technical concerns -->
@@ -92,6 +95,7 @@ const schemaProps = metadata?.schema;
     <!-- Header Navigation (optional) -->
     {showHeader && (
       <div class="sticky top-0 z-50 w-full">
+        {previewEnabled && <CareTypeControlBar />}
         <TopNav />
         <Header />
       </div>
@@ -103,9 +107,58 @@ const schemaProps = metadata?.schema;
       <slot />
     </main>
 
+    <script is:inline define:vars={{ previewEnabled, defaultProfile, storageKey }}>
+      (() => {
+        const normalizeProfile = (profile) => {
+          return profile === 'dom-care' ? 'dom-care' : 'supported-living';
+        };
+
+        const getCurrentProfile = () => {
+          const profile = document.documentElement.dataset.careProfile;
+          if (!profile) return null;
+          return normalizeProfile(profile);
+        };
+
+        const apply = (profile) => {
+          const current = normalizeProfile(profile);
+          document.documentElement.dataset.careProfile = current;
+          const groups = document.querySelectorAll('[data-care-profile-switcher]');
+
+          groups.forEach((group) => {
+            const panels = group.querySelectorAll('[data-care-profile-panel]');
+            panels.forEach((panel) => {
+              const match = panel.getAttribute('data-care-profile-panel') === current;
+              panel.classList.toggle('hidden', !match);
+              panel.setAttribute('aria-hidden', String(!match));
+            });
+
+            const activePanel = group.querySelector(`[data-care-profile-panel="${current}"]`);
+            if (activePanel && group.firstElementChild !== activePanel) {
+              group.prepend(activePanel);
+            }
+          });
+        };
+
+        if (!previewEnabled) {
+          apply(defaultProfile);
+          return;
+        }
+
+        let initial = defaultProfile;
+        try {
+          initial = localStorage.getItem(storageKey) || defaultProfile;
+        } catch {
+          initial = defaultProfile;
+        }
+
+        apply(getCurrentProfile() ?? initial);
+        window.addEventListener('care-profile-change', (event) => {
+          apply(event.detail?.profile || defaultProfile);
+        });
+      })();
+    </script>
+
     <!-- Footer (optional) -->
     {showFooter && <Footer />}
   </div>
 </TechnicalLayout>
-
-

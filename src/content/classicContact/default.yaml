@@ -1,0 +1,36 @@
+metadata:
+  title: Contact Harbor Care Services
+  description: Contact Harbor Care Services for supported living and domiciliary referrals, partnership enquiries, and care planning support.
+  schema:
+    "@context": https://schema.org
+    "@type": ContactPage
+    name: Contact Harbor Care Services
+hero:
+  heading: "Speak With Our Referrals Team"
+  description: "We support families, professionals, and commissioners with clear next steps for supported living and domiciliary referrals."
+contactInfo:
+  phoneLabel: "0208 555 0199"
+  phoneHref: "tel:+442085550199"
+  phoneAvailability: "Monday - Friday: 8:30 AM - 6:30 PM, Saturday: 10:00 AM - 2:00 PM"
+  emailLabel: "referrals@harborcare.co.uk"
+  emailHref: "mailto:referrals@harborcare.co.uk"
+  address: |
+    Harbor Care Services
+    Unit 12, Healthcare Business Park
+    London, SE1 7PB
+quickContactOptions:
+  - icon: tabler:phone
+    title: Referrals Line
+    value: 0208 555 0199
+    href: tel:+442085550199
+    description: New referrals and urgent placement discussions
+  - icon: tabler:mail
+    title: Referrals Email
+    value: referrals@harborcare.co.uk
+    href: mailto:referrals@harborcare.co.uk
+    description: We reply within one business day
+  - icon: tabler:clock-hour-4
+    title: Out-of-Hours Support
+    value: 0800 555 1188
+    href: tel:+448005551188
+    description: Existing service users can access emergency support 24/7

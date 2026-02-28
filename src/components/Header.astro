@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { sharedContactConfig, siteConfig } from '@/config/site';
 
 interface NavLink {
   label: string;
@@ -16,7 +17,7 @@ interface Props {
 }
 
 const {
-  brandName = "[Business Name]",
+  brandName = siteConfig.name,
   brandHref = "/",
   navLinks = [
     { label: "About", href: "/about" },
@@ -26,6 +27,7 @@ const {
   ctaText = "Contact Us",
   ctaHref = "/contact",
 } = Astro.props as Props;
+const { phoneLabel, phoneHref } = sharedContactConfig;
 
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) => {
@@ -113,11 +115,11 @@ const calculatedLinks = navLinks.map(link => ({
                       </div>
                       <span class="text-sm font-medium text-gray-800 group-hover:text-[#365C1C]">Send an Email</span>
                     </a>
-                    <a href="tel:[Your Phone]" class="flex items-center gap-x-3 group">
+                    <a href={phoneHref} class="flex items-center gap-x-3 group">
                       <div class="bg-[#365C1C]/10 p-2 rounded-full text-[#365C1C] group-hover:bg-[#365C1C] group-hover:text-white transition-colors">
                         <Icon name="tabler:phone" class="size-4" />
                       </div>
-                      <span class="text-sm font-medium text-gray-800 group-hover:text-[#365C1C]">[Your Phone]</span>
+                      <span class="text-sm font-medium text-gray-800 group-hover:text-[#365C1C]">{phoneLabel}</span>
                     </a>
                     <a href="/contact" class="flex items-center gap-x-3 group">
                       <div class="bg-[#365C1C]/10 p-2 rounded-full text-[#365C1C] group-hover:bg-[#365C1C] group-hover:text-white transition-colors">
@@ -198,4 +200,3 @@ const calculatedLinks = navLinks.map(link => ({
     </div>
   </nav>
 </header>
-

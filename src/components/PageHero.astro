@@ -1,29 +1,60 @@
 ---
+import { careProfileConfig } from '@/config/site';
+
 interface Props {
   eyebrow?: string;
   heading?: string;
   subheading?: string;
+  profileContent?: {
+    'supported-living'?: { heading?: string; subheading?: string };
+    'dom-care'?: { heading?: string; subheading?: string };
+  };
 }
 
 const {
   eyebrow = "Our services",
   heading = "[Page Heading]",
   subheading = "[Page intro - briefly describe this service]",
+  profileContent = {},
 } = Astro.props as Props;
+
+const instanceId = `page-hero-${Math.random().toString(36).slice(2, 9)}`;
+const { defaultProfile } = careProfileConfig;
 ---
 
-<section class="bg-secondary/30 py-20">
+<section id={instanceId} class="bg-secondary/30 py-20" data-care-profile-content>
   <div class="max-w-6xl mx-auto px-4 text-center">
     {eyebrow && (
       <p class="text-sm font-semibold uppercase tracking-wide text-primary mb-3">
         {eyebrow}
       </p>
     )}
-    <h1 class="font-serif text-5xl text-primary mb-6">{heading}</h1>
+    <h1 class="font-serif text-5xl text-primary mb-6" data-care-field="heading">{heading}</h1>
     {subheading && (
-      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto" data-care-field="subheading">
         {subheading}
       </p>
     )}
   </div>
 </section>
+
+<script is:inline define:vars={{ profileContent, instanceId, defaultProfile }}>
+  (() => {
+    const root = document.getElementById(instanceId);
+    if (!root || !profileContent || Object.keys(profileContent).length === 0) return;
+
+    const apply = (profile) => {
+      const data = profileContent[profile];
+      if (!data) return;
+      const headingNode = root.querySelector('[data-care-field="heading"]');
+      const subheadingNode = root.querySelector('[data-care-field="subheading"]');
+      if (headingNode && data.heading) headingNode.textContent = data.heading;
+      if (subheadingNode && data.subheading) subheadingNode.textContent = data.subheading;
+    };
+
+    apply(document.documentElement.dataset.careProfile || defaultProfile);
+    window.addEventListener('care-profile-change', (event) => {
+      apply(event.detail?.profile || defaultProfile);
+    });
+  })();
+</script>

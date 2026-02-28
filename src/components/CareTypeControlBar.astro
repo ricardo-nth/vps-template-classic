@@ -1,0 +1,70 @@
+---
+import { getEntry } from 'astro:content';
+import { careProfileConfig } from '@/config/site';
+
+const fallbackProfileSummary = {
+  'supported-living': 'Best for providers focused on independence, tenancy stability, and measurable support outcomes.',
+  'dom-care': 'Best for agencies delivering reliable home visits, practical daily care, and strong family communication.',
+} as const;
+
+const globalContent = await getEntry('classicGlobal', 'settings');
+const profileSummary = globalContent?.data.profileSummary ?? fallbackProfileSummary;
+const { defaultProfile, storageKey } = careProfileConfig;
+---
+
+<div class="w-full border-b border-border bg-background/95 backdrop-blur" data-care-control-bar data-default-profile={defaultProfile}>
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2">
+    <div class="inline-flex rounded-full border border-border bg-secondary/20 p-1">
+      <button type="button" class="care-profile-btn rounded-full px-3 py-1 text-xs font-semibold" data-care-profile="supported-living">Supported Living</button>
+      <button type="button" class="care-profile-btn rounded-full px-3 py-1 text-xs font-semibold" data-care-profile="dom-care">Domiciliary Care</button>
+    </div>
+    <p class="hidden text-xs text-muted-foreground sm:block" data-care-summary></p>
+  </div>
+</div>
+
+<script is:inline define:vars={{ profileSummary, defaultProfile, storageKey }}>
+  (() => {
+    const bar = document.querySelector('[data-care-control-bar]');
+    if (!bar) return;
+
+    const summaryNode = bar.querySelector('[data-care-summary]');
+    const buttons = bar.querySelectorAll('.care-profile-btn');
+    const fallback = defaultProfile === 'dom-care' ? 'dom-care' : 'supported-living';
+
+    const apply = (profile) => {
+      const current = profileSummary[profile] ? profile : fallback;
+      document.documentElement.dataset.careProfile = current;
+      if (summaryNode) summaryNode.textContent = profileSummary[current];
+
+      buttons.forEach((button) => {
+        const selected = button.getAttribute('data-care-profile') === current;
+        button.setAttribute('aria-pressed', String(selected));
+        button.classList.toggle('bg-primary', selected);
+        button.classList.toggle('text-primary-foreground', selected);
+        button.classList.toggle('text-foreground', !selected);
+      });
+
+      window.dispatchEvent(new CustomEvent('care-profile-change', { detail: { profile: current } }));
+    };
+
+    let initial = fallback;
+    try {
+      initial = localStorage.getItem(storageKey) || fallback;
+    } catch {
+      initial = fallback;
+    }
+    apply(initial);
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const profile = button.getAttribute('data-care-profile') || fallback;
+        apply(profile);
+        try {
+          localStorage.setItem(storageKey, profile);
+        } catch {
+          // Ignore storage errors.
+        }
+      });
+    });
+  })();
+</script>

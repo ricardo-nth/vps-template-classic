@@ -5,146 +5,103 @@
  */
 
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import serviceHighlight from '@assets/images/service-highlight.jpg';
 import wellbeingSupport from '@assets/images/wellbeing-support.jpg';
 import facilityTour from '@assets/images/facility-tour.jpg';
 
-const metadata = {
-  title: 'Our Services - [Business Name]',
-  description: '[Brief overview of all your services and what makes them special]',
-  schema: {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Our Services',
-    description: '[Brief overview of all your services]',
-  },
-};
+const servicesEntry = await getEntry('classicServices', 'default');
+const servicesDomEntry = await getEntry('classicServices', 'dom-care');
+if (!servicesEntry) {
+  throw new Error('Missing content entry: classicServices/default');
+}
+if (!servicesDomEntry) {
+  throw new Error('Missing content entry: classicServices/dom-care');
+}
 
-// Service cards data - update these to match your actual services
-const services = [
-  {
-    title: '[Service 1 Name]',
-    slug: '/services/residential-care',
-    description: '[Brief description of service 1 - what it offers and who it serves]',
-    image: serviceHighlight,
-    icon: 'tabler:home',
-  },
-  {
-    title: '[Service 2 Name]',
-    slug: '/wellbeing-support',
-    description: '[Brief description of service 2 - what it offers and who it serves]',
-    image: wellbeingSupport,
-    icon: 'tabler:heart',
-  },
-  {
-    title: '[Service 3 Name]',
-    slug: '/contact',
-    description: '[Brief description of service 3 - what it offers and who it serves]',
-    image: facilityTour,
-    icon: 'tabler:settings',
-  },
-];
+const profiles = [
+  { key: 'supported-living', content: servicesEntry.data },
+  { key: 'dom-care', content: servicesDomEntry.data },
+] as const;
+
+// Map image keys to imported assets
+const imageMap: Record<string, ImageMetadata> = {
+  'service-1': serviceHighlight,
+  'service-2': wellbeingSupport,
+  'service-3': facilityTour,
+};
 ---
 
-<SiteLayout metadata={metadata}>
+<SiteLayout metadata={servicesEntry.data.metadata}>
+  <div data-care-profile-switcher>
+    {profiles.map(({ key, content }) => (
+      <div data-care-profile-panel={key} class:list={{ hidden: key !== 'supported-living' }}>
+        <!-- HERO SECTION -->
+        <section class="relative py-24 lg:py-32 bg-primary overflow-hidden">
+          <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
 
-  <!-- HERO SECTION -->
-  <section class="relative py-24 lg:py-32 bg-primary overflow-hidden">
-    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
+          <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-8">
+              {content.hero.heading}
+            </h1>
+            <p class="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              {content.hero.subheading}
+            </p>
+          </div>
+        </section>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-8">
-        Our <span class="text-secondary italic">Services</span>
-      </h1>
-      <p class="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-        [Your services overview - explain what makes your services special and how they benefit your clients]
-      </p>
-    </div>
-  </section>
-
-  <!-- SERVICES GRID -->
-  <section class="py-20 bg-background">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Intro -->
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <span class="text-accent font-serif italic text-xl mb-4 block">Comprehensive Care</span>
-        <h2 class="font-serif text-4xl md:text-5xl text-primary mb-6">What We Offer</h2>
-        <p class="text-lg text-muted-foreground leading-relaxed">
-          [Additional context about your services - what makes them unique, your approach, or your commitment to quality]
-        </p>
-      </div>
-
-      <!-- Services Cards -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service) => (
-          <div class="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-
-            <!-- Image -->
-            <div class="aspect-w-16 aspect-h-9 h-64 overflow-hidden">
-              <Image
-                src={service.image}
-                alt={service.title}
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+        <!-- SERVICES GRID -->
+        <section class="py-20 bg-background">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Intro -->
+            <div class="max-w-3xl mx-auto text-center mb-16">
+              <span class="text-accent font-serif italic text-xl mb-4 block">Comprehensive Care</span>
+              <h2 class="font-serif text-4xl md:text-5xl text-primary mb-6">What We Offer</h2>
+              <p class="text-lg text-muted-foreground leading-relaxed">
+                We deliver structured care pathways with consistent standards, clear communication, and practical outcomes for adults, families, and professional referrers.
+              </p>
             </div>
 
-            <!-- Content -->
-            <div class="p-8">
-              <div class="flex items-center gap-3 mb-4">
-                <span class="p-2 bg-secondary rounded-full text-primary">
-                  <Icon name={service.icon} class="h-6 w-6" />
-                </span>
-                <h3 class="font-serif text-2xl text-primary">{service.title}</h3>
-              </div>
-              
-              <p class="text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
+            <!-- Services Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {content.services.map((service) => (
+                <div class="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
 
-              <a
-                href={service.slug}
-                class="inline-flex items-center gap-2 text-accent font-semibold hover:gap-4 transition-all duration-300"
-              >
-                Learn More
-                <Icon name="tabler:arrow-right" class="h-5 w-5" />
-              </a>
+                  <!-- Image -->
+                  <div class="aspect-w-16 aspect-h-9 h-64 overflow-hidden relative">
+                    <Image
+                      src={imageMap[service.imageKey] || serviceHighlight}
+                      alt={service.imageAlt}
+                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                  </div>
+
+                  <!-- Content -->
+                  <div class="p-8">
+                    <h3 class="font-serif text-2xl text-primary mb-3">{service.title}</h3>
+                    <p class="text-muted-foreground leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                      {service.features.map((feature) => (
+                        <li class="flex items-center gap-2 text-sm text-foreground/80">
+                          <span class="text-accent">✓</span> {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
+        </section>
       </div>
-    </div>
-  </section>
-
-  <!-- CTA SECTION -->
-  <section class="py-20 bg-secondary/30">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-serif text-4xl md:text-5xl text-primary mb-6">
-        Ready to Get Started?
-      </h2>
-      <p class="text-lg text-muted-foreground mb-10 leading-relaxed">
-        [Your call-to-action message - encourage visitors to take the next step]
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/contact"
-          class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-primary rounded-full hover:bg-primary/90 transition-colors duration-300 shadow-lg"
-        >
-          Contact Us Today
-        </a>
-        <a
-          href="/our-home"
-          class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary bg-white border-2 border-primary rounded-full hover:bg-secondary/30 transition-colors duration-300"
-        >
-          Tour Our Facility
-        </a>
-      </div>
-    </div>
-  </section>
-
+    ))}
+  </div>
 </SiteLayout>

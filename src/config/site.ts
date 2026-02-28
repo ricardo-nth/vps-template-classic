@@ -13,10 +13,51 @@ export interface SiteConfig {
   description: string;
 }
 
+export interface SharedContactConfig {
+  phoneLabel: string;
+  phoneHref: string;
+  emailLabel: string;
+  emailHref: string;
+  address: string;
+}
+
+export type CareProfile = 'supported-living' | 'dom-care';
+
+export interface CareProfileConfig {
+  /**
+   * When true, render the dual-profile preview UI on canonical URLs.
+   * Set PUBLIC_CARE_PROFILE_PREVIEW=false for single-profile production handoff.
+   */
+  previewEnabled: boolean;
+  /**
+   * Profile to use as default in preview mode and as the only profile in production mode.
+   */
+  defaultProfile: CareProfile;
+  /** Local storage key used to persist preview selection across pages. */
+  storageKey: string;
+}
+
 export const siteConfig: SiteConfig = {
-  name: '[Business Name]',
+  name: 'Harbor Care Services',
   description:
-    '[Your business description - what you do and who you serve]',
+    'Person-centred adult social care across supported living and domiciliary care pathways.',
+};
+
+export const sharedContactConfig: SharedContactConfig = {
+  phoneLabel: '0208 555 0199',
+  phoneHref: 'tel:+442085550199',
+  emailLabel: 'hello@harborcare.co.uk',
+  emailHref: 'mailto:hello@harborcare.co.uk',
+  address: 'Unit 12, Healthcare Business Park, London, SE1 7PB',
+};
+
+const envDefaultProfile =
+  import.meta.env.PUBLIC_DEFAULT_CARE_PROFILE === 'dom-care' ? 'dom-care' : 'supported-living';
+
+export const careProfileConfig: CareProfileConfig = {
+  previewEnabled: import.meta.env.PUBLIC_CARE_PROFILE_PREVIEW !== 'false',
+  defaultProfile: envDefaultProfile,
+  storageKey: 'vps-care-profile',
 };
 
 /**
@@ -48,4 +89,3 @@ export function getBaseSchemas(site: URL) {
     },
   ];
 }
-

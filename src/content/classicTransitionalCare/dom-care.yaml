@@ -1,0 +1,40 @@
+metadata:
+  title: Hospital Discharge Support - Harbor Home Care
+  description: Transitional support after discharge to rebuild confidence and reduce readmission risk with structured reablement.
+  schema:
+    '@context': https://schema.org
+    '@type': Service
+    name: Hospital Discharge Support Services
+    description: Goal-focused support after illness or discharge to rebuild confidence and daily function.
+hero:
+  heading: Hospital Discharge Support
+  subheading: Goal-focused short-term packages that support recovery and confidence after setbacks.
+  profileContent:
+    supported-living:
+      heading: Transition to Supported Living
+      subheading: Step-down pathways helping adults move into stable long-term support arrangements.
+    dom-care:
+      heading: Hospital Discharge Reablement
+      subheading: Transitional support after discharge to rebuild confidence and reduce readmission risk.
+overview:
+  heading: Reablement Support After Discharge
+  description: We provide structured short-term packages that stabilise home routines and reduce readmission risk.
+features:
+  - title: Recovery Goals
+    description: Focused support for rebuilding confidence after hospital stay.
+  - title: Daily Living Progression
+    description: Practical reablement targeting routine stability.
+  - title: Readmission Reduction
+    description: Structured support to prevent return to hospital.
+outcomesSection:
+  heading: Domiciliary Transition Outcomes
+  description: We focus on practical gains in routine confidence, safety, and continuity at home.
+  outcomes:
+    - Faster post-discharge routine stabilisation
+    - Improved confidence in home-based daily living
+    - Reduced risk of avoidable readmission
+ctaSection:
+  heading: Arrange Post-Discharge Support
+  description: Share discharge details and we will outline a practical reablement pathway.
+  primaryText: Contact Home Care Team
+  primaryHref: /contact
