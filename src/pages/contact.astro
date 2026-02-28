@@ -3,6 +3,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import { getEntry } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import PageHero from '@components/PageHero.astro';
+import FeedbackSection from '@components/FeedbackSection.astro';
 
 const contactEntry = await getEntry('classicContact', 'default');
 const contactDomEntry = await getEntry('classicContact', 'dom-care');
@@ -113,6 +114,16 @@ const profiles = [
             </form>
           </div>
         </div>
+
+        <FeedbackSection
+          heading={content.feedbackSection.heading}
+          intro={content.feedbackSection.intro}
+          compliment={content.feedbackSection.compliment}
+          complaint={content.feedbackSection.complaint}
+          cqcNote={content.feedbackSection.cqcNote}
+          cqcLinkText={content.feedbackSection.cqcLinkText}
+          cqcLinkHref={content.feedbackSection.cqcLinkHref}
+        />
       </div>
     ))}
   </div>

@@ -260,6 +260,25 @@ const classicContact = defineCollection({
       emailHref: z.string(),
       address: z.string(),
     }),
+    feedbackSection: z.object({
+      heading: z.string(),
+      intro: z.string(),
+      compliment: z.object({
+        title: z.string(),
+        description: z.string(),
+        actionText: z.string(),
+        actionHref: z.string(),
+      }),
+      complaint: z.object({
+        title: z.string(),
+        description: z.string(),
+        actionText: z.string(),
+        actionHref: z.string(),
+      }),
+      cqcNote: z.string(),
+      cqcLinkText: z.string(),
+      cqcLinkHref: z.string(),
+    }),
   }),
 });
 

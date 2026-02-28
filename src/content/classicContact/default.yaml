@@ -26,6 +26,22 @@ contactInfo:
     Harbor Care Services
     Unit 12, Healthcare Business Park
     London, SE1 7PB
+feedbackSection:
+  heading: Compliments and Complaints
+  intro: We log and review all feedback to improve care quality, communication, and service reliability.
+  compliment:
+    title: Leave a Compliment
+    description: Tell us when a team member made a positive difference so we can recognise excellent practice.
+    actionText: Send Compliment
+    actionHref: mailto:feedback@harborcare.co.uk?subject=Compliment
+  complaint:
+    title: Raise a Concern
+    description: If support has fallen below expectation, we will investigate promptly under our formal complaints policy.
+    actionText: File Complaint
+    actionHref: mailto:feedback@harborcare.co.uk?subject=Complaint
+  cqcNote: You can also contact the Care Quality Commission directly if you have concerns about care quality.
+  cqcLinkText: Visit CQC Website
+  cqcLinkHref: https://www.cqc.org.uk/contact-us
 quickContactOptions:
   - icon: tabler:phone
     title: Referrals Line

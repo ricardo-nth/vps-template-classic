@@ -1,0 +1,99 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  heading?: string;
+  intro?: string;
+  compliment?: {
+    title: string;
+    description: string;
+    actionText: string;
+    actionHref: string;
+  };
+  complaint?: {
+    title: string;
+    description: string;
+    actionText: string;
+    actionHref: string;
+  };
+  cqcNote?: string;
+  cqcLinkText?: string;
+  cqcLinkHref?: string;
+}
+
+const {
+  heading = "Compliments & Complaints",
+  intro = "We are committed to providing the highest quality of care. Your feedback helps us improve and ensures we maintain our high standards. We take all feedback seriously and have a transparent process for handling both compliments and complaints.",
+  compliment = {
+    title: 'Leave a Compliment',
+    description: "Has a member of our team gone above and beyond? We'd love to hear about it so we can recognise their dedication.",
+    actionText: 'Send Compliment',
+    actionHref: 'mailto:feedback@healthcare.com?subject=Compliment',
+  },
+  complaint = {
+    title: 'Raise a Concern',
+    description: "If you're not happy with any aspect of our service, please let us know. We have a formal complaints procedure to ensure fair resolution.",
+    actionText: 'File Complaint',
+    actionHref: 'mailto:feedback@healthcare.com?subject=Complaint',
+  },
+  cqcNote = 'You can also contact the Care Quality Commission (CQC) directly if you have concerns about your care.',
+  cqcLinkText = 'Visit CQC Website',
+  cqcLinkHref = 'https://www.cqc.org.uk/contact-us',
+} = Astro.props as Props;
+---
+
+<section class="py-24 bg-secondary/30" id="feedback">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary mb-8">
+      <Icon name="tabler:message-circle-2" class="w-8 h-8" />
+    </div>
+
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-primary mb-6">{heading}</h2>
+    <p class="text-lg text-muted-foreground mb-12 leading-relaxed">
+      {intro}
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {/* Compliments */}
+      <div class="bg-card border border-border rounded-2xl p-8 text-left hover:shadow-lg transition-shadow duration-300">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+            <Icon name="tabler:thumb-up" class="w-5 h-5" />
+          </div>
+          <h3 class="text-xl font-bold text-foreground">{compliment.title}</h3>
+        </div>
+        <p class="text-muted-foreground mb-6">
+          {compliment.description}
+        </p>
+        <a href={compliment.actionHref} class="text-primary font-semibold hover:underline inline-flex items-center gap-2">
+          {compliment.actionText}
+          <Icon name="tabler:arrow-right" class="w-4 h-4" />
+        </a>
+      </div>
+
+      {/* Complaints */}
+      <div class="bg-card border border-border rounded-2xl p-8 text-left hover:shadow-lg transition-shadow duration-300">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center">
+            <Icon name="tabler:alert-circle" class="w-5 h-5" />
+          </div>
+          <h3 class="text-xl font-bold text-foreground">{complaint.title}</h3>
+        </div>
+        <p class="text-muted-foreground mb-6">
+          {complaint.description}
+        </p>
+        <a href={complaint.actionHref} class="text-primary font-semibold hover:underline inline-flex items-center gap-2">
+          {complaint.actionText}
+          <Icon name="tabler:arrow-right" class="w-4 h-4" />
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-12 p-6 bg-background rounded-xl border border-border inline-block">
+      <p class="text-sm text-muted-foreground">
+        {cqcNote}
+        <a href={cqcLinkHref} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline ml-1">{cqcLinkText}</a>
+      </p>
+    </div>
+  </div>
+</section>

@@ -26,6 +26,22 @@ contactInfo:
     Harbor Home Care
     Unit 12, Healthcare Business Park
     London, SE1 7PB
+feedbackSection:
+  heading: Feedback and Concerns
+  intro: We use feedback to improve reliability, communication, and service quality across domiciliary packages.
+  compliment:
+    title: Leave a Compliment
+    description: If a team member made a positive impact, tell us so we can recognise great practice.
+    actionText: Send Compliment
+    actionHref: mailto:feedback@harborcare.co.uk?subject=Compliment
+  complaint:
+    title: Raise a Concern
+    description: If support has not met expectations, we will investigate promptly through our complaints process.
+    actionText: File Complaint
+    actionHref: mailto:feedback@harborcare.co.uk?subject=Complaint
+  cqcNote: You can also contact the Care Quality Commission directly if you have concerns about care quality.
+  cqcLinkText: Visit CQC Website
+  cqcLinkHref: https://www.cqc.org.uk/contact-us
 quickContactOptions:
   - icon: tabler:phone
     title: Domiciliary Referrals
