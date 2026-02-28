@@ -16,6 +16,49 @@ hero:
     dom-care:
       heading: "Domiciliary Care <br/><span class='text-secondary'>Home-Based Support</span>"
       subheading: "Reliable home visits that support daily routines, wellbeing, and safer independent living in familiar surroundings."
+outcomesSnapshot:
+  heading: "Supported Living Outcomes Snapshot"
+  intro: "Operational metrics that support referral confidence and placement planning."
+  stats:
+    - value: "92%"
+      label: "Tenancy Sustainment"
+      detail: "Placements remaining stable after 12 months."
+    - value: "96%"
+      label: "Family and Commissioner Satisfaction"
+      detail: "Positive confidence in communication and support quality."
+    - value: "100%"
+      label: "Mandatory Training Compliance"
+      detail: "Frontline teams current with required competencies."
+serviceFit:
+  badgeLabel: "Service Fit"
+  heading: "Who This Supported Living Service Is Best For"
+  intro: "This pathway is strongest where tenancy stability, life-skills progression, and measurable outcomes are core requirements."
+  suitableForTitle: "Usually a Strong Fit For"
+  suitableFor:
+    - "Adults with complex needs moving into or sustaining community tenancies."
+    - "Referrals requiring clear review cycles and outcome evidence."
+    - "Families and professionals prioritising stable staffing and routine consistency."
+  alternativeSupportTitle: "Better Directed Elsewhere When"
+  alternativeSupport:
+    - "Primary needs are short-term acute clinical intervention only."
+    - "There is no tenancy progression or structured goal requirement."
+    - "Low-intensity ad hoc visits are sufficient without ongoing review governance."
+firstThirtyDays:
+  heading: "What the First 30 Days Looks Like"
+  intro: "Mobilisation prioritises safe onboarding, consistency of delivery, and early outcome visibility."
+  milestones:
+    - dayRange: "Days 1-7"
+      title: "Referral Confirmation and Risk Baseline"
+      description: "Confirm scope, immediate safeguards, and stakeholder communication lines."
+      icon: "tabler:clipboard-check"
+    - dayRange: "Days 8-14"
+      title: "Plan Activation and Team Matching"
+      description: "Launch co-produced routines with continuity-focused staffing and support structure."
+      icon: "tabler:users-group"
+    - dayRange: "Days 15-30"
+      title: "Outcome Review and Adjustment"
+      description: "Review early progress, remove friction points, and set month-two priorities."
+      icon: "tabler:chart-line"
 overview:
   heading: "Our Approach"
   description: "Our supported living model combines tenancy support, life-skills coaching, and structured review cycles."
@@ -44,6 +87,18 @@ whyChooseUs:
       description: "Safeguarding, supervision, and audit workflows are embedded in day-to-day delivery."
   imageKey: "residential-care"
   imageAlt: "Support worker and service user reviewing a care plan"
+faqSection:
+  heading: "Supported Living Referral FAQs"
+  intro: "Practical answers for families, social workers, and referral leads."
+  items:
+    - question: "How quickly can supported living packages begin?"
+      answer: "Timelines depend on complexity and risk, but urgent referrals are prioritised with clear mobilisation milestones."
+    - question: "How are outcomes reported to commissioners and families?"
+      answer: "We run structured reviews with documented progress against agreed goals and transparent action tracking."
+    - question: "Can support levels change after onboarding?"
+      answer: "Yes. Packages are designed to adapt as risks, needs, and independence goals evolve."
+    - question: "Do you support transitions from residential settings?"
+      answer: "Yes, including tenancy-readiness planning, routine setup, and coordinated professional/family liaison."
 relatedServices:
   eyebrow: "Related services"
   heading: "Explore Complementary Support Pathways"

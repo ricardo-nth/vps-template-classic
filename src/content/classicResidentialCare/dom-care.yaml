@@ -16,6 +16,49 @@ hero:
     dom-care:
       heading: "Domiciliary Care <br/><span class='text-secondary'>Home-Based Support</span>"
       subheading: "Reliable home support that keeps routines stable, wellbeing protected, and families informed."
+outcomesSnapshot:
+  heading: "Domiciliary Care Outcomes Snapshot"
+  intro: "Performance indicators focused on reliability, continuity, and home-based safety."
+  stats:
+    - value: "97%"
+      label: "On-Time Visit Performance"
+      detail: "Visits delivered within planned scheduling windows."
+    - value: "95%"
+      label: "Primary Carer Continuity"
+      detail: "Service users supported by familiar carers across routine visits."
+    - value: "96%"
+      label: "Family Satisfaction"
+      detail: "Positive confidence in communication and care consistency."
+serviceFit:
+  badgeLabel: "Service Fit"
+  heading: "Who This Domiciliary Service Is Best For"
+  intro: "This pathway is ideal for adults who need dependable support at home with clear routines and responsive communication."
+  suitableForTitle: "Usually a Strong Fit For"
+  suitableFor:
+    - "Adults requiring personal care, medication prompts, or mobility support at home."
+    - "Families needing reliable scheduling and practical communication updates."
+    - "Post-discharge pathways requiring structured routine rebuilding."
+  alternativeSupportTitle: "Better Directed Elsewhere When"
+  alternativeSupport:
+    - "Residential or inpatient settings are clinically required as primary care environment."
+    - "There is no ongoing home-visit support requirement after immediate needs."
+    - "Tenancy-based supported living is the required primary model."
+firstThirtyDays:
+  heading: "What the First 30 Days Looks Like"
+  intro: "Implementation focuses on safety, consistency, and early quality confirmation."
+  milestones:
+    - dayRange: "Days 1-7"
+      title: "Home Assessment and Safety Setup"
+      description: "Confirm routine needs, medication workflows, and escalation protocols."
+      icon: "tabler:home-check"
+    - dayRange: "Days 8-14"
+      title: "Carer Matching and Schedule Stabilisation"
+      description: "Align visit windows with continuity-focused staffing and communication routines."
+      icon: "tabler:calendar-check"
+    - dayRange: "Days 15-30"
+      title: "Review and Service Optimisation"
+      description: "Evaluate delivery quality and refine support priorities for month two."
+      icon: "tabler:chart-bar"
 overview:
   heading: "Home Care Overview"
   description: "Services designed around routine reliability, safeguarding confidence, and clear communication with families."
@@ -44,6 +87,18 @@ whyChooseUs:
       description: "Governance, supervision, and escalation processes keep care safe and accountable."
   imageKey: "residential-care"
   imageAlt: "Domiciliary care worker supporting a client at home"
+faqSection:
+  heading: "Domiciliary Referral FAQs"
+  intro: "Practical answers for families, discharge teams, and referral coordinators."
+  items:
+    - question: "How fast can domiciliary care start?"
+      answer: "Urgent referrals are triaged quickly with clear mobilisation steps based on complexity and risk profile."
+    - question: "How do you maintain continuity of carers?"
+      answer: "We use continuity-led rostering and backup planning to reduce disruption while maintaining safe coverage."
+    - question: "Can visit frequency be adjusted over time?"
+      answer: "Yes. Packages are reviewed regularly and adapted as routines, risks, and goals change."
+    - question: "How are urgent concerns escalated?"
+      answer: "Active packages include escalation pathways with responsive out-of-hours coordination where required."
 relatedServices:
   eyebrow: "Related services"
   heading: "Explore Complementary Home Support"

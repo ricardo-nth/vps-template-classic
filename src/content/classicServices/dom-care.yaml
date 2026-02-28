@@ -16,6 +16,7 @@ services:
       - "Personal hygiene"
       - "Mobility support"
       - "Dignity-led routines"
+    href: "/services/residential-care"
     imageKey: "service-1"
     imageAlt: "Carer assisting with personal care planning"
   - title: "Medication and Health Monitoring"

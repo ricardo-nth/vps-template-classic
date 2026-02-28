@@ -27,6 +27,52 @@ const contactSectionSchema = z.object({
   address: z.string(),
 });
 
+const serviceFitSchema = z.object({
+  badgeLabel: z.string(),
+  heading: z.string(),
+  intro: z.string(),
+  suitableForTitle: z.string(),
+  suitableFor: z.array(z.string()),
+  alternativeSupportTitle: z.string(),
+  alternativeSupport: z.array(z.string()),
+});
+
+const outcomesSnapshotSchema = z.object({
+  heading: z.string(),
+  intro: z.string(),
+  stats: z.array(
+    z.object({
+      value: z.string(),
+      label: z.string(),
+      detail: z.string(),
+    })
+  ),
+});
+
+const firstThirtyDaysSchema = z.object({
+  heading: z.string(),
+  intro: z.string(),
+  milestones: z.array(
+    z.object({
+      dayRange: z.string(),
+      title: z.string(),
+      description: z.string(),
+      icon: z.string(),
+    })
+  ),
+});
+
+const faqSectionSchema = z.object({
+  heading: z.string(),
+  intro: z.string(),
+  items: z.array(
+    z.object({
+      question: z.string(),
+      answer: z.string(),
+    })
+  ),
+});
+
 const classicGlobal = defineCollection({
   type: 'data',
   schema: z.object({
@@ -131,6 +177,7 @@ const classicServices = defineCollection({
         title: z.string(),
         description: z.string(),
         features: z.array(z.string()),
+        href: z.string().optional(),
         imageKey: z.string(),
         imageAlt: z.string(),
       })
@@ -147,6 +194,9 @@ const classicResidentialCare = defineCollection({
       subheading: z.string(),
       profileContent: profileContentSchema,
     }),
+    outcomesSnapshot: outcomesSnapshotSchema,
+    serviceFit: serviceFitSchema,
+    firstThirtyDays: firstThirtyDaysSchema,
     overview: z.object({
       heading: z.string(),
       description: z.string(),
@@ -169,6 +219,7 @@ const classicResidentialCare = defineCollection({
       imageKey: z.string(),
       imageAlt: z.string(),
     }),
+    faqSection: faqSectionSchema,
     relatedServices: z.object({
       eyebrow: z.string(),
       heading: z.string(),

@@ -16,6 +16,7 @@ services:
       - "Routine establishment"
       - "Risk planning"
       - "Independent living goals"
+    href: "/services/residential-care"
     imageKey: "service-1"
     imageAlt: "Supported living professional and resident planning goals"
   - title: "Life Skills Development"

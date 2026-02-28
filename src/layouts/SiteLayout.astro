@@ -94,11 +94,17 @@ const { previewEnabled, defaultProfile, storageKey } = careProfileConfig;
 
     <!-- Header Navigation (optional) -->
     {showHeader && (
-      <div class="sticky top-0 z-50 w-full">
-        {previewEnabled && <CareTypeControlBar />}
+      <>
+        {previewEnabled && (
+          <div>
+            <CareTypeControlBar />
+          </div>
+        )}
+        <div class="sticky top-0 z-50 w-full">
         <TopNav />
         <Header />
-      </div>
+        </div>
+      </>
     )}
 
     <!-- Main Content Area -->

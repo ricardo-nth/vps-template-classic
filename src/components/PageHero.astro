@@ -29,7 +29,9 @@ const { defaultProfile } = careProfileConfig;
         {eyebrow}
       </p>
     )}
-    <h1 class="font-serif text-5xl text-primary mb-6" data-care-field="heading">{heading}</h1>
+    <h1 class="font-serif text-5xl text-primary mb-6 leading-tight [&>span]:text-accent [&>span]:font-medium" data-care-field="heading">
+      <Fragment set:html={heading} />
+    </h1>
     {subheading && (
       <p class="text-xl text-muted-foreground max-w-3xl mx-auto" data-care-field="subheading">
         {subheading}
@@ -48,7 +50,7 @@ const { defaultProfile } = careProfileConfig;
       if (!data) return;
       const headingNode = root.querySelector('[data-care-field="heading"]');
       const subheadingNode = root.querySelector('[data-care-field="subheading"]');
-      if (headingNode && data.heading) headingNode.textContent = data.heading;
+      if (headingNode && data.heading) headingNode.innerHTML = data.heading;
       if (subheadingNode && data.subheading) subheadingNode.textContent = data.subheading;
     };
 
